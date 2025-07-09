@@ -18,6 +18,15 @@ body {
     margin: 0 auto;
 }
 
+h1,
+#intro {
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    padding: 10px;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: inline-block;
+}
+
 button {
     padding: 10px 20px;
     font-size: 1.2em;
@@ -47,16 +56,27 @@ button:hover {
 }
 
 #threeCardContainer.with-background {
-    background-size: cover;
+    background-size: contain;
     background-position: center;
+    background-repeat: no-repeat;
     padding: 20px;
     border-radius: 10px;
+    min-height: 80vh;
 }
 
 .slot {
     background-color: rgba(0, 0, 0, 0.3);
     padding: 10px;
     border-radius: 8px;
+}
+
+.slot h3,
+.slot p,
+.interpretation {
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    padding: 4px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 .slot img {
