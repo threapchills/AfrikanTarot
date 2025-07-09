@@ -11,6 +11,7 @@ Install dependencies and start the server:
 ```bash
 npm install
 npm start
+
 ```
 
 Create a `.env` file with your OpenAI API key so the server can read it:
@@ -18,6 +19,9 @@ Create a `.env` file with your OpenAI API key so the server can read it:
 ```env
 OPENAI_API_KEY=your-openai-key-here
 ```
+
+The `.env` file is listed in `.gitignore` so your API key stays private and is
+not committed to version control.
 
 The server hosts the static files and proxies requests to the OpenAI API. Visit `http://localhost:3000` in your browser to use the app.
 
