@@ -7,7 +7,15 @@ async function loadCards() {
 
 function playSound(url) {
     const audio = document.getElementById('cardSound');
-    if (!url) return;
+    const fallback = [
+        'assets/sounds/uHadi (Guitar).mp3',
+        'assets/sounds/uHadi (Percussion).mp3',
+        'assets/sounds/noita1.mp3'
+    ];
+    audio.volume = 0.25;
+    if (!url) {
+        url = fallback[Math.floor(Math.random() * fallback.length)];
+    }
     audio.src = url;
     audio.play();
 }
@@ -16,7 +24,6 @@ async function displaySlot(slot, card) {
     const container = document.getElementById('threeCardContainer');
     document.getElementById(`${slot}Image`).src = card.image;
     document.getElementById(`${slot}Name`).textContent = card.name;
-    playSound(card.sound);
     const interpretation = await getInterpretation(card);
     const interpEl = document.getElementById(`${slot}Interpretation`);
     if (interpEl) {
@@ -40,6 +47,7 @@ async function drawCards(cards) {
         displaySlot('present', drawn[1]),
         displaySlot('future', drawn[2])
     ]);
+    playSound();
 }
 
 window.addEventListener('DOMContentLoaded', async () => {
