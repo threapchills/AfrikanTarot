@@ -8,6 +8,11 @@ dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+const majorVersion = parseInt(process.versions.node.split('.')[0], 10);
+if (majorVersion < 18) {
+    console.warn(`Warning: Node.js 18 or later is recommended. Current version: ${process.version}`);
+}
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
