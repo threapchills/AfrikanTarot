@@ -150,3 +150,52 @@ button:hover {
         padding: 1em;
      }
 }
+/* --- Add this for Image Zoom Modal --- */
+
+#imageModal {
+    position: fixed; /* Stays in place even if scrolling */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Dark, semi-transparent background */
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensures it's on top of everything */
+    cursor: pointer; /* Indicates the background is clickable to close */
+    animation: fadeIn 0.3s ease; /* Smooth fade-in effect */
+}
+
+#imageModal.visible {
+    display: flex; /* Made visible with JavaScript */
+}
+
+#modalImage {
+    max-width: 90%;
+    max-height: 90vh; /* Limits height to 90% of the viewport height */
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+    cursor: default; /* Default cursor for the image itself */
+}
+
+#modalClose {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    font-size: 3em; /* Larger, easier to click */
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+#modalClose:hover {
+    color: #d35400; /* Orange color on hover */
+}
+
+/* Re-using your fadeIn animation for the modal */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
