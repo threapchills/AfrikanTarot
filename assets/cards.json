@@ -1,0 +1,16 @@
+[
+  {
+    "id": "the_drum_awakens",
+    "name": "The Drum Awakens",
+    "image": "assets/images/the_drum_awakens.jpg",
+    "sound": "assets/sounds/the_drum_awakens.mp3",
+    "traditional": "The World"
+  },
+  {
+    "id": "the_journey",
+    "name": "The Journey",
+    "image": "assets/images/the_journey.jpg",
+    "sound": "assets/sounds/the_journey.mp3",
+    "traditional": "The Fool"
+  }
+]
