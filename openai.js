@@ -1,6 +1,25 @@
+let API_BASE = '';
+
+if (typeof window !== 'undefined') {
+    if (window.API_BASE_URL) {
+        API_BASE = window.API_BASE_URL;
+    } else {
+        const tag = document.querySelector('script[data-api-base]');
+        if (tag && tag.dataset.apiBase) {
+            API_BASE = tag.dataset.apiBase;
+        }
+    }
+}
+
+function buildUrl(path) {
+    if (!API_BASE) return path;
+    const base = API_BASE.endsWith('/') ? API_BASE.slice(0, -1) : API_BASE;
+    return base + path;
+}
+
 export async function getInterpretation(card) {
     try {
-        const res = await fetch('/api/interpretation', {
+        const res = await fetch(buildUrl('/api/interpretation'), {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -18,7 +37,7 @@ export async function getInterpretation(card) {
 
 export async function getReadingInterpretation(past, present, future) {
     try {
-        const res = await fetch('/api/reading', {
+        const res = await fetch(buildUrl('/api/reading'), {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
