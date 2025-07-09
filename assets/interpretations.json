@@ -1,397 +1,674 @@
 [
   {
-    "id": "aceofair",
-    "past": "Previously, Ace Of Air guided you toward intellect.",
-    "present": "At this moment, Ace Of Air reflects intellect.",
-    "future": "Soon, Ace Of Air ushers in intellect."
+    "key": "The Suspended Path - Past",
+    "value": "You've experienced a period of waiting, sacrifice, or seeing things from a completely new perspective. This pause was necessary for a profound shift in your understanding."
   },
   {
-    "id": "aceofbone",
-    "past": "Long ago, Ace Of Bone spoke of security.",
-    "present": "Right now, it points to stability.",
-    "future": "Looking ahead, expect resources."
+    "key": "The Suspended Path - Present",
+    "value": "You are in a state of suspension. It's time to pause, let go of control, and look at your situation from a different angle. A breakthrough will come from surrender, not from force."
   },
   {
-    "id": "aceoffire",
-    "past": "Previously, Ace Of Fire guided you toward energy.",
-    "present": "At this moment, Ace Of Fire reflects passion.",
-    "future": "Soon, Ace Of Fire ushers in impulse."
+    "key": "The Suspended Path - Future",
+    "value": "A necessary pause or a change in perspective is ahead. You may need to sacrifice something to gain wisdom, but this period of suspension will lead to enlightenment."
   },
   {
-    "id": "aceofwater",
-    "past": "In the past, Ace Of Water highlighted flow.",
-    "present": "Right now, it points to emotion.",
-    "future": "In time, Ace Of Water will reveal healing."
+    "key": "The Magician - Past",
+    "value": "You successfully harnessed your willpower and resources to manifest a specific outcome. You had all the tools you needed and used them with skill and intention."
   },
   {
-    "id": "bonereader",
-    "past": "In the past, Bone Reader highlighted foundation.",
-    "present": "Currently, Bone Reader encourages stability.",
-    "future": "In time, Bone Reader will reveal stability."
+    "key": "The Magician - Present",
+    "value": "You have the power to manifest your desires. All the elements—will, creativity, intellect, and resources—are at your disposal. It's time to act with focused intention."
   },
   {
-    "id": "drumawakens",
-    "past": "Long ago, Drum Awakens spoke of mystery.",
-    "present": "At this moment, Drum Awakens reflects mystery.",
-    "future": "Looking ahead, expect transformation."
+    "key": "The Magician - Future",
+    "value": "You will soon have a powerful opportunity to turn your ideas into reality. Gather your resources and focus your will, as you are about to become the master of your own destiny."
   },
   {
-    "id": "fireeater",
-    "past": "In the past, FIRE EATER highlighted energy.",
-    "present": "Right now, it points to passion.",
-    "future": "Soon, FIRE EATER ushers in energy."
+    "key": "Moonwake - Past",
+    "value": "Your past was guided by strong intuition and secrets. You navigated a situation using your inner wisdom and paid attention to your dreams and the unspoken truths around you."
   },
   {
-    "id": "firepit",
-    "past": "Long ago, Fire Pit spoke of impulse.",
-    "present": "Currently, Fire Pit encourages impulse.",
-    "future": "In time, Fire Pit will reveal passion."
+    "key": "Moonwake - Present",
+    "value": "Trust your intuition. Things are not as they seem on the surface. Look beyond the obvious and listen to your inner voice to navigate the mysteries surrounding you now."
   },
   {
-    "id": "fiveofair",
-    "past": "In the past, Five Of Air highlighted intellect.",
-    "present": "At this moment, Five Of Air reflects clarity.",
-    "future": "Soon, Five Of Air ushers in intellect."
+    "key": "Moonwake - Future",
+    "value": "A situation requiring you to trust your intuition and navigate through illusion is approaching. The path forward will be illuminated by your inner wisdom, not by logic alone."
   },
   {
-    "id": "fiveofbone",
-    "past": "Previously, Five Of Bone guided you toward stability.",
-    "present": "Currently, Five Of Bone encourages security.",
-    "future": "Soon, Five Of Bone ushers in security."
+    "key": "The Matriarch - Past",
+    "value": "A period of nurturing, creativity, and abundance shaped your past. A powerful, motherly figure or your own connection to nature and fertility played a significant role."
   },
   {
-    "id": "fiveoffire",
-    "past": "In the past, Five Of Fire highlighted impulse.",
-    "present": "Right now, it points to passion.",
-    "future": "Soon, Five Of Fire ushers in impulse."
+    "key": "The Matriarch - Present",
+    "value": "Embrace your creative and nurturing side. This is a time of fertility, abundance, and connecting with the natural world. Create beauty and comfort for yourself and others."
   },
   {
-    "id": "fiveofwater",
-    "past": "Previously, Five Of Water guided you toward flow.",
-    "present": "Currently, Five Of Water encourages flow.",
-    "future": "In time, Five Of Water will reveal intuition."
+    "key": "The Matriarch - Future",
+    "value": "A period of creativity, growth, and abundance is coming. Your projects will flourish, and you will find yourself in a nurturing and supportive environment."
   },
   {
-    "id": "fourofbone",
-    "past": "Previously, Four Of Bone guided you toward stability.",
-    "present": "Currently, Four Of Bone encourages foundation.",
-    "future": "In time, Four Of Bone will reveal stability."
+    "key": "The Earthfather - Past",
+    "value": "Structure, order, and authority were key themes in your past. You either established control over your life or dealt with a powerful, father-like figure who provided stability."
   },
   {
-    "id": "fouroffire",
-    "past": "In the past, Four Of Fire highlighted courage.",
-    "present": "Right now, it points to passion.",
-    "future": "In time, Four Of Fire will reveal courage."
+    "key": "The Earthfather - Present",
+    "value": "It is time to be disciplined and create order. Take control of the situation with a logical and structured approach. Leadership and responsible authority are needed now."
   },
   {
-    "id": "fourofwater",
-    "past": "In the past, Fourofwater highlighted healing.",
-    "present": "Currently, Fourofwater encourages flow.",
-    "future": "Looking ahead, expect healing."
+    "key": "The Earthfather - Future",
+    "value": "You will need to step into a role of authority or create a solid foundation for your future. Structure, discipline, and strategic planning will lead to success."
   },
   {
-    "id": "kingofair",
-    "past": "Previously, King Of Air guided you toward clarity.",
-    "present": "Right now, it points to decision.",
-    "future": "Looking ahead, expect decision."
+    "key": "The Bone Reader - Past",
+    "value": "You sought guidance from tradition or a trusted mentor. A period of learning within an established system or adhering to convention was a key part of your journey."
   },
   {
-    "id": "kingofbone",
-    "past": "Long ago, King Of Bone spoke of security.",
-    "present": "At this moment, King Of Bone reflects resources.",
-    "future": "Looking ahead, expect stability."
+    "key": "The Bone Reader - Present",
+    "value": "Seek wisdom from established traditions, teachers, or institutions. This is a time for learning and honouring conventional structures rather than challenging them."
   },
   {
-    "id": "kingoffire",
-    "past": "Long ago, King Of Fire spoke of courage.",
-    "present": "Right now, it points to energy.",
-    "future": "Soon, King Of Fire ushers in impulse."
+    "key": "The Bone Reader - Future",
+    "value": "You will soon seek guidance from a wise teacher or a spiritual tradition. A time of formal learning or commitment to a belief system is on the horizon."
   },
   {
-    "id": "kingofwater",
-    "past": "In the past, King Of Water highlighted emotion.",
-    "present": "Currently, King Of Water encourages flow.",
-    "future": "Soon, King Of Water ushers in intuition."
+    "key": "Pathfinders - Past",
+    "value": "A significant choice regarding a relationship or a core value shaped your past. This decision created harmony and alignment between your heart and your principles."
   },
   {
-    "id": "magician",
-    "past": "In the past, Magician highlighted power.",
-    "present": "Currently, Magician encourages transformation.",
-    "future": "Looking ahead, expect transformation."
+    "key": "Pathfinders - Present",
+    "value": "You are at a crossroads, facing a major choice about your relationships or values. To move forward, you must choose the path that aligns with your most authentic self."
   },
   {
-    "id": "matriarch",
-    "past": "Long ago, Matriarch spoke of change.",
-    "present": "Right now, it points to mystery.",
-    "future": "Looking ahead, expect power."
+    "key": "Pathfinders - Future",
+    "value": "A significant choice concerning love or a deep personal value is approaching. This decision will define your path forward and create a powerful union or alignment in your life."
   },
   {
-    "id": "moonwake",
-    "past": "In the past, Moonwake highlighted insight.",
-    "present": "At this moment, Moonwake reflects transformation.",
-    "future": "In time, Moonwake will reveal transformation."
+    "key": "Tracker - Past",
+    "value": "You overcame obstacles through sheer willpower and determination. It was a period of ambitious action where you successfully took control and drove a situation forward."
   },
   {
-    "id": "pathfinders",
-    "past": "Previously, Pathfinders guided you toward mystery.",
-    "present": "Right now, it points to insight.",
-    "future": "Looking ahead, expect insight."
+    "key": "Tracker - Present",
+    "value": "Harness your willpower and move forward with determination. This is a time for disciplined action and ambition. You have the drive to overcome any conflicting forces and achieve victory."
   },
   {
-    "id": "queenofair",
-    "past": "Long ago, Queen Of Air spoke of clarity.",
-    "present": "Currently, Queen Of Air encourages logic.",
-    "future": "Soon, Queen Of Air ushers in intellect."
+    "key": "Tracker - Future",
+    "value": "Prepare for a period of intense focus and ambition. You will achieve a significant goal by channeling your willpower and taking control of the direction of your life."
   },
   {
-    "id": "queenofbone",
-    "past": "In the past, Queen Of Bone highlighted stability.",
-    "present": "Right now, it points to resources.",
-    "future": "Soon, Queen Of Bone ushers in foundation."
+    "key": "Strength - Past",
+    "value": "You demonstrated great inner strength, courage, and compassion to overcome a challenge. You tamed a difficult situation not with force, but with patience and gentle control."
   },
   {
-    "id": "queenoffire",
-    "past": "Long ago, Queen Of Fire spoke of energy.",
-    "present": "Right now, it points to passion.",
-    "future": "In time, Queen Of Fire will reveal energy."
+    "key": "Strength - Present",
+    "value": "True strength comes from within. You have the inner courage and resilience to face your current challenges. Approach the situation with compassion and patience, not aggression."
   },
   {
-    "id": "queenofwater",
-    "past": "In the past, Queen Of Water highlighted healing.",
-    "present": "Right now, it points to intuition.",
-    "future": "In time, Queen Of Water will reveal healing."
+    "key": "Strength - Future",
+    "value": "You will soon need to draw upon your inner reserves of courage and compassion. Your ability to gently influence and persevere through a difficult situation will be your greatest asset."
   },
   {
-    "id": "sevenofair",
-    "past": "Previously, Seven Of Air guided you toward logic.",
-    "present": "At this moment, Seven Of Air reflects clarity.",
-    "future": "Looking ahead, expect decision."
+    "key": "The Time Cave - Past",
+    "value": "A period of introspection and soul-searching defined your past. You withdrew from the outside world to seek wisdom from within, guided by your own inner light."
   },
   {
-    "id": "sevenofbone",
-    "past": "Long ago, Seven Of Bone spoke of resources.",
-    "present": "Currently, Seven Of Bone encourages stability.",
-    "future": "Soon, Seven Of Bone ushers in foundation."
+    "key": "The Time Cave - Present",
+    "value": "It is time to withdraw and look inward for answers. The outside world is too noisy right now. Seek solitude and listen to the guidance of your inner self."
   },
   {
-    "id": "sevenoffire",
-    "past": "Previously, Seven Of Fire guided you toward energy.",
-    "present": "Right now, it points to energy.",
-    "future": "Soon, Seven Of Fire ushers in impulse."
+    "key": "The Time Cave - Future",
+    "value": "A period of introspection is coming. You will need to step back from the hustle and bustle of life to find the wisdom you need for the next phase of your journey."
   },
   {
-    "id": "sevenofwater",
-    "past": "Previously, Seven Of Water guided you toward intuition.",
-    "present": "At this moment, Seven Of Water reflects flow.",
-    "future": "Looking ahead, expect intuition."
+    "key": "The Sky Drum - Past",
+    "value": "Your past was marked by a significant turn of fate or a change in luck. A cycle ended, and a new one began, reminding you of the unpredictable nature of life."
   },
   {
-    "id": "shadowspear",
-    "past": "Long ago, Shadow Spear spoke of growth.",
-    "present": "Currently, Shadow Spear encourages insight.",
-    "future": "Looking ahead, expect power."
+    "key": "The Sky Drum - Present",
+    "value": "You are at a turning point. The wheels of fate are in motion, bringing change and new opportunities. Embrace the cycle and adapt, as this is a pivotal moment in your journey."
   },
   {
-    "id": "sixofair",
-    "past": "In the past, Six Of Air highlighted logic.",
-    "present": "Currently, Six Of Air encourages decision.",
-    "future": "Looking ahead, expect decision."
+    "key": "The Sky Drum - Future",
+    "value": "Expect a significant change in fortune or a twist of fate. A new cycle is beginning, which will bring important life lessons and opportunities for growth."
   },
   {
-    "id": "sixofbone",
-    "past": "Long ago, Six Of Bone spoke of security.",
-    "present": "At this moment, Six Of Bone reflects stability.",
-    "future": "Soon, Six Of Bone ushers in foundation."
+    "key": "Shadow Spear - Past",
+    "value": "A situation in your past required fairness and impartiality. A decision was made based on truth and logic, and you dealt with the consequences of your actions."
   },
   {
-    "id": "sixoffire",
-    "past": "In the past, Six Of Fire highlighted passion.",
-    "present": "At this moment, Six Of Fire reflects passion.",
-    "future": "In time, Six Of Fire will reveal impulse."
+    "key": "Shadow Spear - Present",
+    "value": "Clarity, truth, and fairness are required now. Face the situation with honesty and impartiality. A clear-headed decision must be made, and you must be accountable for its outcome."
   },
   {
-    "id": "sixofwater",
-    "past": "In the past, Six Of Water highlighted flow.",
-    "present": "Currently, Six Of Water encourages emotion.",
-    "future": "Looking ahead, expect healing."
+    "key": "Shadow Spear - Future",
+    "value": "A situation requiring absolute honesty and fairness is approaching. A legally or morally significant decision will be made, and its consequences will be just and final."
   },
   {
-    "id": "starcaller",
-    "past": "Long ago, Starcaller spoke of change.",
-    "present": "At this moment, Starcaller reflects growth.",
-    "future": "Looking ahead, expect change."
+    "key": "Stone Fall - Past",
+    "value": "Your past involved a significant and necessary ending. You had to let go of something to make way for the new, a process that was transformative, even if it was difficult."
   },
   {
-    "id": "stonefall",
-    "past": "In the past, Stone Fall highlighted growth.",
-    "present": "Currently, Stone Fall encourages mystery.",
-    "future": "Soon, Stone Fall ushers in growth."
+    "key": "Stone Fall - Present",
+    "value": "A necessary ending is upon you. Do not resist this change. It is time to clear away what no longer serves you to allow for rebirth and new beginnings."
   },
   {
-    "id": "strength",
-    "past": "Long ago, Strength spoke of power.",
-    "present": "Currently, Strength encourages transformation.",
-    "future": "In time, Strength will reveal growth."
+    "key": "Stone Fall - Future",
+    "value": "A major chapter in your life is about to close. While this ending may feel profound, it is a natural and necessary clearing that will pave the way for something new to grow."
   },
   {
-    "id": "sunknight",
-    "past": "Long ago, Sunknight spoke of change.",
-    "present": "At this moment, Sunknight reflects transformation.",
-    "future": "Looking ahead, expect mystery."
+    "key": "Temperence - Past",
+    "value": "You found balance and moderation in a past situation. You successfully blended opposing forces in your life to create a sense of harmony and purpose."
   },
   {
-    "id": "suntribe",
-    "past": "Previously, Suntribe guided you toward change.",
-    "present": "At this moment, Suntribe reflects change.",
-    "future": "Looking ahead, expect change."
+    "key": "Temperence - Present",
+    "value": "Seek balance, patience, and moderation. The path forward is not one of extremes. Blend different areas of your life to find a middle way that brings peace and harmony."
   },
   {
-    "id": "suspendedpath",
-    "past": "In the past, Suspended Path highlighted insight.",
-    "present": "Right now, it points to mystery.",
-    "future": "In time, Suspended Path will reveal power."
+    "key": "Temperence - Future",
+    "value": "You will soon find the right balance in a complex situation. By combining different elements with patience and care, you will create a harmonious outcome that brings healing."
   },
   {
-    "id": "temperence",
-    "past": "In the past, Temperence highlighted power.",
-    "present": "At this moment, Temperence reflects change.",
-    "future": "Soon, Temperence ushers in growth."
+    "key": "Fire Eater - Past",
+    "value": "Your past was influenced by themes of addiction, materialism, or negative patterns. You felt restricted or bound to a situation that limited your freedom."
   },
   {
-    "id": "theearthfather",
-    "past": "Previously, The Earthfather guided you toward growth.",
-    "present": "At this moment, The Earthfather reflects change.",
-    "future": "Soon, The Earthfather ushers in power."
+    "key": "Fire Eater - Present",
+    "value": "You are currently confronting your shadow self—addictions, negative attachments, or limiting beliefs. Acknowledge these bonds to find the key to your own liberation."
   },
   {
-    "id": "theskydrum",
-    "past": "Previously, The Sky Drum guided you toward growth.",
-    "present": "At this moment, The Sky Drum reflects insight.",
-    "future": "In time, The Sky Drum will reveal change."
+    "key": "Fire Eater - Future",
+    "value": "Be mindful of temptations and restrictive situations ahead. You will face a choice between short-term pleasure and long-term freedom. Awareness is the first step to breaking free."
   },
   {
-    "id": "theweaver",
-    "past": "In the past, The Weaver highlighted change.",
-    "present": "At this moment, The Weaver reflects insight.",
-    "future": "Looking ahead, expect growth."
+    "key": "Fire Pit - Past",
+    "value": "You experienced a sudden, dramatic upheaval that shattered old structures and beliefs. This chaotic event, while disruptive, cleared the way for something more authentic."
   },
   {
-    "id": "threeofair",
-    "past": "Long ago, Three Of Air spoke of clarity.",
-    "present": "Currently, Three Of Air encourages intellect.",
-    "future": "Looking ahead, expect clarity."
+    "key": "Fire Pit - Present",
+    "value": "You are undergoing a major, ego-shattering revelation. Structures you thought were secure are crumbling. Embrace this chaotic release, as it is clearing away falsehoods."
   },
   {
-    "id": "threeofbone",
-    "past": "Long ago, Three Of Bone spoke of security.",
-    "present": "At this moment, Three Of Bone reflects resources.",
-    "future": "Soon, Three Of Bone ushers in foundation."
+    "key": "Fire Pit - Future",
+    "value": "A sudden and powerful change is coming that will tear down old foundations. While this upheaval will be shocking, it is necessary to free you from a false or restrictive reality."
   },
   {
-    "id": "threeoffire",
-    "past": "In the past, Three Of Fire highlighted energy.",
-    "present": "Currently, Three Of Fire encourages passion.",
-    "future": "In time, Three Of Fire will reveal passion."
+    "key": "The Starcaller - Past",
+    "value": "After a period of hardship, you found a moment of peace, hope, and inspiration. This was a time of healing and renewed faith in the future."
   },
   {
-    "id": "threeofwater",
-    "past": "Long ago, Three Of Water spoke of healing.",
-    "present": "Right now, it points to healing.",
-    "future": "In time, Three Of Water will reveal healing."
+    "key": "The Starcaller - Present",
+    "value": "You are in a phase of hope, healing, and divine inspiration. Have faith in the future and your place in the universe. This is a time to be generous with your spirit."
   },
   {
-    "id": "timecave",
-    "past": "Long ago, Time Cave spoke of growth.",
-    "present": "Right now, it points to insight.",
-    "future": "Looking ahead, expect growth."
+    "key": "The Starcaller - Future",
+    "value": "A period of calm, hope, and renewed purpose is on the horizon after a difficult time. You will find the inspiration and guidance you need to heal and move forward."
   },
   {
-    "id": "tracker",
-    "past": "In the past, Tracker highlighted power.",
-    "present": "Right now, it points to power.",
-    "future": "Soon, Tracker ushers in power."
+    "key": "The Suntribe - Past",
+    "value": "Your past was filled with joy, success, and vitality. It was a time of great clarity and positivity, where you felt confident and celebrated life."
   },
   {
-    "id": "twoofair",
-    "past": "Previously, Two Of Air guided you toward clarity.",
-    "present": "Right now, it points to clarity.",
-    "future": "Looking ahead, expect decision."
+    "key": "The Suntribe - Present",
+    "value": "Embrace the joy and positivity surrounding you. This is a time of success, vitality, and enlightenment. Shine your light brightly and share your warmth with others."
   },
   {
-    "id": "twooffire",
-    "past": "Previously, Two Of Fire guided you toward passion.",
-    "present": "Right now, it points to courage.",
-    "future": "Looking ahead, expect passion."
+    "key": "The Suntribe - Future",
+    "value": "A period of immense joy, success, and clarity is coming your way. Your enthusiasm for life will grow, and you will experience great personal triumphs."
   },
   {
-    "id": "twoofwater",
-    "past": "Previously, Two Of Water guided you toward intuition.",
-    "present": "Currently, Two Of Water encourages intuition.",
-    "future": "Looking ahead, expect healing."
+    "key": "The Drum Awakens - Past",
+    "value": "Your past involved a significant reckoning or a moment of judgment. You had to account for your past actions and faced a call to a higher purpose."
   },
   {
-    "id": "extra1",
-    "past": "In the past, Extra Card 1 highlighted power.",
-    "present": "Currently, Extra Card 1 encourages transformation.",
-    "future": "Soon, Extra Card 1 ushers in insight."
+    "key": "The Drum Awakens - Present",
+    "value": "This is a time of reckoning and rebirth. You are being called to evaluate your life and make a significant judgment. Forgive yourself and others to move into a new phase of life."
   },
   {
-    "id": "extra2",
-    "past": "Long ago, Extra Card 2 spoke of change.",
-    "present": "Right now, it points to mystery.",
-    "future": "In time, Extra Card 2 will reveal insight."
+    "key": "The Drum Awakens - Future",
+    "value": "A major life decision or spiritual awakening is approaching. You will be called to account for your past and step into a new, more authentic level of existence."
   },
   {
-    "id": "extra3",
-    "past": "In the past, Extra Card 3 highlighted growth.",
-    "present": "Currently, Extra Card 3 encourages insight.",
-    "future": "Looking ahead, expect insight."
+    "key": "The Weaver - Past",
+    "value": "You successfully completed a major life cycle or project. This was a time of accomplishment, integration, and a sense of wholeness and fulfillment."
   },
   {
-    "id": "extra4",
-    "past": "Long ago, Extra Card 4 spoke of transformation.",
-    "present": "At this moment, Extra Card 4 reflects transformation.",
-    "future": "Soon, Extra Card 4 ushers in change."
+    "key": "The Weaver - Present",
+    "value": "You are at the end of a long journey. This is a moment of successful completion and integration. Take time to celebrate your accomplishments and the feeling of wholeness."
   },
   {
-    "id": "extra5",
-    "past": "Long ago, Extra Card 5 spoke of transformation.",
-    "present": "Right now, it points to insight.",
-    "future": "Looking ahead, expect growth."
+    "key": "The Weaver - Future",
+    "value": "You are approaching the successful completion of a major chapter in your life. This will bring a sense of accomplishment, fulfillment, and unity with the world around you."
   },
   {
-    "id": "extra6",
-    "past": "Previously, Extra Card 6 guided you toward mystery.",
-    "present": "At this moment, Extra Card 6 reflects insight.",
-    "future": "In time, Extra Card 6 will reveal transformation."
+    "key": "Ace Of Air - Past",
+    "value": "A seed of a powerful new idea or breakthrough was planted in your past. This was a moment of great mental clarity, a sudden realization, or a decision that cut through confusion."
   },
   {
-    "id": "extra7",
-    "past": "Previously, Extra Card 7 guided you toward growth.",
-    "present": "Right now, it points to insight.",
-    "future": "In time, Extra Card 7 will reveal transformation."
+    "key": "Ace Of Air - Present",
+    "value": "You are currently at the dawn of a new way of thinking. This is a time to embrace truth, seek justice, and communicate your ideas with precision. A significant, clear-sighted decision is upon you."
   },
   {
-    "id": "extra8",
-    "past": "In the past, Extra Card 8 highlighted change.",
-    "present": "Right now, it points to power.",
-    "future": "Soon, Extra Card 8 ushers in mystery."
+    "key": "Ace Of Air - Future",
+    "value": "A moment of profound clarity or a brilliant idea is coming that will change your perspective. Be prepared to wield your intellect to overcome a future challenge and achieve a breakthrough."
   },
   {
-    "id": "extra9",
-    "past": "Long ago, Extra Card 9 spoke of insight.",
-    "present": "At this moment, Extra Card 9 reflects mystery.",
-    "future": "Looking ahead, expect power."
+    "key": "Two Of Air - Past",
+    "value": "You were recently faced with a difficult stalemate or a decision that you avoided making. This period of indecision created a block, preventing you from moving forward."
   },
   {
-    "id": "extra10",
-    "past": "In the past, Extra Card 10 highlighted mystery.",
-    "present": "Currently, Extra Card 10 encourages change.",
-    "future": "In time, Extra Card 10 will reveal power."
+    "key": "Two Of Air - Present",
+    "value": "You are currently in a truce or avoiding a difficult truth. A decision is being blocked by a desire to keep the peace, but a choice must be made to restore progress."
   },
   {
-    "id": "extra11",
-    "past": "Previously, Extra Card 11 guided you toward growth.",
-    "present": "At this moment, Extra Card 11 reflects insight.",
-    "future": "Soon, Extra Card 11 ushers in growth."
-  }]
+    "key": "Two Of Air - Future",
+    "value": "You will soon face a stalemate or a difficult choice. To move forward, you will need to lower your defenses and look at the situation with honesty rather than avoidance."
+  },
+  {
+    "key": "Three Of Air - Past",
+    "value": "You have endured a painful truth, a heartbreaking separation, or a sorrowful realization. This experience, while difficult, brought a necessary, albeit painful, clarity."
+  },
+  {
+    "key": "Three Of Air - Present",
+    "value": "You are currently experiencing a painful but liberating truth. This moment of sorrow or rejection is necessary for healing. Acknowledge the pain to move through it."
+  },
+  {
+    "key": "Three Of Air - Future",
+    "value": "A painful realization or a difficult truth is on the horizon. While it will bring sorrow, this experience is essential for your growth and will ultimately lead to healing."
+  },
+  {
+    "key": "Four Of Air - Past",
+    "value": "You have been through a period of rest and recovery after a time of great mental stress. This necessary pause allowed you to regroup and find a sense of peace."
+  },
+  {
+    "key": "Four Of Air - Present",
+    "value": "It is time to rest, meditate, and recharge your mental batteries. You need a period of quiet contemplation to recover from challenges and prepare for what's next."
+  },
+  {
+    "key": "Four Of Air - Future",
+    "value": "A period of necessary rest and recovery is coming. You will need to take a break from the conflict and stress of life to find your inner peace and strength."
+  },
+  {
+    "key": "Five Of Air - Past",
+    "value": "Your past includes a conflict where you may have won but at a significant cost, leading to discord and resentment. It was a hollow victory that damaged relationships."
+  },
+  {
+    "key": "Five Of Air - Present",
+    "value": "You are in a conflict driven by ego and a 'win-at-all-costs' mentality. Is this battle worth the alienation it's causing? It may be wiser to walk away."
+  },
+  {
+    "key": "Five Of Air - Future",
+    "value": "A conflict is approaching where you must choose your battles wisely. Winning might not be worth the cost, and a strategic retreat could be the more honorable choice."
+  },
+  {
+    "key": "Six Of Air - Past",
+    "value": "You have made a transition away from a difficult or turbulent situation. It was a sorrowful but necessary journey toward a calmer, more hopeful future."
+  },
+  {
+    "key": "Six Of Air - Present",
+    "value": "You are in the process of moving on from a difficult past. Although there is sadness in leaving things behind, you are heading towards a more peaceful state of mind."
+  },
+  {
+    "key": "Six Of Air - Future",
+    "value": "A necessary transition is ahead. You will soon leave a difficult situation behind and move towards a future with more peace, clarity, and mental tranquility."
+  },
+  {
+    "key": "Seven Of Air - Past",
+    "value": "In the past, you may have used deceit or a clever strategy to get away with something. This act of cunning allowed you to escape a situation, but perhaps not with full integrity."
+  },
+  {
+    "key": "Seven Of Air - Present",
+    "value": "Be wary of deception, either from others or from yourself. Someone may be acting alone or not being entirely truthful. It's a time for strategy, but also for checking your own ethics."
+  },
+  {
+    "key": "Seven Of Air - Future",
+    "value": "A situation requiring cunning or a strategic approach is on the horizon. You may be tempted to act alone or bend the rules. Be mindful of the consequences of your actions."
+  },
+  {
+    "key": "Queen Of Air - Past",
+    "value": "Your past was shaped by an experience that demanded sharp wit, clear boundaries, and brutal honesty. You may have had to remove emotion to see the truth."
+  },
+  {
+    "key": "Queen Of Air - Present",
+    "value": "Embody the qualities of the Queen of Air: use your sharp intellect and unbiased judgment. It is time to set clear boundaries and communicate your truth without apology."
+  },
+  {
+    "key": "Queen Of Air - Future",
+    "value": "You will need to be independent, witty, and incredibly honest to navigate what's to come. Rely on your intelligence and experience to cut through the noise."
+  },
+  {
+    "key": "King Of Air - Past",
+    "value": "A period of intellectual authority and mastery defined your past. You made a decision based on logic, truth, and high ethical standards, acting as an expert or judge."
+  },
+  {
+    "key": "King Of Air - Present",
+    "value": "It is time to be the authority in your life. Use your intellect, speak your truth, and make decisions based on firm principles and logic. Your judgment is sound."
+  },
+  {
+    "key": "King Of Air - Future",
+    "value": "You will soon need to embody intellectual leadership. A situation will call for your expertise, authority, and ability to make a fair and final judgment based on facts."
+  },
+  {
+    "key": "Ace Of Fire - Past",
+    "value": "Your past was marked by a spark of inspiration or a surge of creative energy. You embarked on a passionate new project or journey, driven by enthusiasm and a pioneering spirit."
+  },
+  {
+    "key": "Ace Of Fire - Present",
+    "value": "Passion, creativity, and inspiration are igniting within you. This is the moment to act on your ambitions and start something new. Seize the creative impulse and let your spirit guide you."
+  },
+  {
+    "key": "Ace Of Fire - Future",
+    "value": "Prepare for a burst of creative energy and inspiration. A new passion or project is coming that will excite you and set you on a path of growth and adventure."
+  },
+  {
+    "key": "Two Of Fire - Past",
+    "value": "You have stood at a crossroads, contemplating your future and planning your next big move. You made a bold decision to expand your horizons from a place of security."
+  },
+  {
+    "key": "Two Of Fire - Present",
+    "value": "You have achieved initial success and are now planning your next steps. It is time to be bold, step out of your comfort zone, and decide where to direct your energy."
+  },
+  {
+    "key": "Two Of Fire - Future",
+    "value": "A moment of decision is coming. You will have to choose between staying in your comfort zone and taking a bold risk to expand your world and achieve greater things."
+  },
+  {
+    "key": "Three Of Fire - Past",
+    "value": "The initial phase of your plans has been successful, and you were waiting for the results of your efforts to come to fruition. Your foresight has paid off."
+  },
+  {
+    "key": "Three Of Fire - Present",
+    "value": "Your ships are starting to come in. The initial work is done, and now you are seeing the first signs of success. It is time to anticipate long-term growth and expansion."
+  },
+  {
+    "key": "Three Of Fire - Future",
+    "value": "Your plans are set to unfold successfully. The seeds you've planted will grow, bringing opportunities from afar. Be prepared for your world to expand."
+  },
+  {
+    "key": "Four Of Fire - Past",
+    "value": "You have celebrated a happy milestone or a period of harmony and stability, likely within your home or community. It was a time of joy and shared success."
+  },
+  {
+    "key": "Four Of Fire - Present",
+    "value": "It is a time for celebration, harmony, and community. Acknowledge a job well done and enjoy a period of peace and stability. This is a moment of shared joy."
+  },
+  {
+    "key": "Four Of Fire - Future",
+    "value": "A happy event, celebration, or the successful completion of a project is on the horizon. Prepare for a time of peace, stability, and joyful connection with others."
+  },
+  {
+    "key": "Five Of Fire - Past",
+    "value": "You've been through a period of conflict, competition, and minor disagreements. This struggle and tension, while frustrating, was likely low-stakes creative sparring."
+  },
+  {
+    "key": "Five Of Fire - Present",
+    "value": "You are in the midst of conflict and competition. Different ideas are clashing. While this creates tension, it can also lead to innovation if handled constructively."
+  },
+  {
+    "key": "Five Of Fire - Future",
+    "value": "Expect some conflict or competition ahead. Different opinions will clash, but this struggle can be a creative force if you focus on the goal rather than the ego."
+  },
+  {
+    "key": "Six Of Fire - Past",
+    "value": "You have achieved a significant victory and received public recognition for your efforts. You successfully led the charge and were celebrated for your success."
+  },
+  {
+    "key": "Six Of Fire - Present",
+    "value": "You are on the verge of a public success. Your hard work is paying off, and you are gaining recognition and acclaim. Step into the spotlight and enjoy your victory."
+  },
+  {
+    "key": "Six Of Fire - Future",
+    "value": "A moment of public victory and recognition is coming. Your efforts will be rewarded, and you will be celebrated for your achievements. Prepare for your moment of triumph."
+  },
+  {
+    "key": "Seven Of Fire - Past",
+    "value": "You successfully defended your position against challenges and opposition. You stood your ground with courage and conviction, protecting what you had built."
+  },
+  {
+    "key": "Seven Of Fire - Present",
+    "value": "You must stand your ground and defend your beliefs or accomplishments. You are being challenged, but you are in a strong position. Have courage and persevere."
+  },
+  {
+    "key": "Seven Of Fire - Future",
+    "value": "You will soon need to defend your position. Challenges will arise, but you have the strength and advantage to protect what is yours. Stand firm in your convictions."
+  },
+  {
+    "key": "Queen Of Fire - Past",
+    "value": "Your past was shaped by a vibrant, charismatic energy. You were confident, passionate, and inspired others with your courage and determination."
+  },
+  {
+    "key": "Queen Of Fire - Present",
+    "value": "Be confident, bold, and passionate. You are the center of attention, full of energy and creativity. Lead with courage and inspire those around you with your vibrant spirit."
+  },
+  {
+    "key": "Queen Of Fire - Future",
+    "value": "You will soon step into a role of confident, creative leadership. Embrace your passionate nature and your ability to attract and inspire others. Your charisma will be your greatest asset."
+  },
+  {
+    "key": "King Of Fire - Past",
+    "value": "You acted as a visionary leader, taking bold, creative risks that inspired others. You were driven by a powerful vision and had the charisma to lead the way."
+  },
+  {
+    "key": "King Of Fire - Present",
+    "value": "It is time to be a visionary leader. You have a clear vision and the charisma to inspire others to follow. Take a risk and create the future you imagine."
+  },
+  {
+    "key": "King Of Fire - Future",
+    "value": "A powerful opportunity to lead and inspire is coming. You will need to be bold, creative, and visionary to seize it. Don't be afraid to take a chance on your ideas."
+  },
+  {
+    "key": "Ace Of Water - Past",
+    "value": "Your journey has been influenced by an outpouring of emotion, love, or compassion. A significant relationship or a moment of deep emotional connection began during this time."
+  },
+  {
+    "key": "Ace Of Water - Present",
+    "value": "Your heart is open to giving and receiving love. This card signifies a new beginning in relationships, a surge of compassion, or an opportunity for deep emotional and intuitive healing."
+  },
+  {
+    "key": "Ace Of Water - Future",
+    "value": "A new wave of emotion, love, or creativity is flowing towards you. Be ready to open your heart to a new relationship or a deeper connection with your intuition and feelings."
+  },
+  {
+    "key": "Two Of Water - Past",
+    "value": "You have formed a powerful, loving partnership based on mutual respect and attraction. This connection created a bond that was both emotional and balanced."
+  },
+  {
+    "key": "Two Of Water - Present",
+    "value": "A partnership is central to your life right now. This is a time of mutual attraction and connection. Nurture this bond, as it holds great promise and emotional fulfillment."
+  },
+  {
+    "key": "Two Of Water - Future",
+    "value": "A significant partnership or a deepening of an existing one is on the horizon. This connection will be based on mutual love and respect and will bring great joy."
+  },
+  {
+    "key": "Three Of Water - Past",
+    "value": "Your past includes a joyful celebration with your community or close friends. It was a time of happy collaboration, emotional support, and shared happiness."
+  },
+  {
+    "key": "Three Of Water - Present",
+    "value": "It's time to celebrate with your community. Gather your friends and share in the joy and emotional support of your tribe. Collaboration and friendship are highlighted."
+  },
+  {
+    "key": "Three Of Water - Future",
+    "value": "A joyful gathering or a happy celebration with your closest friends or family is coming soon. This will be a time of emotional connection and shared success."
+  },
+  {
+    "key": "Four Of Water - Past",
+    "value": "You went through a period of apathy or discontent, possibly overlooking an opportunity for emotional fulfillment because you were focused on what was lacking."
+  },
+  {
+    "key": "Four Of Water - Present",
+    "value": "You may be feeling bored or emotionally dissatisfied. An opportunity is being offered to you, but you might not see it. It is time to look up and re-engage with the world."
+  },
+  {
+    "key": "Four Of Water - Future",
+    "value": "Be mindful of becoming withdrawn or apathetic. An emotional opportunity will be presented to you soon, and you will need to be open to receiving it to avoid regret."
+  },
+  {
+    "key": "Five Of Water - Past",
+    "value": "You have experienced a loss or disappointment that caused you to focus on what went wrong. There was still something to be salvaged, but your grief made it hard to see."
+  },
+  {
+    "key": "Five Of Water - Present",
+    "value": "You are currently dwelling on a past loss or regret. While your grief is valid, you are ignoring the positive things that still remain. It is time to shift your perspective."
+  },
+  {
+    "key": "Five Of Water - Future",
+    "value": "You may face a disappointment or loss soon. It will be important to process your grief but equally important to recognize what remains and not get lost in regret."
+  },
+  {
+    "key": "Six Of Water - Past",
+    "value": "Your past was influenced by nostalgia, childhood memories, or an old friend. A sense of innocence and simple joys from the past played a significant role."
+  },
+  {
+    "key": "Six Of Water - Present",
+    "value": "Nostalgia and past memories are prominent now. This can be a time of sweet reunion and simple happiness, but be careful not to get stuck in an idealized past."
+  },
+  {
+    "key": "Six Of Water - Future",
+    "value": "Someone or something from your past is about to reappear in your life. This will bring a wave of nostalgia and remind you of the simple joys of a bygone era."
+  },
+  {
+    "key": "Seven Of Water - Past",
+    "value": "You were faced with many choices and opportunities, some of which may have been illusions. This period of fantasy and daydreams made it difficult to make a grounded decision."
+  },
+  {
+    "key": "Seven Of Water - Present",
+    "value": "You are currently facing multiple options, and it may feel overwhelming. Be careful of wishful thinking and illusion. You need to gain clarity before you can make a choice."
+  },
+  {
+    "key": "Seven Of Water - Future",
+    "value": "You will soon be presented with many choices, but not all will be what they seem. You will need to distinguish between fantasy and realistic options to make the right decision."
+  },
+  {
+    "key": "Queen Of Water - Past",
+    "value": "Your past was guided by compassion, intuition, and emotional maturity. You acted as a compassionate listener or were supported by someone with these qualities."
+  },
+  {
+    "key": "Queen Of Water - Present",
+    "value": "It is time to lead with your heart and your intuition. Be compassionate, caring, and emotionally honest. Trust your feelings and create a supportive space for others."
+  },
+  {
+    "key": "Queen Of Water - Future",
+    "value": "You will soon need to embody emotional intelligence and compassion. A situation will call for you to listen to your intuition and support others with your caring nature."
+  },
+  {
+    "key": "King Of Water - Past",
+    "value": "You achieved emotional balance and mastery. You acted with compassion and control, integrating your feelings and intellect without being overwhelmed by emotion."
+  },
+  {
+    "key": "King Of Water - Present",
+    "value": "You are in control of your emotions. It is a time to be compassionate but firm, offering wise counsel and emotional support from a place of balanced mastery."
+  },
+  {
+    "key": "King Of Water - Future",
+    "value": "You will need to achieve emotional mastery. A situation will require you to be a calm, diplomatic leader who can handle intense feelings with wisdom and compassion."
+  },
+  {
+    "key": "Ace Of Bone - Past",
+    "value": "A tangible opportunity was offered to you, likely related to finances, career, or home life. This was the beginning of a period of stability or the first step in a prosperous venture."
+  },
+  {
+    "key": "Ace Of Bone - Present",
+    "value": "An opportunity for real-world growth and security is available to you now. This is a sign to start a new project, invest wisely, or focus on your physical health and well-being. It is a time for manifestation."
+  },
+  {
+    "key": "Ace Of Bone - Future",
+    "value": "A gift or opportunity for prosperity and security is on the horizon. This card promises a new, stable beginning that will bring tangible results and a sense of grounding."
+  },
+  {
+    "key": "Two Of Bone - Past",
+    "value": "You were successfully juggling multiple priorities, likely related to work and home life. You maintained balance during a busy time with skill and flexibility."
+  },
+  {
+    "key": "Two Of Bone - Present",
+    "value": "You are currently juggling various responsibilities and trying to stay flexible. It's a busy time, but you are adapting well. Remember to enjoy the process and not get too stressed."
+  },
+  {
+    "key": "Two Of Bone - Future",
+    "value": "You will soon need to be adaptable and juggle multiple priorities. Life will get busy, but you will have the ability to handle it all with a lighthearted and flexible attitude."
+  },
+  {
+    "key": "Three Of Bone - Past",
+    "value": "Your past includes a successful collaboration or a project where your skills were recognized. You achieved initial success through teamwork and high-quality work."
+  },
+  {
+    "key": "Three Of Bone - Present",
+    "value": "This is a time for teamwork and collaboration. Your unique skills are valued, and by working with others, you can create something of high quality and achieve success."
+  },
+  {
+    "key": "Three Of Bone - Future",
+    "value": "A successful collaboration is on the horizon. Your skills will be needed for a team project, which will lead to recognition and the successful completion of your goals."
+  },
+  {
+    "key": "Four Of Bone - Past",
+    "value": "You held on tightly to your resources or stability, creating a sense of security but also of stagnation. This fear of loss may have prevented you from taking healthy risks."
+  },
+  {
+    "key": "Four Of Bone - Present",
+    "value": "You are holding on too tightly to your money or possessions out of a fear of scarcity. This is creating blockages. It may be time to loosen your grip to allow for flow."
+  },
+  {
+    "key": "Four Of Bone - Future",
+    "value": "Be mindful of becoming too conservative or possessive with your resources. A fear of loss could cause you to miss out on an opportunity for growth in the near future."
+  },
+  {
+    "key": "Five Of Bone - Past",
+    "value": "You have been through a period of financial hardship, poverty, or feeling left out in the cold. This difficult time made you feel isolated and insecure."
+  },
+  {
+    "key": "Five Of Bone - Present",
+    "value": "You are currently experiencing financial worries or a sense of insecurity. Help is available if you are willing to ask for it. Do not be afraid to reach out."
+  },
+  {
+    "key": "Five Of Bone - Future",
+    "value": "Be prepared for a period of financial instability or insecurity. Remember that help is often closer than you think, and this difficult time will pass."
+  },
+  {
+    "key": "Six Of Bone - Past",
+    "value": "Your past includes a time of generosity and charity. You either gave or received help, creating a cycle of balanced giving and receiving that restored stability."
+  },
+  {
+    "key": "Six Of Bone - Present",
+    "value": "This is a time for generosity. If you have plenty, share it. If you are in need, be open to receiving help. This card signifies a flow of resources and mutual support."
+  },
+  {
+    "key": "Six Of Bone - Future",
+    "value": "An opportunity for generosity will soon present itself. You will either be in a position to help someone or will receive the help you need, leading to greater stability for all."
+  },
+  {
+    "key": "Seven Of Bone - Past",
+    "value": "You have invested significant time and effort into a long-term project and were patiently waiting for it to bear fruit. Your perseverance during this waiting period was key."
+  },
+  {
+    "key": "Seven Of Bone - Present",
+    "value": "You are at a point of reflection in a long-term project. It's time to assess your progress and decide whether to continue your investment or change your approach."
+  },
+  {
+    "key": "Seven Of Bone - Future",
+    "value": "A long-term project is approaching a point where you must be patient. Your hard work will pay off, but you must give it time to grow and mature."
+  },
+  {
+    "key": "Queen Of Bone - Past",
+    "value": "Your past was shaped by a practical, nurturing, and down-to-earth energy. You focused on creating a stable and comfortable home life for yourself and others."
+  },
+  {
+    "key": "Queen Of Bone - Present",
+    "value": "It is time to be practical, generous, and down-to-earth. Focus on your home, your finances, and your physical well-being. Nurture yourself and others in a tangible way."
+  },
+  {
+    "key": "Queen Of Bone - Future",
+    "value": "You will soon embody a nurturing and prosperous energy. Your focus will be on creating a secure and abundant life for yourself and your loved ones through practical means."
+  },
+  {
+    "key": "King Of Bone - Past",
+    "value": "You achieved a high level of success and material abundance through hard work and reliability. You were a master of your domain, enjoying the fruits of your labor."
+  },
+  {
+    "key": "King Of Bone - Present",
+    "value": "You are at the peak of your success. You have created abundance and stability through your efforts. It is a time to be confident, reliable, and generous with your prosperity."
+  },
+  {
+    "key": "King Of Bone - Future",
+    "value": "You are on the path to achieving great material success and security. Your hard work and reliability will pay off, leading to a position of wealth and influence."
+  }
+]
