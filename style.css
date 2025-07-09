@@ -36,31 +36,32 @@ button:hover {
     gap: 20px;
 }
 
- e7y89c-codex/add-draw-3-cards-functionality
+#threeCardContainer.hidden {
+    display: none;
+}
+
+#threeCardContainer.with-background {
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    border-radius: 10px;
+}
+
 .slot {
     background-color: rgba(0, 0, 0, 0.3);
     padding: 10px;
     border-radius: 8px;
 }
 
-.interpretation {
-    margin-top: 10px;
-    font-size: 0.9em;
-}
-
-=======
- main
-#threeCardContainer.hidden {
-    display: none;
-}
-
 .slot img {
     width: 200px;
-
     box-shadow: 0 4px 6px rgba(0,0,0,0.3);
     border-radius: 10px;
-
     object-fit: cover;
+}
+
+.slot img.center {
+    width: 250px;
 }
 
 .slotLabel {
@@ -72,4 +73,23 @@ button:hover {
     from { opacity: 0; }
     to { opacity: 1; }
 }
-#intro { margin: 10px 0 20px; font-style: italic; }
+
+@keyframes kenBurns {
+    from {
+        transform: scale(1.3) translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+.drawn {
+    animation: kenBurns 3s ease forwards;
+}
+
+#intro {
+    margin: 10px 0 20px;
+    font-style: italic;
+}

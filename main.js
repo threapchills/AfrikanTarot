@@ -20,23 +20,45 @@ function playSound(url) {
     audio.play();
 }
 
+function resetSlots() {
+    const container = document.getElementById('threeCardContainer');
+    container.classList.remove('with-background');
+    container.style.backgroundImage = '';
+    ['past', 'present', 'future'].forEach(slot => {
+        const img = document.getElementById(`${slot}Image`);
+        img.src = '';
+        img.className = '';
+        document.getElementById(`${slot}Name`).textContent = '';
+        const interp = document.getElementById(`${slot}Interpretation`);
+        if (interp) interp.textContent = '';
+    });
+}
+
 async function displaySlot(slot, card) {
     const container = document.getElementById('threeCardContainer');
-    document.getElementById(`${slot}Image`).src = card.image;
+    const imgEl = document.getElementById(`${slot}Image`);
+    imgEl.src = card.image;
+    imgEl.classList.add('drawn');
     document.getElementById(`${slot}Name`).textContent = card.name;
- e7y89c-codex/add-draw-3-cards-functionality
-
     playSound(card.sound);
-main
+
     const interpretation = await getInterpretation(card);
     const interpEl = document.getElementById(`${slot}Interpretation`);
     if (interpEl) {
         interpEl.textContent = interpretation;
     }
+
+    if (slot === 'present') {
+        imgEl.classList.add('center');
+        container.style.backgroundImage = `url('${card.image}')`;
+        container.classList.add('with-background');
+    }
+
     container.classList.remove('hidden');
 }
 
 async function drawCards(cards) {
+    resetSlots();
     const used = new Set();
     const drawn = [];
     while (drawn.length < 3) {
