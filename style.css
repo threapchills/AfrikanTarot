@@ -1,6 +1,11 @@
 body {
     font-family: 'Cinzel', serif;
     background-color: #7b3f00; /* rich dark orange brown */
+    background-image: url('assets/images/tarotbg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     color: #fff;
     text-align: center;
     margin: 0;
