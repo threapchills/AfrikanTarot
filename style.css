@@ -112,12 +112,18 @@ button:hover {
 }
 
 .interpretation {
-    text-transform: none; /* **FIX**: Ensures regular sentence case */
+    text-transform: none;
     margin-top: 1em;
-    text-align: left; /* Align text left for better readability */
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* **FIX**: A more readable font */
+    padding: 1em; /* Added padding */
+    text-align: left;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 0.95em;
-    line-height: 1.6; /* Increases line spacing for readability */
+    line-height: 1.6;
+    
+    /* These lines create the container box */
+    background-color: rgba(0, 0, 0, 0.4); /* Darker, semi-transparent background */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
+    border-radius: 8px; /* Rounded corners */
 }
 
 /* --- Mobile Responsiveness --- */
