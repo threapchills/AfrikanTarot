@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
     async function loadData() {
         try {
             // Fetch the list of cards
-            console.log("Attempting to fetch assets/cards.json...");
             const cardsResponse = await fetch('assets/cards.json');
             if (!cardsResponse.ok) {
                 throw new Error(`HTTP error! Status: ${cardsResponse.status}. Failed to load cards.json.`);
@@ -25,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log("Successfully fetched cards.json. Cards loaded:", cards.length);
 
             // Fetch the interpretations
-            console.log("Attempting to fetch assets/interpretations.json...");
             const interpretationsResponse = await fetch('assets/interpretations.json');
             if (!interpretationsResponse.ok) {
                 throw new Error(`HTTP error! Status: ${interpretationsResponse.status}. Failed to load interpretations.json.`);
@@ -71,15 +69,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // This helper function handles the logic for a single card slot
     function displayCard(position, card, imgElement, interpretationElement) {
-        let imageName = card.name.toLowerCase();
-
-        // **THE FIX**: If the name starts with "the ", remove it for the filename.
-        if (imageName.startsWith('the ')) {
-            imageName = imageName.substring(4);
-        }
-
-        // Create the correct image path (e.g. "the magician" becomes "magician.png")
-        imgElement.src = `assets/images/cards/${imageName}.png`;
+        // **THE FIX**: This now directly uses the 'image' field from your cards.json.
+        // All the complex name-guessing logic has been removed.
+        imgElement.src = `assets/images/cards/${card.image}`;
         imgElement.alt = card.name;
 
         // Find the matching interpretation (this still uses the full name, e.g., "The Magician - Past")
