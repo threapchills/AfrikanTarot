@@ -1,106 +1,82 @@
-import { getInterpretation, getReadingInterpretation } from './openai.js';
+document.addEventListener('DOMContentLoaded', () => {
+    const drawButton = document.getElementById('draw-button');
+    const pastCardImg = document.getElementById('past-card');
+    const presentCardImg = document.getElementById('present-card');
+    const futureCardImg = document.getElementById('future-card');
+    const pastInterpretationEl = document.getElementById('past-interpretation');
+    const presentInterpretationEl = document.getElementById('present-interpretation');
+    const futureInterpretationEl = document.getElementById('future-interpretation');
 
-async function loadCards() {
-    const res = await fetch('assets/cards.json');
-    return res.json();
-}
+    let cards = [];
+    let interpretations = [];
 
-function playSound(url) {
-    const audio = document.getElementById('cardSound');
-    const fallback = 'assets/sounds/uHadi (Percussion).mp3';
-    audio.volume = 0.25;
-    if (!url) {
-        url = fallback;
-    }
-    audio.src = url;
-    audio.play();
-}
+    // Fetch card names and interpretations when the page loads
+    async function loadData() {
+        try {
+            // Use the cards.json file for a structured list of cards
+            const cardsResponse = await fetch('assets/cards.json');
+            if (!cardsResponse.ok) throw new Error(`HTTP error! status: ${cardsResponse.status}`);
+            const cardsData = await cardsResponse.json();
+            cards = cardsData.cards.map(card => card.name); // Assuming cards.json has a "cards" array with "name" properties
 
-function showModal(src) {
-    const modal = document.getElementById('imageModal');
-    const img = document.getElementById('modalImage');
-    img.src = src;
-    modal.classList.remove('hidden');
-}
+            // Fetch the interpretations
+            const interpretationsResponse = await fetch('assets/interpretations.json');
+            if (!interpretationsResponse.ok) throw new Error(`HTTP error! status: ${interpretationsResponse.status}`);
+            interpretations = await interpretationsResponse.json();
 
-function hideModal() {
-    document.getElementById('imageModal').classList.add('hidden');
-}
+            drawButton.disabled = false; // Enable the button once data is loaded
+            console.log("Card and interpretation data loaded successfully.");
 
-function resetSlots() {
-    const container = document.getElementById('threeCardContainer');
-    container.classList.remove('with-background');
-    container.style.backgroundImage = '';
-    ['past', 'present', 'future'].forEach(slot => {
-        const img = document.getElementById(`${slot}Image`);
-        img.src = '';
-        img.className = '';
-        img.onclick = null;
-        document.getElementById(`${slot}Name`).textContent = '';
-        const interp = document.getElementById(`${slot}Interpretation`);
-        if (interp) interp.textContent = '';
-    });
-    const overall = document.getElementById('overallInterpretation');
-    if (overall) {
-        overall.textContent = '';
-        overall.classList.add('hidden');
-    }
-}
-
-async function displaySlot(slot, card) {
-    const container = document.getElementById('threeCardContainer');
-    const imgEl = document.getElementById(`${slot}Image`);
-    imgEl.src = card.image;
-    imgEl.classList.add('drawn');
-    imgEl.onclick = () => showModal(card.image);
-    document.getElementById(`${slot}Name`).textContent = card.name;
-    playSound(card.sound);
-
-    const interpretation = await getInterpretation(card.id, slot);
-    const interpEl = document.getElementById(`${slot}Interpretation`);
-    if (interpEl) {
-        interpEl.textContent = interpretation;
-    }
-
-    if (slot === 'present') {
-        imgEl.classList.add('center');
-        container.style.backgroundImage = `url('${card.image}')`;
-        container.classList.add('with-background');
-    }
-
-    container.classList.remove('hidden');
-}
-
-async function drawCards(cards) {
-    resetSlots();
-    const used = new Set();
-    const drawn = [];
-    while (drawn.length < 3) {
-        const idx = Math.floor(Math.random() * cards.length);
-        if (!used.has(idx)) {
-            used.add(idx);
-            drawn.push(cards[idx]);
+        } catch (error) {
+            console.error("Failed to load initial data:", error);
+            // Display an error to the user if data fails to load
+            presentInterpretationEl.textContent = "Could not load card data. Please refresh the page.";
         }
     }
-    await Promise.all([
-        displaySlot('past', drawn[0]),
-        displaySlot('present', drawn[1]),
-        displaySlot('future', drawn[2])
-    ]);
 
-    const overall = document.getElementById('overallInterpretation');
-    if (overall) {
-        const reading = await getReadingInterpretation(drawn[0], drawn[1], drawn[2]);
-        overall.textContent = reading;
-        overall.classList.remove('hidden');
+    function drawAndDisplayCards() {
+        if (cards.length === 0 || interpretations.length === 0) {
+            console.error("Data not loaded, cannot draw cards.");
+            return;
+        }
+
+        // --- Clear previous results ---
+        pastInterpretationEl.textContent = '...';
+        presentInterpretationEl.textContent = '...';
+        futureInterpretationEl.textContent = '...';
+        
+        // --- Shuffle and pick 3 unique cards ---
+        const shuffledCards = [...cards].sort(() => 0.5 - Math.random());
+        const pastCardName = shuffledCards[0];
+        const presentCardName = shuffledCards[1];
+        const futureCardName = shuffledCards[2];
+
+        // --- Display Cards and Interpretations ---
+        displayCard('Past', pastCardName, pastCardImg, pastInterpretationEl);
+        displayCard('Present', presentCardName, presentCardImg, presentInterpretationEl);
+        displayCard('Future', futureCardName, futureCardImg, futureInterpretationEl);
     }
-}
 
-window.addEventListener('DOMContentLoaded', async () => {
-    const cards = await loadCards();
-    document.getElementById('drawCards').addEventListener('click', () => drawCards(cards));
-    document.getElementById('modalClose').addEventListener('click', hideModal);
-    document.getElementById('imageModal').addEventListener('click', (e) => {
-        if (e.target.id === 'imageModal') hideModal();
-    });
+    function displayCard(position, cardName, imgElement, interpretationElement) {
+        // 1. Set the card image
+        const imageName = cardName.toLowerCase().replace(/\s+/g, '-'); // e.g., "6 of Water" -> "6-of-water"
+        imgElement.src = `assets/images/cards/${imageName}.png`; // Assuming .png format
+        imgElement.alt = cardName;
+
+        // 2. Find and set the interpretation
+        const interpretationKey = `${cardName} - ${position}`;
+        const foundInterpretation = interpretations.find(item => item.key === interpretationKey);
+
+        if (foundInterpretation) {
+            interpretationElement.textContent = foundInterpretation.value;
+        } else {
+            interpretationElement.textContent = `Interpretation for "${interpretationKey}" not found.`;
+            console.warn(`Could not find interpretation for key: ${interpretationKey}`);
+        }
+    }
+
+    // --- Initialize the app ---
+    drawButton.addEventListener('click', drawAndDisplayCards);
+    drawButton.disabled = true; // Disable button until data is loaded
+    loadData();
 });
