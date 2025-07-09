@@ -1,7 +1,6 @@
 body {
-    font-family: Arial, sans-serif;
-    background: url('assets/images/background.jpg') no-repeat center center fixed;
-    background-size: cover;
+    font-family: 'Cinzel', serif;
+    background-color: #7b3f00; /* rich dark orange brown */
     color: #fff;
     text-align: center;
     margin: 0;
@@ -10,6 +9,8 @@ body {
 
 #app {
     padding-top: 50px;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 button {
@@ -17,7 +18,7 @@ button {
     font-size: 1.2em;
     cursor: pointer;
     border: none;
-    background-color: #f39c12;
+    background-color: #d35400;
     color: #fff;
     border-radius: 5px;
     transition: transform 0.2s;
@@ -35,18 +36,40 @@ button:hover {
     gap: 20px;
 }
 
+ e7y89c-codex/add-draw-3-cards-functionality
+.slot {
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.interpretation {
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+
+=======
+ main
 #threeCardContainer.hidden {
     display: none;
 }
 
 .slot img {
     width: 200px;
-    height: auto;
+
     box-shadow: 0 4px 6px rgba(0,0,0,0.3);
     border-radius: 10px;
+
+    object-fit: cover;
+}
+
+.slotLabel {
+    margin-top: 5px;
+    font-weight: bold;
 }
 
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
 }
+#intro { margin: 10px 0 20px; font-style: italic; }

@@ -231,20 +231,6 @@
     "traditional": "Six Of Air"
   },
   {
-    "id": "sixofair0",
-    "name": "Six Of Air0",
-    "image": "assets/images/cards/six of air0.png",
-    "sound": "",
-    "traditional": "Six Of Air0"
-  },
-  {
-    "id": "sixofair1",
-    "name": "Six Of Air1",
-    "image": "assets/images/cards/six of air1.png",
-    "sound": "",
-    "traditional": "Six Of Air1"
-  },
-  {
     "id": "sixofbone",
     "name": "Six Of Bone",
     "image": "assets/images/cards/six of bone.png",
@@ -252,46 +238,11 @@
     "traditional": "Six Of Bone"
   },
   {
-    "id": "sixofbone1",
-    "name": "Six Of Bone1",
-    "image": "assets/images/cards/six of bone1.png",
-    "sound": "",
-    "traditional": "Six Of Bone1"
-  },
-  {
-    "id": "sixofbone2",
-    "name": "Six Of Bone2",
-    "image": "assets/images/cards/six of bone2.png",
-    "sound": "",
-    "traditional": "Six Of Bone2"
-  },
-  {
-    "id": "sixofbone3",
-    "name": "Six Of Bone3",
-    "image": "assets/images/cards/six of bone3.png",
-    "sound": "",
-    "traditional": "Six Of Bone3"
-  },
-  {
-    "id": "sixofbone4",
-    "name": "Six Of Bone4",
-    "image": "assets/images/cards/six of bone4.png",
-    "sound": "",
-    "traditional": "Six Of Bone4"
-  },
-  {
     "id": "sixoffire",
     "name": "Six Of Fire",
     "image": "assets/images/cards/six of fire.png",
     "sound": "",
     "traditional": "Six Of Fire"
-  },
-  {
-    "id": "sixoffire2",
-    "name": "Six Of Fire2",
-    "image": "assets/images/cards/six of fire2.png",
-    "sound": "",
-    "traditional": "Six Of Fire2"
   },
   {
     "id": "sixofwater",
@@ -420,13 +371,6 @@
     "traditional": "Two of Swords"
   },
   {
-    "id": "twoofairnew",
-    "name": "Two Of Air New",
-    "image": "assets/images/cards/two of air new.png",
-    "sound": "",
-    "traditional": "Two of Pentacles"
-  },
-  {
     "id": "twooffire",
     "name": "Two Of Fire",
     "image": "assets/images/cards/two of fire.png",
@@ -439,5 +383,4 @@
     "image": "assets/images/cards/two of water.png",
     "sound": "",
     "traditional": "Two of Cups"
-  }
-]
+  }]
