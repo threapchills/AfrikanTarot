@@ -1,16 +1,443 @@
 [
   {
-    "id": "the_drum_awakens",
-    "name": "The Drum Awakens",
-    "image": "assets/images/the_drum_awakens.jpg",
-    "sound": "assets/sounds/the_drum_awakens.mp3",
-    "traditional": "The World"
+    "id": "aceofair",
+    "name": "Ace Of Air",
+    "image": "assets/images/cards/ace of air.png",
+    "sound": "",
+    "traditional": "Ace of Swords"
   },
   {
-    "id": "the_journey",
-    "name": "The Journey",
-    "image": "assets/images/the_journey.jpg",
-    "sound": "assets/sounds/the_journey.mp3",
-    "traditional": "The Fool"
+    "id": "aceofbone",
+    "name": "Ace Of Bone",
+    "image": "assets/images/cards/ace of bone.png",
+    "sound": "",
+    "traditional": "Ace of Pentacles"
+  },
+  {
+    "id": "aceoffire",
+    "name": "Ace Of Fire",
+    "image": "assets/images/cards/ace of fire.png",
+    "sound": "",
+    "traditional": "Ace of Wands"
+  },
+  {
+    "id": "aceofwater",
+    "name": "Ace Of Water",
+    "image": "assets/images/cards/ace of water.png",
+    "sound": "",
+    "traditional": "Ace of Cups"
+  },
+  {
+    "id": "bonereader",
+    "name": "Bone Reader",
+    "image": "assets/images/cards/bone reader.png",
+    "sound": "",
+    "traditional": "Bone Reader"
+  },
+  {
+    "id": "drumawakens",
+    "name": "Drum Awakens",
+    "image": "assets/images/cards/drum awakens.png",
+    "sound": "",
+    "traditional": "Drum Awakens"
+  },
+  {
+    "id": "fireeater",
+    "name": "FIRE EATER",
+    "image": "assets/images/cards/FIRE EATER.png",
+    "sound": "",
+    "traditional": "XV – The Devil"
+  },
+  {
+    "id": "firepit",
+    "name": "Fire Pit",
+    "image": "assets/images/cards/fire pit.png",
+    "sound": "",
+    "traditional": "XVI – The Tower"
+  },
+  {
+    "id": "fiveofair",
+    "name": "Five Of Air",
+    "image": "assets/images/cards/five of air.png",
+    "sound": "",
+    "traditional": "Five Of Air"
+  },
+  {
+    "id": "fiveofbone",
+    "name": "Five Of Bone",
+    "image": "assets/images/cards/five of bone.png",
+    "sound": "",
+    "traditional": "Five Of Bone"
+  },
+  {
+    "id": "fiveoffire",
+    "name": "Five Of Fire",
+    "image": "assets/images/cards/five of fire.png",
+    "sound": "",
+    "traditional": "Five of Wands"
+  },
+  {
+    "id": "fiveofwater",
+    "name": "Five Of Water",
+    "image": "assets/images/cards/five of water.png",
+    "sound": "",
+    "traditional": "Five Of Water"
+  },
+  {
+    "id": "fourofbone",
+    "name": "Four Of Bone",
+    "image": "assets/images/cards/four of bone.png",
+    "sound": "",
+    "traditional": "Four of Pentacles"
+  },
+  {
+    "id": "fouroffire",
+    "name": "Four Of Fire",
+    "image": "assets/images/cards/four of fire.png",
+    "sound": "",
+    "traditional": "Four of Wands"
+  },
+  {
+    "id": "fourofwater",
+    "name": "Fourofwater",
+    "image": "assets/images/cards/fourofwater.png",
+    "sound": "",
+    "traditional": "Four of Cups"
+  },
+  {
+    "id": "kingofair",
+    "name": "King Of Air",
+    "image": "assets/images/cards/king of air.png",
+    "sound": "",
+    "traditional": "King Of Air"
+  },
+  {
+    "id": "kingofbone",
+    "name": "King Of Bone",
+    "image": "assets/images/cards/king of bone.png",
+    "sound": "",
+    "traditional": "King Of Bone"
+  },
+  {
+    "id": "kingoffire",
+    "name": "King Of Fire",
+    "image": "assets/images/cards/king of fire.png",
+    "sound": "",
+    "traditional": "King Of Fire"
+  },
+  {
+    "id": "kingofwater",
+    "name": "King Of Water",
+    "image": "assets/images/cards/king of water.png",
+    "sound": "",
+    "traditional": "King Of Water"
+  },
+  {
+    "id": "magician",
+    "name": "Magician",
+    "image": "assets/images/cards/magician.png",
+    "sound": "",
+    "traditional": "Magician"
+  },
+  {
+    "id": "matriarch",
+    "name": "Matriarch",
+    "image": "assets/images/cards/matriarch.png",
+    "sound": "",
+    "traditional": "Matriarch"
+  },
+  {
+    "id": "moonwake",
+    "name": "Moonwake",
+    "image": "assets/images/cards/moonwake.png",
+    "sound": "",
+    "traditional": "II – The High Priestess"
+  },
+  {
+    "id": "pathfinders",
+    "name": "Pathfinders",
+    "image": "assets/images/cards/pathfinders.png",
+    "sound": "",
+    "traditional": "VI – The Lovers"
+  },
+  {
+    "id": "queenofair",
+    "name": "Queen Of Air",
+    "image": "assets/images/cards/queen of air.png",
+    "sound": "",
+    "traditional": "Queen Of Air"
+  },
+  {
+    "id": "queenofbone",
+    "name": "Queen Of Bone",
+    "image": "assets/images/cards/queen of bone.png",
+    "sound": "",
+    "traditional": "Queen Of Bone"
+  },
+  {
+    "id": "queenoffire",
+    "name": "Queen Of Fire",
+    "image": "assets/images/cards/queen of fire.png",
+    "sound": "",
+    "traditional": "Queen Of Fire"
+  },
+  {
+    "id": "queenofwater",
+    "name": "Queen Of Water",
+    "image": "assets/images/cards/queen of water.png",
+    "sound": "",
+    "traditional": "Queen Of Water"
+  },
+  {
+    "id": "sevenofair",
+    "name": "Seven Of Air",
+    "image": "assets/images/cards/seven of air.png",
+    "sound": "",
+    "traditional": "Seven Of Air"
+  },
+  {
+    "id": "sevenofbone",
+    "name": "Seven Of Bone",
+    "image": "assets/images/cards/seven of bone.png",
+    "sound": "",
+    "traditional": "Seven Of Bone"
+  },
+  {
+    "id": "sevenoffire",
+    "name": "Seven Of Fire",
+    "image": "assets/images/cards/seven of fire.png",
+    "sound": "",
+    "traditional": "Seven Of Fire"
+  },
+  {
+    "id": "sevenofwater",
+    "name": "Seven Of Water",
+    "image": "assets/images/cards/seven of water.png",
+    "sound": "",
+    "traditional": "Seven Of Water"
+  },
+  {
+    "id": "shadowspear",
+    "name": "Shadow Spear",
+    "image": "assets/images/cards/shadow spear.png",
+    "sound": "",
+    "traditional": "XI – Justice"
+  },
+  {
+    "id": "sixofair",
+    "name": "Six Of Air",
+    "image": "assets/images/cards/six of air.png",
+    "sound": "",
+    "traditional": "Six Of Air"
+  },
+  {
+    "id": "sixofair0",
+    "name": "Six Of Air0",
+    "image": "assets/images/cards/six of air0.png",
+    "sound": "",
+    "traditional": "Six Of Air0"
+  },
+  {
+    "id": "sixofair1",
+    "name": "Six Of Air1",
+    "image": "assets/images/cards/six of air1.png",
+    "sound": "",
+    "traditional": "Six Of Air1"
+  },
+  {
+    "id": "sixofbone",
+    "name": "Six Of Bone",
+    "image": "assets/images/cards/six of bone.png",
+    "sound": "",
+    "traditional": "Six Of Bone"
+  },
+  {
+    "id": "sixofbone1",
+    "name": "Six Of Bone1",
+    "image": "assets/images/cards/six of bone1.png",
+    "sound": "",
+    "traditional": "Six Of Bone1"
+  },
+  {
+    "id": "sixofbone2",
+    "name": "Six Of Bone2",
+    "image": "assets/images/cards/six of bone2.png",
+    "sound": "",
+    "traditional": "Six Of Bone2"
+  },
+  {
+    "id": "sixofbone3",
+    "name": "Six Of Bone3",
+    "image": "assets/images/cards/six of bone3.png",
+    "sound": "",
+    "traditional": "Six Of Bone3"
+  },
+  {
+    "id": "sixofbone4",
+    "name": "Six Of Bone4",
+    "image": "assets/images/cards/six of bone4.png",
+    "sound": "",
+    "traditional": "Six Of Bone4"
+  },
+  {
+    "id": "sixoffire",
+    "name": "Six Of Fire",
+    "image": "assets/images/cards/six of fire.png",
+    "sound": "",
+    "traditional": "Six Of Fire"
+  },
+  {
+    "id": "sixoffire2",
+    "name": "Six Of Fire2",
+    "image": "assets/images/cards/six of fire2.png",
+    "sound": "",
+    "traditional": "Six Of Fire2"
+  },
+  {
+    "id": "sixofwater",
+    "name": "Six Of Water",
+    "image": "assets/images/cards/six of water.png",
+    "sound": "",
+    "traditional": "Six Of Water"
+  },
+  {
+    "id": "starcaller",
+    "name": "Starcaller",
+    "image": "assets/images/cards/starcaller.png",
+    "sound": "",
+    "traditional": "Starcaller"
+  },
+  {
+    "id": "stonefall",
+    "name": "Stone Fall",
+    "image": "assets/images/cards/stone fall.png",
+    "sound": "",
+    "traditional": "XIII – Death"
+  },
+  {
+    "id": "strength",
+    "name": "Strength",
+    "image": "assets/images/cards/strength.png",
+    "sound": "",
+    "traditional": "VIII – Strength"
+  },
+  {
+    "id": "sunknight",
+    "name": "Sunknight",
+    "image": "assets/images/cards/sunknight.png",
+    "sound": "",
+    "traditional": "Sunknight"
+  },
+  {
+    "id": "suntribe",
+    "name": "Suntribe",
+    "image": "assets/images/cards/suntribe.png",
+    "sound": "",
+    "traditional": "Suntribe"
+  },
+  {
+    "id": "suspendedpath",
+    "name": "Suspended Path",
+    "image": "assets/images/cards/suspended path.png",
+    "sound": "",
+    "traditional": "Suspended Path"
+  },
+  {
+    "id": "temperence",
+    "name": "Temperence",
+    "image": "assets/images/cards/temperence.png",
+    "sound": "",
+    "traditional": "XIV – Temperance"
+  },
+  {
+    "id": "theearthfather",
+    "name": "The Earthfather",
+    "image": "assets/images/cards/the earthfather.png",
+    "sound": "",
+    "traditional": "IV – The Emperor"
+  },
+  {
+    "id": "theskydrum",
+    "name": "The Sky Drum",
+    "image": "assets/images/cards/the sky drum.png",
+    "sound": "",
+    "traditional": "X – Wheel of Fortune"
+  },
+  {
+    "id": "theweaver",
+    "name": "The Weaver",
+    "image": "assets/images/cards/the weaver.png",
+    "sound": "",
+    "traditional": "XXI – The World"
+  },
+  {
+    "id": "threeofair",
+    "name": "Three Of Air",
+    "image": "assets/images/cards/three of air.png",
+    "sound": "",
+    "traditional": "Three of Swords"
+  },
+  {
+    "id": "threeofbone",
+    "name": "Three Of Bone",
+    "image": "assets/images/cards/three of bone.png",
+    "sound": "",
+    "traditional": "Three of Pentacles"
+  },
+  {
+    "id": "threeoffire",
+    "name": "Three Of Fire",
+    "image": "assets/images/cards/three of fire.png",
+    "sound": "",
+    "traditional": "Three of Wands"
+  },
+  {
+    "id": "threeofwater",
+    "name": "Three Of Water",
+    "image": "assets/images/cards/three of water.png",
+    "sound": "",
+    "traditional": "Three of Cups"
+  },
+  {
+    "id": "timecave",
+    "name": "Time Cave",
+    "image": "assets/images/cards/time cave.png",
+    "sound": "",
+    "traditional": "Time Cave"
+  },
+  {
+    "id": "tracker",
+    "name": "Tracker",
+    "image": "assets/images/cards/tracker.png",
+    "sound": "",
+    "traditional": "VII – The Chariot"
+  },
+  {
+    "id": "twoofair",
+    "name": "Two Of Air",
+    "image": "assets/images/cards/two of air.png",
+    "sound": "",
+    "traditional": "Two of Swords"
+  },
+  {
+    "id": "twoofairnew",
+    "name": "Two Of Air New",
+    "image": "assets/images/cards/two of air new.png",
+    "sound": "",
+    "traditional": "Two of Pentacles"
+  },
+  {
+    "id": "twooffire",
+    "name": "Two Of Fire",
+    "image": "assets/images/cards/two of fire.png",
+    "sound": "",
+    "traditional": "Two of Wands"
+  },
+  {
+    "id": "twoofwater",
+    "name": "Two Of Water",
+    "image": "assets/images/cards/two of water.png",
+    "sound": "",
+    "traditional": "Two of Cups"
   }
 ]
