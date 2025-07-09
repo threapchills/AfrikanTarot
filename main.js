@@ -71,12 +71,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // This helper function handles the logic for a single card slot
     function displayCard(position, card, imgElement, interpretationElement) {
-        // Create the correct image filename (e.g., "Ace Of Air" -> "ace of air.png")
-        const imageName = card.name.toLowerCase().replace(/\s+/g, ' '); // Ensure consistent spacing
+        let imageName = card.name.toLowerCase();
+
+        // **THE FIX**: If the name starts with "the ", remove it for the filename.
+        if (imageName.startsWith('the ')) {
+            imageName = imageName.substring(4);
+        }
+
+        // Create the correct image path (e.g. "the magician" becomes "magician.png")
         imgElement.src = `assets/images/cards/${imageName}.png`;
         imgElement.alt = card.name;
 
-        // Find the matching interpretation (e.g., "Ace Of Air - Past")
+        // Find the matching interpretation (this still uses the full name, e.g., "The Magician - Past")
         const interpretationKey = `${card.name} - ${position}`;
         const foundInterpretation = interpretations.find(item => item.key === interpretationKey);
 
