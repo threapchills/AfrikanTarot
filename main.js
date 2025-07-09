@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Get references to all the HTML elements
+    // Get references to all the HTML elements we need to interact with
     const drawButton = document.getElementById('drawCards');
     const pastCardImg = document.getElementById('pastImage');
     const presentCardImg = document.getElementById('presentImage');
@@ -12,61 +12,69 @@ document.addEventListener('DOMContentLoaded', () => {
     let cards = [];
     let interpretations = [];
 
-    // Load the data from your JSON files
+    // This function runs once when the page loads to fetch our data
     async function loadData() {
         try {
-            // Fetch cards.json. The file is an array at its root.
+            // Fetch the list of cards
+            console.log("Attempting to fetch assets/cards.json...");
             const cardsResponse = await fetch('assets/cards.json');
-            if (!cardsResponse.ok) throw new Error(`Failed to fetch cards.json`);
-            cards = await cardsResponse.json(); // The response IS the array of cards
+            if (!cardsResponse.ok) {
+                throw new Error(`HTTP error! Status: ${cardsResponse.status}. Failed to load cards.json.`);
+            }
+            cards = await cardsResponse.json();
             console.log("Successfully fetched cards.json. Cards loaded:", cards.length);
 
             // Fetch the interpretations
+            console.log("Attempting to fetch assets/interpretations.json...");
             const interpretationsResponse = await fetch('assets/interpretations.json');
-            if (!interpretationsResponse.ok) throw new Error(`Failed to fetch interpretations.json`);
+            if (!interpretationsResponse.ok) {
+                throw new Error(`HTTP error! Status: ${interpretationsResponse.status}. Failed to load interpretations.json.`);
+            }
             interpretations = await interpretationsResponse.json();
             console.log("Successfully fetched interpretations.json. Interpretations loaded:", interpretations.length);
 
             // Enable the button only if both files load successfully
             if (cards.length > 0 && interpretations.length > 0) {
                 drawButton.disabled = false;
-                console.log("Data loaded. Draw button enabled.");
+                console.log("Data loaded successfully. Draw button enabled.");
             } else {
-                throw new Error("Data loaded, but one of the files is empty.");
+                throw new Error("Data loaded, but one of the data files is empty.");
             }
 
         } catch (error) {
             console.error("CRITICAL ERROR LOADING DATA:", error);
-            presentInterpretationEl.textContent = "Error: Could not load card data. Please check file paths and ensure JSON files are not empty.";
+            presentInterpretationEl.textContent = "Error: Could not load card data. Please check the browser console (F12) for details.";
         }
     }
 
-    // This runs when the "Draw Cards" button is clicked
+    // This function runs when the "Draw Cards" button is clicked
     function drawAndDisplayCards() {
         if (cards.length === 0) {
-            console.error("Cannot draw because card data is not loaded.");
+            console.error("Cannot draw cards because card data is not loaded.");
             return;
         }
 
+        // Make the card display area visible
         threeCardContainer.classList.remove('hidden');
 
-        // Shuffle the deck and pick three cards
+        // Shuffle the deck and pick the top three cards
         const shuffledCards = [...cards].sort(() => 0.5 - Math.random());
         const pastCard = shuffledCards[0];
         const presentCard = shuffledCards[1];
         const futureCard = shuffledCards[2];
 
-        // Display each card
+        // Display each card and find its interpretation
         displayCard('Past', pastCard, pastCardImg, pastInterpretationEl);
         displayCard('Present', presentCard, presentCardImg, presentInterpretationEl);
         displayCard('Future', futureCard, futureCardImg, futureInterpretationEl);
     }
 
-    // This function puts the card info on the screen
+    // This helper function handles the logic for a single card slot
     function displayCard(position, card, imgElement, interpretationElement) {
-        // **THE FIX**: Use the `image` and `name` properties directly from your `cards.json`
-        imgElement.src = card.image; // Use the full image path from the file
-        imgElement.alt = card.name;  // Use the name from the file
+        // Create the correct image filename (e.g., "Ace Of Air" -> "ace of air.png")
+        const imageName = card.name.toLowerCase().replace(/\s+/g, ' '); // Ensure consistent spacing
+        imgElement.src = `assets/images/cards/${imageName}.png`;
+        imgElement.alt = card.name;
 
         // Find the matching interpretation (e.g., "Ace Of Air - Past")
         const interpretationKey = `${card.name} - ${position}`;
@@ -76,6 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
             interpretationElement.textContent = foundInterpretation.value;
         } else {
             interpretationElement.textContent = `Interpretation for "${interpretationKey}" not found.`;
+            console.warn(`Missing interpretation for key: ${interpretationKey}`);
         }
     }
 
