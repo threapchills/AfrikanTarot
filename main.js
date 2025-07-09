@@ -7,14 +7,10 @@ async function loadCards() {
 
 function playSound(url) {
     const audio = document.getElementById('cardSound');
-    const fallback = [
-        'assets/sounds/uHadi (Guitar).mp3',
-        'assets/sounds/uHadi (Percussion).mp3',
-        'assets/sounds/noita1.mp3'
-    ];
+    const fallback = 'assets/sounds/uHadi (Percussion).mp3';
     audio.volume = 0.25;
     if (!url) {
-        url = fallback[Math.floor(Math.random() * fallback.length)];
+        url = fallback;
     }
     audio.src = url;
     audio.play();
