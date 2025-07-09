@@ -20,6 +20,17 @@ function playSound(url) {
     audio.play();
 }
 
+function showModal(src) {
+    const modal = document.getElementById('imageModal');
+    const img = document.getElementById('modalImage');
+    img.src = src;
+    modal.classList.remove('hidden');
+}
+
+function hideModal() {
+    document.getElementById('imageModal').classList.add('hidden');
+}
+
 function resetSlots() {
     const container = document.getElementById('threeCardContainer');
     container.classList.remove('with-background');
@@ -28,6 +39,7 @@ function resetSlots() {
         const img = document.getElementById(`${slot}Image`);
         img.src = '';
         img.className = '';
+        img.onclick = null;
         document.getElementById(`${slot}Name`).textContent = '';
         const interp = document.getElementById(`${slot}Interpretation`);
         if (interp) interp.textContent = '';
@@ -39,6 +51,7 @@ async function displaySlot(slot, card) {
     const imgEl = document.getElementById(`${slot}Image`);
     imgEl.src = card.image;
     imgEl.classList.add('drawn');
+    imgEl.onclick = () => showModal(card.image);
     document.getElementById(`${slot}Name`).textContent = card.name;
     playSound(card.sound);
 
@@ -78,4 +91,8 @@ async function drawCards(cards) {
 window.addEventListener('DOMContentLoaded', async () => {
     const cards = await loadCards();
     document.getElementById('drawCards').addEventListener('click', () => drawCards(cards));
+    document.getElementById('modalClose').addEventListener('click', hideModal);
+    document.getElementById('imageModal').addEventListener('click', (e) => {
+        if (e.target.id === 'imageModal') hideModal();
+    });
 });
