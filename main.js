@@ -56,7 +56,7 @@ async function displaySlot(slot, card) {
     document.getElementById(`${slot}Name`).textContent = card.name;
     playSound(card.sound);
 
-    const interpretation = await getInterpretation(card);
+    const interpretation = await getInterpretation(card.id, slot);
     const interpEl = document.getElementById(`${slot}Interpretation`);
     if (interpEl) {
         interpEl.textContent = interpretation;

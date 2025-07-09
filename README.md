@@ -1,6 +1,6 @@
 # Afrikan Tarot
 
-A simple web application for performing ancient Afrikan tarot readings. Card data and images live in the `assets/` folder so they can easily be replaced. The app uses the OpenAI API on the backend to fetch card interpretations via the GPT-4o model. When all three cards are drawn, their traditional names are sent to the API to obtain a fortune teller–style interpretation of the overall reading.
+A simple web application for performing ancient Afrikan tarot readings. Card data and images live in the `assets/` folder so they can easily be replaced. Each card's short interpretation is stored in a local SQLite database so the server can respond instantly. When all three cards are drawn, their traditional names are still sent to the OpenAI API (GPT-4o) to obtain a fortune teller–style interpretation of the overall reading.
 
 ## Running
 
@@ -27,6 +27,9 @@ node server.js
 
 The server hosts the static files and proxies requests to the OpenAI API. Visit `http://localhost:3000` in your browser to use the app.
 This project requires **Node.js 18 or later** because it relies on the built-in `fetch` API.
+
+On first run the server creates a `tarot.db` SQLite database and populates it with card interpretations from `assets/interpretations.json`. If you modify that file, delete `tarot.db` before restarting the server so it can be regenerated.
+The file is generated automatically and should not be committed to version control.
 
 You can deploy to any service that runs Node (for example Render or Vercel). Set the environment variable `OPENAI_API_KEY` and use `node server.js` as the start command.
 
