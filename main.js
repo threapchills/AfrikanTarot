@@ -24,6 +24,10 @@ async function displaySlot(slot, card) {
     const container = document.getElementById('threeCardContainer');
     document.getElementById(`${slot}Image`).src = card.image;
     document.getElementById(`${slot}Name`).textContent = card.name;
+ e7y89c-codex/add-draw-3-cards-functionality
+
+    playSound(card.sound);
+main
     const interpretation = await getInterpretation(card);
     const interpEl = document.getElementById(`${slot}Interpretation`);
     if (interpEl) {
@@ -47,7 +51,6 @@ async function drawCards(cards) {
         displaySlot('present', drawn[1]),
         displaySlot('future', drawn[2])
     ]);
-    playSound();
 }
 
 window.addEventListener('DOMContentLoaded', async () => {
