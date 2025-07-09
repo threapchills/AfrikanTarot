@@ -85,6 +85,22 @@ async function drawCards(cards) {
 }
 
 window.addEventListener('DOMContentLoaded', async () => {
+    const apiKeyContainer = document.getElementById('apiKeyContainer');
+    const saveKeyBtn = document.getElementById('saveApiKey');
+    const apiKeyInput = document.getElementById('apiKeyInput');
+
+    if (!localStorage.getItem('OPENAI_API_KEY')) {
+        apiKeyContainer.classList.remove('hidden');
+    }
+
+    saveKeyBtn.addEventListener('click', () => {
+        const key = apiKeyInput.value.trim();
+        if (key) {
+            localStorage.setItem('OPENAI_API_KEY', key);
+            apiKeyContainer.classList.add('hidden');
+        }
+    });
+
     const cards = await loadCards();
     document.getElementById('drawCards').addEventListener('click', () => drawCards(cards));
     document.getElementById('modalClose').addEventListener('click', hideModal);

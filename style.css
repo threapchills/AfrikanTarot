@@ -18,6 +18,20 @@ body {
     margin: 0 auto;
 }
 
+#apiKeyContainer {
+    margin: 15px 0;
+}
+
+#apiKeyContainer.hidden {
+    display: none;
+}
+
+#apiKeyInput {
+    padding: 5px;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
 h1,
 #intro {
     border: 2px solid rgba(255, 255, 255, 0.7);
