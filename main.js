@@ -14,8 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const imageModal = document.getElementById('imageModal');
     const modalImage = document.getElementById('modalImage');
     const modalClose = document.getElementById('modalClose');
-
-    // **NEW**: Get a reference to the audio element
     const cardSound = document.getElementById('cardSound');
 
     let cards = [];
@@ -45,10 +43,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Draw and Display Cards ---
     function drawAndDisplayCards() {
-        // **NEW**: Play the sound effect
+        // Play the sound effect
         if (cardSound) {
-            cardSound.currentTime = 0; // Rewind to the start
-            cardSound.play();
+            cardSound.currentTime = 0;
+            // The play() method returns a Promise, which can be useful for debugging
+            const playPromise = cardSound.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(error => {
+                    console.error("Audio playback failed:", error);
+                });
+            }
         }
 
         if (cards.length === 0) return;
