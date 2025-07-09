@@ -14,31 +14,33 @@
         <button id="drawCards">Draw Cards</button>
         <div id="threeCardContainer" class="hidden">
             <div class="slot">
-    <h3>Past</h3>
-    <p id="pastName" class="card-name"></p> <img id="pastImage" src="" alt="Past Card" />
-    <div id="pastInterpretation" class="interpretation"></div>
-</div>
-    <div class="slot">
-        <h3>Present</h3>
-        <p id="presentName" class="card-name"></p> <img id="presentImage" src="" alt="Present Card" />
-        <div id="presentInterpretation" class="interpretation"></div>
-    </div>
-    <div class="slot">
-        <h3>Future</h3>
-        <p id="futureName" class="card-name"></p> <img id="futureImage" src="" alt="Future Card" />
-        <div id="futureInterpretation" class="interpretation"></div>
-    </div>
+                <h3>Past</h3>
+                <p id="pastName" class="card-name"></p>
+                <img id="pastImage" src="" alt="Past Card" />
+                <div id="pastInterpretation" class="interpretation"></div>
+            </div>
+            <div class="slot">
+                <h3>Present</h3>
+                <p id="presentName" class="card-name"></p>
+                <img id="presentImage" src="" alt="Present Card" />
+                <div id="presentInterpretation" class="interpretation"></div>
+            </div>
+            <div class="slot">
+                <h3>Future</h3>
+                <p id="futureName" class="card-name"></p>
+                <img id="futureImage" src="" alt="Future Card" />
+                <div id="futureInterpretation" class="interpretation"></div>
+            </div>
         </div>
-        <div id="overallInterpretation" class="interpretation hidden"></div>
-        <audio id="cardSound"></audio>
     </div>
-    <div id="imageModal" class="hidden">
+
+    <div id="imageModal">
         <span id="modalClose">&times;</span>
         <img id="modalImage" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Full Size Card" />
     </div>
-    <script type="module" src="main.js" data-api-base=""></script>
+
+    <audio id="cardSound" src="assets/sounds/card.mp3" preload="auto"></audio>
+
     <script type="module" src="main.js"></script>
-    <audio id="cardSound" src="assets/sounds/card.mp3" preload="auto"></audio> 
 </body>
 </html>
-
