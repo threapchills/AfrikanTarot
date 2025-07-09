@@ -1,1 +1,68 @@
+Original Tarot Name	Custom Card Name	Done (66 cards total)
+0 – The Fool	The Suspended Path	✓
+I – The Magician	The Magician	✓
+II – The High Priestess	Moonwake	✓
+III – The Empress	The Matriarch	✓
+IV – The Emperor	The Earthfather	✓
+V – The Hierophant	The Bone Reader	✓
+VI – The Lovers	Pathfinders	✓
+VII – The Chariot	Tracker	✓
+VIII – Strength	Strength	✓
+IX – The Hermit	The Time Cave	✓
+X – Wheel of Fortune	The Sky Drum	✓
+XI – Justice	Shadow Spear	✓
+XII – The Hanged Man	The Suspended Path	✓
+XIII – Death	Stone Fall	✓
+XIV – Temperance	Temperence	✓
+XV – The Devil	Fire Eater	✓
+XVI – The Tower	Fire Pit	✓
+XVII – The Star	The Starcaller	✓
+XVIII – The Moon	Moonwake	✓
+XIX – The Sun	The Suntribe	✓
+XX – Judgement	The Drum Awakens	✓
+XXI – The World	The Weaver	✓
+Suit of Air (Swords)
+Original Tarot Name	Custom Card Name	Done
+Ace of Swords	Ace of Air	✓
+Two of Swords	Two of Air	✓
+Three of Swords	Three of Air	✓
+Four of Swords	The Resting Wind	✓
+Five of Swords	The Broken Feather	✓
+Six of Swords	River Crossing	✓
+Seven of Swords	The Silent Step	✓
+Queen of Swords	Sky Matron	✓
+King of Swords	Lord of Winds	✓
+Suit of Fire (Wands)
+Original Tarot Name	Custom Card Name	Done
+Ace of Wands	Ace of Fire	✓
+Two of Wands	Two of Fire	✓
+Three of Wands	Three of Fire	✓
+Four of Wands	Four of Fire	✓
+Five of Wands	Five of Fire	✓
+Six of Wands	Ember Crown	✓
+Seven of Wands	Fireline	✓
+Queen of Wands	Lady Ashen	✓
+King of Wands	Flame Sovereign	✓
+Suit of Water (Cups)
+Original Tarot Name	Custom Card Name	Done
+Ace of Cups	Ace of Water	✓
+Two of Cups	Two of Water	✓
+Three of Cups	Three of Water	✓
+Four of Cups	Four of Water	✓
+Five of Cups	Shattered Vessel	✓
+Six of Cups	Memory Tide	✓
+Seven of Cups	Mirage Choice	✓
+Queen of Cups	The Deep Listener	✓
+King of Cups	Water Sovereign	✓
+Suit of Bone (Pentacles)
+Original Tarot Name	Custom Card Name	Done
+Ace of Pentacles	Ace of Bone	✓
+Two of Pentacles	Two of Air (New)	✓
+Three of Pentacles	Three of Bone	✓
+Four of Pentacles	Four of Bone	✓
+Five of Pentacles	Stone Fall	✓
+Six of Pentacles	Shared Meat	✓
+Seven of Pentacles	Waiting Bones	✓
+Queen of Pentacles	Bone Matron	✓
+King of Pentacles	Lord of Bone	✓
 
