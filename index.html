@@ -9,13 +9,28 @@
 <body>
     <div id="app">
         <h1>Afrikan Tarot Reading</h1>
-        <button id="drawCard">Draw Card</button>
-        <div id="cardContainer" class="hidden">
-            <img id="cardImage" src="" alt="Card" />
-            <p id="cardName"></p>
-            <audio id="cardSound"></audio>
-            <div id="interpretation"></div>
+        <button id="drawCards">Draw Cards</button>
+        <div id="threeCardContainer" class="hidden">
+            <div class="slot">
+                <h3>Past</h3>
+                <img id="pastImage" src="" alt="Past Card" />
+                <p id="pastName"></p>
+                <div id="pastInterpretation" class="interpretation"></div>
+            </div>
+            <div class="slot">
+                <h3>Present</h3>
+                <img id="presentImage" src="" alt="Present Card" />
+                <p id="presentName"></p>
+                <div id="presentInterpretation" class="interpretation"></div>
+            </div>
+            <div class="slot">
+                <h3>Future</h3>
+                <img id="futureImage" src="" alt="Future Card" />
+                <p id="futureName"></p>
+                <div id="futureInterpretation" class="interpretation"></div>
+            </div>
         </div>
+        <audio id="cardSound"></audio>
     </div>
     <script type="module" src="main.js"></script>
 </body>
