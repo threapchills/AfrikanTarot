@@ -9,7 +9,7 @@ body {
     background-attachment: fixed;
     color: #fff;
     margin: 0;
-    padding: 2em; /* Add some padding to the body */
+    padding: 2em;
 }
 
 /* --- App Container and Header Styles --- */
@@ -18,24 +18,20 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    max-width: 1200px; /* Increased max-width for better desktop view */
+    max-width: 1200px;
     margin: 0 auto;
 }
 
 h1 {
-    border: 2px solid rgba(255, 255, 255, 0.7);
-    padding: 10px 20px;
-    border-radius: 8px;
-    background-color: rgba(0, 0, 0, 0.4);
-    display: inline-block;
-    font-size: 2.5em; /* Adjusted for impact */
+    font-size: 2.5em;
+    /* text-transform is not needed, user-typed case is preserved */
 }
 
 #intro {
     margin: 10px 0 20px;
     font-style: italic;
     font-size: 1.1em;
-    text-transform: none; /* Sentence case */
+    text-transform: none; /* Ensures sentence case */
 }
 
 button {
@@ -48,7 +44,7 @@ button {
     color: #fff;
     border-radius: 5px;
     transition: transform 0.2s;
-    text-transform: uppercase; /* Button text in caps */
+    text-transform: uppercase; /* Keeps button text in caps */
 }
 
 button:hover {
@@ -58,15 +54,13 @@ button:hover {
 /* --- Main Card Container (#threeCardContainer) --- */
 #threeCardContainer {
     display: flex;
-    justify-content: space-around;  /* Distributes space between cards */
-    align-items: flex-start;        /* Aligns cards to the top */
-    flex-wrap: nowrap;              /* **Forces cards into a single row on desktop** */
-    gap: 25px;                      /* Space between the cards */
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: nowrap; /* Forces cards into a single row on desktop */
+    gap: 25px;
     width: 100%;
     margin-top: 2em;
     padding: 2em;
-    
-    /* Background Image Styling */
     background-image: url('assets/images/mat.png');
     background-size: cover;
     background-position: center;
@@ -81,13 +75,13 @@ button:hover {
 
 /* --- Individual Card Slot Styles --- */
 .slot {
-    flex: 1;                        /* Allows slots to share space equally */
-    min-width: 250px;               /* Prevents cards from getting too narrow */
-    max-width: 350px;               /* Prevents cards from getting too wide */
+    flex: 1;
+    min-width: 250px;
+    max-width: 350px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.3); /* Soft background for each slot */
+    background-color: rgba(0, 0, 0, 0.3);
     padding: 1.5em;
     border-radius: 10px;
 }
@@ -96,8 +90,8 @@ button:hover {
     color: #fff;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
     margin-bottom: 0.5em;
-    text-transform: uppercase; /* Keep these titles in caps */
     font-size: 1.3em;
+    text-transform: none; /* **FIX**: Changed to regular sentence case */
 }
 
 .card-name {
@@ -107,7 +101,7 @@ button:hover {
     color: #f0e6d2;
     margin: 0.5em 0 1em 0;
     min-height: 2.2em;
-    text-transform: none; /* Sentence case for card name */
+    text-transform: none; /* Ensures regular sentence case */
 }
 
 .slot img {
@@ -118,29 +112,28 @@ button:hover {
 }
 
 .interpretation {
-    text-transform: none; /* Sentence case for interpretation text */
+    text-transform: none; /* **FIX**: Ensures regular sentence case */
     margin-top: 1em;
-    text-align: left; /* Easier to read */
-    font-family: sans-serif; /* A more readable font for body text */
+    text-align: left; /* Align text left for better readability */
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* **FIX**: A more readable font */
     font-size: 0.95em;
-    line-height: 1.6;
+    line-height: 1.6; /* Increases line spacing for readability */
 }
 
-
 /* --- Mobile Responsiveness --- */
-@media (max-width: 900px) { /* A wider breakpoint for tablets */
+@media (max-width: 900px) {
     #threeCardContainer {
-        flex-direction: column;   /* Stack the cards vertically */
-        align-items: center;      /* Center the stack */
+        flex-direction: column;
+        align-items: center;
     }
 
     .slot {
         width: 90%;
-        max-width: 450px; /* Allow cards to be a bit larger on tablets */
+        max-width: 450px;
     }
 }
 
-@media (max-width: 480px) { /* Specific adjustments for small phones */
+@media (max-width: 480px) {
      body {
         padding: 1em;
      }
