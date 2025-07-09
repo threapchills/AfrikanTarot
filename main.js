@@ -11,11 +11,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const pastNameEl = document.getElementById('pastName');
     const presentNameEl = document.getElementById('presentName');
     const futureNameEl = document.getElementById('futureName');
-
-    // **NEW**: Get references for the image modal
     const imageModal = document.getElementById('imageModal');
     const modalImage = document.getElementById('modalImage');
     const modalClose = document.getElementById('modalClose');
+
+    // **NEW**: Get a reference to the audio element
+    const cardSound = document.getElementById('cardSound');
 
     let cards = [];
     let interpretations = [];
@@ -44,6 +45,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Draw and Display Cards ---
     function drawAndDisplayCards() {
+        // **NEW**: Play the sound effect
+        if (cardSound) {
+            cardSound.currentTime = 0; // Rewind to the start
+            cardSound.play();
+        }
+
         if (cards.length === 0) return;
         threeCardContainer.classList.remove('hidden');
 
@@ -59,8 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
         imgElement.src = imagePath;
         imgElement.alt = card.name;
         nameElement.textContent = card.name;
-
-        // **NEW**: Add click listener to the image for zoom
+        
         imgElement.onclick = () => openModal(imagePath);
 
         const interpretationKey = `${card.name} - ${position}`;
@@ -68,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
         interpretationElement.textContent = foundInterpretation ? foundInterpretation.value : `Interpretation for "${interpretationKey}" not found.`;
     }
 
-    // **NEW**: Functions to control the image modal
+    // --- Image Modal Controls ---
     function openModal(imageSrc) {
         modalImage.src = imageSrc;
         imageModal.classList.add('visible');
@@ -80,11 +86,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Initialize App and Event Listeners ---
     drawButton.addEventListener('click', drawAndDisplayCards);
-
-    // **NEW**: Add listeners to close the modal
     modalClose.addEventListener('click', closeModal);
     imageModal.addEventListener('click', (e) => {
-        // Close modal only if the click is on the background, not the image itself
         if (e.target === imageModal) {
             closeModal();
         }
