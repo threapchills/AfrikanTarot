@@ -1,36 +1,37 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const drawButton = document.getElementById('draw-button');
-    const pastCardImg = document.getElementById('past-card');
-    const presentCardImg = document.getElementById('present-card');
-    const futureCardImg = document.getElementById('future-card');
-    const pastInterpretationEl = document.getElementById('past-interpretation');
-    const presentInterpretationEl = document.getElementById('present-interpretation');
-    const futureInterpretationEl = document.getElementById('future-interpretation');
+    // Correctly match the IDs from your index.html file
+    const drawButton = document.getElementById('drawCards');
+    const pastCardImg = document.getElementById('pastImage');
+    const presentCardImg = document.getElementById('presentImage');
+    const futureCardImg = document.getElementById('futureImage');
+    const pastInterpretationEl = document.getElementById('pastInterpretation');
+    const presentInterpretationEl = document.getElementById('presentInterpretation');
+    const futureInterpretationEl = document.getElementById('futureInterpretation');
+    const threeCardContainer = document.getElementById('threeCardContainer');
 
     let cards = [];
     let interpretations = [];
 
-    // Fetch card names and interpretations when the page loads
+    // Fetch card names and interpretations from your assets folder
     async function loadData() {
         try {
-            // Use the cards.json file for a structured list of cards
+            // Fetch the list of cards
             const cardsResponse = await fetch('assets/cards.json');
-            if (!cardsResponse.ok) throw new Error(`HTTP error! status: ${cardsResponse.status}`);
+            if (!cardsResponse.ok) throw new Error(`Failed to fetch cards.json: ${cardsResponse.status}`);
             const cardsData = await cardsResponse.json();
-            cards = cardsData.cards.map(card => card.name); // Assuming cards.json has a "cards" array with "name" properties
+            cards = cardsData.cards.map(card => card.name);
 
             // Fetch the interpretations
             const interpretationsResponse = await fetch('assets/interpretations.json');
-            if (!interpretationsResponse.ok) throw new Error(`HTTP error! status: ${interpretationsResponse.status}`);
+            if (!interpretationsResponse.ok) throw new Error(`Failed to fetch interpretations.json: ${interpretationsResponse.status}`);
             interpretations = await interpretationsResponse.json();
 
-            drawButton.disabled = false; // Enable the button once data is loaded
+            drawButton.disabled = false; // Enable the button now that data is loaded
             console.log("Card and interpretation data loaded successfully.");
 
         } catch (error) {
             console.error("Failed to load initial data:", error);
-            // Display an error to the user if data fails to load
-            presentInterpretationEl.textContent = "Could not load card data. Please refresh the page.";
+            presentInterpretationEl.textContent = "Could not load card data. Please check file paths and JSON format.";
         }
     }
 
@@ -39,31 +40,29 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error("Data not loaded, cannot draw cards.");
             return;
         }
-
-        // --- Clear previous results ---
-        pastInterpretationEl.textContent = '...';
-        presentInterpretationEl.textContent = '...';
-        futureInterpretationEl.textContent = '...';
         
-        // --- Shuffle and pick 3 unique cards ---
+        // Make the card container visible
+        threeCardContainer.classList.remove('hidden');
+
+        // Shuffle and pick 3 unique cards
         const shuffledCards = [...cards].sort(() => 0.5 - Math.random());
         const pastCardName = shuffledCards[0];
         const presentCardName = shuffledCards[1];
         const futureCardName = shuffledCards[2];
 
-        // --- Display Cards and Interpretations ---
+        // Display each card and its interpretation
         displayCard('Past', pastCardName, pastCardImg, pastInterpretationEl);
         displayCard('Present', presentCardName, presentCardImg, presentInterpretationEl);
         displayCard('Future', futureCardName, futureCardImg, futureInterpretationEl);
     }
 
     function displayCard(position, cardName, imgElement, interpretationElement) {
-        // 1. Set the card image
-        const imageName = cardName.toLowerCase().replace(/\s+/g, '-'); // e.g., "6 of Water" -> "6-of-water"
-        imgElement.src = `assets/images/cards/${imageName}.png`; // Assuming .png format
+        // Set the card image source
+        const imageName = cardName.replace(/\s+/g, '-'); // "6 of Water" -> "6-of-Water"
+        imgElement.src = `assets/images/cards/${imageName}.png`;
         imgElement.alt = cardName;
 
-        // 2. Find and set the interpretation
+        // Find and display the correct interpretation
         const interpretationKey = `${cardName} - ${position}`;
         const foundInterpretation = interpretations.find(item => item.key === interpretationKey);
 
@@ -71,12 +70,11 @@ document.addEventListener('DOMContentLoaded', () => {
             interpretationElement.textContent = foundInterpretation.value;
         } else {
             interpretationElement.textContent = `Interpretation for "${interpretationKey}" not found.`;
-            console.warn(`Could not find interpretation for key: ${interpretationKey}`);
         }
     }
 
-    // --- Initialize the app ---
+    // --- Initialize the App ---
     drawButton.addEventListener('click', drawAndDisplayCards);
-    drawButton.disabled = true; // Disable button until data is loaded
+    drawButton.disabled = true; // Button is disabled until data is loaded
     loadData();
 });
