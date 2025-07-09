@@ -1,7 +1,6 @@
 body {
-    font-family: Arial, sans-serif;
-    background: url('assets/images/background.jpg') no-repeat center center fixed;
-    background-size: cover;
+    font-family: 'Cinzel', serif;
+    background-color: #7b3f00; /* rich dark orange brown */
     color: #fff;
     text-align: center;
     margin: 0;
@@ -10,6 +9,8 @@ body {
 
 #app {
     padding-top: 50px;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 button {
@@ -17,7 +18,7 @@ button {
     font-size: 1.2em;
     cursor: pointer;
     border: none;
-    background-color: #f39c12;
+    background-color: #d35400;
     color: #fff;
     border-radius: 5px;
     transition: transform 0.2s;
@@ -27,23 +28,45 @@ button:hover {
     transform: scale(1.05);
 }
 
-#cardContainer {
+#threeCardContainer {
     margin-top: 20px;
     animation: fadeIn 1s forwards;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
-#cardContainer.hidden {
+.slot {
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.interpretation {
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+
+#threeCardContainer.hidden {
     display: none;
 }
 
-#cardImage {
-    width: 300px;
-    height: auto;
+.slot img {
+    width: 200px;
+    height: 300px; background-color: rgba(255,255,255,0.2);
     box-shadow: 0 4px 6px rgba(0,0,0,0.3);
     border-radius: 10px;
+
+    object-fit: cover;
+}
+
+.slotLabel {
+    margin-top: 5px;
+    font-weight: bold;
 }
 
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
 }
+#intro { margin: 10px 0 20px; font-style: italic; }

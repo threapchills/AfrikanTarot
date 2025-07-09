@@ -7,27 +7,50 @@ async function loadCards() {
 
 function playSound(url) {
     const audio = document.getElementById('cardSound');
-    if (!url) return;
+    const fallback = [
+        'assets/sounds/uHadi (Guitar).mp3',
+        'assets/sounds/uHadi (Percussion).mp3',
+        'assets/sounds/noita1.mp3'
+    ];
+    audio.volume = 0.25;
+    if (!url) {
+        url = fallback[Math.floor(Math.random() * fallback.length)];
+    }
     audio.src = url;
     audio.play();
 }
 
-function displayCard(card) {
-    const container = document.getElementById('cardContainer');
-    document.getElementById('cardImage').src = card.image;
-    document.getElementById('cardName').textContent = card.name;
-    playSound(card.sound);
+async function displaySlot(slot, card) {
+    const container = document.getElementById('threeCardContainer');
+    document.getElementById(`${slot}Image`).src = card.image;
+    document.getElementById(`${slot}Name`).textContent = card.name;
+    const interpretation = await getInterpretation(card);
+    const interpEl = document.getElementById(`${slot}Interpretation`);
+    if (interpEl) {
+        interpEl.textContent = interpretation;
+    }
     container.classList.remove('hidden');
 }
 
-async function drawCard(cards) {
-    const card = cards[Math.floor(Math.random() * cards.length)];
-    displayCard(card);
-    const interpretation = await getInterpretation(card);
-    document.getElementById('interpretation').textContent = interpretation;
+async function drawCards(cards) {
+    const used = new Set();
+    const drawn = [];
+    while (drawn.length < 3) {
+        const idx = Math.floor(Math.random() * cards.length);
+        if (!used.has(idx)) {
+            used.add(idx);
+            drawn.push(cards[idx]);
+        }
+    }
+    await Promise.all([
+        displaySlot('past', drawn[0]),
+        displaySlot('present', drawn[1]),
+        displaySlot('future', drawn[2])
+    ]);
+    playSound();
 }
 
 window.addEventListener('DOMContentLoaded', async () => {
     const cards = await loadCards();
-    document.getElementById('drawCard').addEventListener('click', () => drawCard(cards));
+    document.getElementById('drawCards').addEventListener('click', () => drawCards(cards));
 });

@@ -4,18 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Afrikan Tarot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="app">
         <h1>Afrikan Tarot Reading</h1>
-        <button id="drawCard">Draw Card</button>
-        <div id="cardContainer" class="hidden">
-            <img id="cardImage" src="" alt="Card" />
-            <p id="cardName"></p>
-            <audio id="cardSound"></audio>
-            <div id="interpretation"></div>
+        <p id="intro">Focus on your question and draw three cards.</p>
+        <button id="drawCards">Draw Cards</button>
+        <div id="threeCardContainer">
+            <div class="slot">
+                <img id="pastImage" src="" alt="Past Card" />
+                <p class="slotLabel">Past</p>
+                <p id="pastName"></p>
+                <div id="pastInterpretation" class="interpretation"></div>
+            </div>
+            <div class="slot">
+                <img id="presentImage" src="" alt="Present Card" />
+                <p class="slotLabel">Present</p>
+                <p id="presentName"></p>
+                <div id="presentInterpretation" class="interpretation"></div>
+            </div>
+            <div class="slot">
+                <img id="futureImage" src="" alt="Future Card" />
+                <p class="slotLabel">Future</p>
+                <p id="futureName"></p>
+                <div id="futureInterpretation" class="interpretation"></div>
+            </div>
         </div>
+        <audio id="cardSound"></audio>
     </div>
     <script type="module" src="main.js"></script>
 </body>
