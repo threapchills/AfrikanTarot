@@ -1,7 +1,19 @@
+export function promptForApiKey() {
+    let key = localStorage.getItem('OPENAI_API_KEY');
+    if (!key) {
+        key = prompt('Enter your OpenAI API key:');
+        if (key) {
+            localStorage.setItem('OPENAI_API_KEY', key);
+        }
+    }
+    return key;
+}
+
 export async function getInterpretation(card) {
-    const apiKey = localStorage.getItem('OPENAI_API_KEY');
+    let apiKey = localStorage.getItem('OPENAI_API_KEY');
     if (!apiKey) {
-        return 'Add your OpenAI API key to localStorage as OPENAI_API_KEY to get interpretations.';
+        apiKey = promptForApiKey();
+        if (!apiKey) return '';
     }
 
     const prompt = `Provide a short tarot interpretation for the card ${card.name} (traditional: ${card.traditional}).`;

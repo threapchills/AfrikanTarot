@@ -6,11 +6,8 @@ A simple static web application for performing ancient Afrikan tarot readings. C
 
 This project is designed for GitHub Pages. Push the contents of this repository to a GitHub repo and enable Pages in the repository settings.
 
-Open `index.html` in a browser or visit the GitHub Pages site after deployment. Before drawing cards, store your OpenAI key in the browser console:
-
-```javascript
-localStorage.setItem('OPENAI_API_KEY', 'sk-...');
-```
+Open `index.html` in a browser or visit the GitHub Pages site after deployment. When the app loads it will prompt you for your OpenAI API key.
+The key is saved in `localStorage` so you only need to enter it once.
 
 Card images should be saved in `assets/images/` and sound effects in `assets/sounds/` using the filenames referenced in `assets/cards.json`.
 If a card does not specify a sound, a short Uhadi percussion track plays when the card is drawn.

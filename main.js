@@ -1,4 +1,4 @@
-import { getInterpretation } from './openai.js';
+import { getInterpretation, promptForApiKey } from './openai.js';
 
 async function loadCards() {
     const res = await fetch('assets/cards.json');
@@ -86,6 +86,7 @@ async function drawCards(cards) {
 
 window.addEventListener('DOMContentLoaded', async () => {
     const cards = await loadCards();
+    promptForApiKey();
     document.getElementById('drawCards').addEventListener('click', () => drawCards(cards));
     document.getElementById('modalClose').addEventListener('click', hideModal);
     document.getElementById('imageModal').addEventListener('click', (e) => {
