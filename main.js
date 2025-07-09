@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Get references to all the HTML elements we need to interact with
+    // --- Get references to all HTML elements ---
     const drawButton = document.getElementById('drawCards');
     const pastCardImg = document.getElementById('pastImage');
     const presentCardImg = document.getElementById('presentImage');
@@ -8,84 +8,88 @@ document.addEventListener('DOMContentLoaded', () => {
     const presentInterpretationEl = document.getElementById('presentInterpretation');
     const futureInterpretationEl = document.getElementById('futureInterpretation');
     const threeCardContainer = document.getElementById('threeCardContainer');
-
-    // **NEW**: Get references to the card name elements
     const pastNameEl = document.getElementById('pastName');
     const presentNameEl = document.getElementById('presentName');
     const futureNameEl = document.getElementById('futureName');
 
+    // **NEW**: Get references for the image modal
+    const imageModal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    const modalClose = document.getElementById('modalClose');
+
     let cards = [];
     let interpretations = [];
 
-    // This function runs once when the page loads to fetch our data
+    // --- Load Data ---
     async function loadData() {
         try {
             const cardsResponse = await fetch('assets/cards.json');
-            if (!cardsResponse.ok) throw new Error(`HTTP error! Status: ${cardsResponse.status}. Failed to load cards.json.`);
+            if (!cardsResponse.ok) throw new Error(`HTTP error loading cards.json`);
             cards = await cardsResponse.json();
-            console.log("Successfully fetched cards.json. Cards loaded:", cards.length);
 
             const interpretationsResponse = await fetch('assets/interpretations.json');
-            if (!interpretationsResponse.ok) throw new Error(`HTTP error! Status: ${interpretationsResponse.status}. Failed to load interpretations.json.`);
+            if (!interpretationsResponse.ok) throw new Error(`HTTP error loading interpretations.json`);
             interpretations = await interpretationsResponse.json();
-            console.log("Successfully fetched interpretations.json. Interpretations loaded:", interpretations.length);
 
             if (cards.length > 0 && interpretations.length > 0) {
                 drawButton.disabled = false;
-                console.log("Data loaded successfully. Draw button enabled.");
             } else {
-                throw new Error("Data loaded, but one of the data files is empty.");
+                throw new Error("Data files are empty.");
             }
-
         } catch (error) {
             console.error("CRITICAL ERROR LOADING DATA:", error);
-            presentInterpretationEl.textContent = "Error: Could not load card data. Please check the browser console (F12) for details.";
+            presentInterpretationEl.textContent = "Error: Could not load card data.";
         }
     }
 
-    // This function runs when the "Draw Cards" button is clicked
+    // --- Draw and Display Cards ---
     function drawAndDisplayCards() {
-        if (cards.length === 0) {
-            console.error("Cannot draw cards because card data is not loaded.");
-            return;
-        }
-
+        if (cards.length === 0) return;
         threeCardContainer.classList.remove('hidden');
 
         const shuffledCards = [...cards].sort(() => 0.5 - Math.random());
-        const pastCard = shuffledCards[0];
-        const presentCard = shuffledCards[1];
-        const futureCard = shuffledCards[2];
-
-        // **UPDATED**: Pass the new name elements to the display function
-        displayCard('Past', pastCard, pastCardImg, pastNameEl, pastInterpretationEl);
-        displayCard('Present', presentCard, presentCardImg, presentNameEl, presentInterpretationEl);
-        displayCard('Future', futureCard, futureCardImg, futureNameEl, futureInterpretationEl);
+        displayCard('Past', shuffledCards[0], pastCardImg, pastNameEl, pastInterpretationEl);
+        displayCard('Present', shuffledCards[1], presentCardImg, presentNameEl, presentInterpretationEl);
+        displayCard('Future', shuffledCards[2], futureCardImg, futureNameEl, futureInterpretationEl);
     }
 
-    // This helper function handles the logic for a single card slot
+    // --- Display a Single Card ---
     function displayCard(position, card, imgElement, nameElement, interpretationElement) {
-        // Set the image source directly from the 'image' property in cards.json
-        imgElement.src = `assets/images/cards/${card.image}`;
+        const imagePath = `assets/images/cards/${card.image}`;
+        imgElement.src = imagePath;
         imgElement.alt = card.name;
-
-        // **NEW**: Set the text content of the card name element
         nameElement.textContent = card.name;
 
-        // Find the matching interpretation
+        // **NEW**: Add click listener to the image for zoom
+        imgElement.onclick = () => openModal(imagePath);
+
         const interpretationKey = `${card.name} - ${position}`;
         const foundInterpretation = interpretations.find(item => item.key === interpretationKey);
-
-        if (foundInterpretation) {
-            interpretationElement.textContent = foundInterpretation.value;
-        } else {
-            interpretationElement.textContent = `Interpretation for "${interpretationKey}" not found.`;
-            console.warn(`Missing interpretation for key: ${interpretationKey}`);
-        }
+        interpretationElement.textContent = foundInterpretation ? foundInterpretation.value : `Interpretation for "${interpretationKey}" not found.`;
     }
 
-    // --- Initialize the App ---
+    // **NEW**: Functions to control the image modal
+    function openModal(imageSrc) {
+        modalImage.src = imageSrc;
+        imageModal.classList.add('visible');
+    }
+
+    function closeModal() {
+        imageModal.classList.remove('visible');
+    }
+
+    // --- Initialize App and Event Listeners ---
     drawButton.addEventListener('click', drawAndDisplayCards);
-    drawButton.disabled = true; // Button starts disabled
-    loadData(); // Load data when the page opens
+
+    // **NEW**: Add listeners to close the modal
+    modalClose.addEventListener('click', closeModal);
+    imageModal.addEventListener('click', (e) => {
+        // Close modal only if the click is on the background, not the image itself
+        if (e.target === imageModal) {
+            closeModal();
+        }
+    });
+    
+    drawButton.disabled = true;
+    loadData();
 });
