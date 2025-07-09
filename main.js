@@ -7,6 +7,7 @@ async function loadCards() {
 
 function playSound(url) {
     const audio = document.getElementById('cardSound');
+    if (!url) return;
     audio.src = url;
     audio.play();
 }
