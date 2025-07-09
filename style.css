@@ -16,6 +16,7 @@ body {
 button {
     padding: 10px 20px;
     font-size: 1.2em;
+    font-family: 'Cinzel', serif;
     cursor: pointer;
     border: none;
     background-color: #d35400;
@@ -62,6 +63,17 @@ button:hover {
 
 .slot img.center {
     width: 250px;
+}
+
+.slot h3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.slot h3 .icon {
+    font-size: 1.3em;
 }
 
 .slotLabel {
