@@ -10,7 +10,13 @@ Install dependencies and start the server:
 
 ```bash
 npm install
-OPENAI_API_KEY=sk-... npm start
+npm start
+```
+
+Create a `.env` file with your OpenAI API key so the server can read it:
+
+```env
+OPENAI_API_KEY=your-openai-key-here
 ```
 
 The server hosts the static files and proxies requests to the OpenAI API. Visit `http://localhost:3000` in your browser to use the app.
