@@ -1,398 +1,397 @@
 [
   {
     "id": "aceofair",
-    "past": "Past meaning of Ace Of Air",
-    "present": "Present meaning of Ace Of Air",
-    "future": "Future meaning of Ace Of Air"
+    "past": "Previously, Ace Of Air guided you toward intellect.",
+    "present": "At this moment, Ace Of Air reflects intellect.",
+    "future": "Soon, Ace Of Air ushers in intellect."
   },
   {
     "id": "aceofbone",
-    "past": "Past meaning of Ace Of Bone",
-    "present": "Present meaning of Ace Of Bone",
-    "future": "Future meaning of Ace Of Bone"
+    "past": "Long ago, Ace Of Bone spoke of security.",
+    "present": "Right now, it points to stability.",
+    "future": "Looking ahead, expect resources."
   },
   {
     "id": "aceoffire",
-    "past": "Past meaning of Ace Of Fire",
-    "present": "Present meaning of Ace Of Fire",
-    "future": "Future meaning of Ace Of Fire"
+    "past": "Previously, Ace Of Fire guided you toward energy.",
+    "present": "At this moment, Ace Of Fire reflects passion.",
+    "future": "Soon, Ace Of Fire ushers in impulse."
   },
   {
     "id": "aceofwater",
-    "past": "Past meaning of Ace Of Water",
-    "present": "Present meaning of Ace Of Water",
-    "future": "Future meaning of Ace Of Water"
+    "past": "In the past, Ace Of Water highlighted flow.",
+    "present": "Right now, it points to emotion.",
+    "future": "In time, Ace Of Water will reveal healing."
   },
   {
     "id": "bonereader",
-    "past": "Past meaning of Bone Reader",
-    "present": "Present meaning of Bone Reader",
-    "future": "Future meaning of Bone Reader"
+    "past": "In the past, Bone Reader highlighted foundation.",
+    "present": "Currently, Bone Reader encourages stability.",
+    "future": "In time, Bone Reader will reveal stability."
   },
   {
     "id": "drumawakens",
-    "past": "Past meaning of Drum Awakens",
-    "present": "Present meaning of Drum Awakens",
-    "future": "Future meaning of Drum Awakens"
+    "past": "Long ago, Drum Awakens spoke of mystery.",
+    "present": "At this moment, Drum Awakens reflects mystery.",
+    "future": "Looking ahead, expect transformation."
   },
   {
     "id": "fireeater",
-    "past": "Past meaning of FIRE EATER",
-    "present": "Present meaning of FIRE EATER",
-    "future": "Future meaning of FIRE EATER"
+    "past": "In the past, FIRE EATER highlighted energy.",
+    "present": "Right now, it points to passion.",
+    "future": "Soon, FIRE EATER ushers in energy."
   },
   {
     "id": "firepit",
-    "past": "Past meaning of Fire Pit",
-    "present": "Present meaning of Fire Pit",
-    "future": "Future meaning of Fire Pit"
+    "past": "Long ago, Fire Pit spoke of impulse.",
+    "present": "Currently, Fire Pit encourages impulse.",
+    "future": "In time, Fire Pit will reveal passion."
   },
   {
     "id": "fiveofair",
-    "past": "Past meaning of Five Of Air",
-    "present": "Present meaning of Five Of Air",
-    "future": "Future meaning of Five Of Air"
+    "past": "In the past, Five Of Air highlighted intellect.",
+    "present": "At this moment, Five Of Air reflects clarity.",
+    "future": "Soon, Five Of Air ushers in intellect."
   },
   {
     "id": "fiveofbone",
-    "past": "Past meaning of Five Of Bone",
-    "present": "Present meaning of Five Of Bone",
-    "future": "Future meaning of Five Of Bone"
+    "past": "Previously, Five Of Bone guided you toward stability.",
+    "present": "Currently, Five Of Bone encourages security.",
+    "future": "Soon, Five Of Bone ushers in security."
   },
   {
     "id": "fiveoffire",
-    "past": "Past meaning of Five Of Fire",
-    "present": "Present meaning of Five Of Fire",
-    "future": "Future meaning of Five Of Fire"
+    "past": "In the past, Five Of Fire highlighted impulse.",
+    "present": "Right now, it points to passion.",
+    "future": "Soon, Five Of Fire ushers in impulse."
   },
   {
     "id": "fiveofwater",
-    "past": "Past meaning of Five Of Water",
-    "present": "Present meaning of Five Of Water",
-    "future": "Future meaning of Five Of Water"
+    "past": "Previously, Five Of Water guided you toward flow.",
+    "present": "Currently, Five Of Water encourages flow.",
+    "future": "In time, Five Of Water will reveal intuition."
   },
   {
     "id": "fourofbone",
-    "past": "Past meaning of Four Of Bone",
-    "present": "Present meaning of Four Of Bone",
-    "future": "Future meaning of Four Of Bone"
+    "past": "Previously, Four Of Bone guided you toward stability.",
+    "present": "Currently, Four Of Bone encourages foundation.",
+    "future": "In time, Four Of Bone will reveal stability."
   },
   {
     "id": "fouroffire",
-    "past": "Past meaning of Four Of Fire",
-    "present": "Present meaning of Four Of Fire",
-    "future": "Future meaning of Four Of Fire"
+    "past": "In the past, Four Of Fire highlighted courage.",
+    "present": "Right now, it points to passion.",
+    "future": "In time, Four Of Fire will reveal courage."
   },
   {
     "id": "fourofwater",
-    "past": "Past meaning of Fourofwater",
-    "present": "Present meaning of Fourofwater",
-    "future": "Future meaning of Fourofwater"
+    "past": "In the past, Fourofwater highlighted healing.",
+    "present": "Currently, Fourofwater encourages flow.",
+    "future": "Looking ahead, expect healing."
   },
   {
     "id": "kingofair",
-    "past": "Past meaning of King Of Air",
-    "present": "Present meaning of King Of Air",
-    "future": "Future meaning of King Of Air"
+    "past": "Previously, King Of Air guided you toward clarity.",
+    "present": "Right now, it points to decision.",
+    "future": "Looking ahead, expect decision."
   },
   {
     "id": "kingofbone",
-    "past": "Past meaning of King Of Bone",
-    "present": "Present meaning of King Of Bone",
-    "future": "Future meaning of King Of Bone"
+    "past": "Long ago, King Of Bone spoke of security.",
+    "present": "At this moment, King Of Bone reflects resources.",
+    "future": "Looking ahead, expect stability."
   },
   {
     "id": "kingoffire",
-    "past": "Past meaning of King Of Fire",
-    "present": "Present meaning of King Of Fire",
-    "future": "Future meaning of King Of Fire"
+    "past": "Long ago, King Of Fire spoke of courage.",
+    "present": "Right now, it points to energy.",
+    "future": "Soon, King Of Fire ushers in impulse."
   },
   {
     "id": "kingofwater",
-    "past": "Past meaning of King Of Water",
-    "present": "Present meaning of King Of Water",
-    "future": "Future meaning of King Of Water"
+    "past": "In the past, King Of Water highlighted emotion.",
+    "present": "Currently, King Of Water encourages flow.",
+    "future": "Soon, King Of Water ushers in intuition."
   },
   {
     "id": "magician",
-    "past": "Past meaning of Magician",
-    "present": "Present meaning of Magician",
-    "future": "Future meaning of Magician"
+    "past": "In the past, Magician highlighted power.",
+    "present": "Currently, Magician encourages transformation.",
+    "future": "Looking ahead, expect transformation."
   },
   {
     "id": "matriarch",
-    "past": "Past meaning of Matriarch",
-    "present": "Present meaning of Matriarch",
-    "future": "Future meaning of Matriarch"
+    "past": "Long ago, Matriarch spoke of change.",
+    "present": "Right now, it points to mystery.",
+    "future": "Looking ahead, expect power."
   },
   {
     "id": "moonwake",
-    "past": "Past meaning of Moonwake",
-    "present": "Present meaning of Moonwake",
-    "future": "Future meaning of Moonwake"
+    "past": "In the past, Moonwake highlighted insight.",
+    "present": "At this moment, Moonwake reflects transformation.",
+    "future": "In time, Moonwake will reveal transformation."
   },
   {
     "id": "pathfinders",
-    "past": "Past meaning of Pathfinders",
-    "present": "Present meaning of Pathfinders",
-    "future": "Future meaning of Pathfinders"
+    "past": "Previously, Pathfinders guided you toward mystery.",
+    "present": "Right now, it points to insight.",
+    "future": "Looking ahead, expect insight."
   },
   {
     "id": "queenofair",
-    "past": "Past meaning of Queen Of Air",
-    "present": "Present meaning of Queen Of Air",
-    "future": "Future meaning of Queen Of Air"
+    "past": "Long ago, Queen Of Air spoke of clarity.",
+    "present": "Currently, Queen Of Air encourages logic.",
+    "future": "Soon, Queen Of Air ushers in intellect."
   },
   {
     "id": "queenofbone",
-    "past": "Past meaning of Queen Of Bone",
-    "present": "Present meaning of Queen Of Bone",
-    "future": "Future meaning of Queen Of Bone"
+    "past": "In the past, Queen Of Bone highlighted stability.",
+    "present": "Right now, it points to resources.",
+    "future": "Soon, Queen Of Bone ushers in foundation."
   },
   {
     "id": "queenoffire",
-    "past": "Past meaning of Queen Of Fire",
-    "present": "Present meaning of Queen Of Fire",
-    "future": "Future meaning of Queen Of Fire"
+    "past": "Long ago, Queen Of Fire spoke of energy.",
+    "present": "Right now, it points to passion.",
+    "future": "In time, Queen Of Fire will reveal energy."
   },
   {
     "id": "queenofwater",
-    "past": "Past meaning of Queen Of Water",
-    "present": "Present meaning of Queen Of Water",
-    "future": "Future meaning of Queen Of Water"
+    "past": "In the past, Queen Of Water highlighted healing.",
+    "present": "Right now, it points to intuition.",
+    "future": "In time, Queen Of Water will reveal healing."
   },
   {
     "id": "sevenofair",
-    "past": "Past meaning of Seven Of Air",
-    "present": "Present meaning of Seven Of Air",
-    "future": "Future meaning of Seven Of Air"
+    "past": "Previously, Seven Of Air guided you toward logic.",
+    "present": "At this moment, Seven Of Air reflects clarity.",
+    "future": "Looking ahead, expect decision."
   },
   {
     "id": "sevenofbone",
-    "past": "Past meaning of Seven Of Bone",
-    "present": "Present meaning of Seven Of Bone",
-    "future": "Future meaning of Seven Of Bone"
+    "past": "Long ago, Seven Of Bone spoke of resources.",
+    "present": "Currently, Seven Of Bone encourages stability.",
+    "future": "Soon, Seven Of Bone ushers in foundation."
   },
   {
     "id": "sevenoffire",
-    "past": "Past meaning of Seven Of Fire",
-    "present": "Present meaning of Seven Of Fire",
-    "future": "Future meaning of Seven Of Fire"
+    "past": "Previously, Seven Of Fire guided you toward energy.",
+    "present": "Right now, it points to energy.",
+    "future": "Soon, Seven Of Fire ushers in impulse."
   },
   {
     "id": "sevenofwater",
-    "past": "Past meaning of Seven Of Water",
-    "present": "Present meaning of Seven Of Water",
-    "future": "Future meaning of Seven Of Water"
+    "past": "Previously, Seven Of Water guided you toward intuition.",
+    "present": "At this moment, Seven Of Water reflects flow.",
+    "future": "Looking ahead, expect intuition."
   },
   {
     "id": "shadowspear",
-    "past": "Past meaning of Shadow Spear",
-    "present": "Present meaning of Shadow Spear",
-    "future": "Future meaning of Shadow Spear"
+    "past": "Long ago, Shadow Spear spoke of growth.",
+    "present": "Currently, Shadow Spear encourages insight.",
+    "future": "Looking ahead, expect power."
   },
   {
     "id": "sixofair",
-    "past": "Past meaning of Six Of Air",
-    "present": "Present meaning of Six Of Air",
-    "future": "Future meaning of Six Of Air"
+    "past": "In the past, Six Of Air highlighted logic.",
+    "present": "Currently, Six Of Air encourages decision.",
+    "future": "Looking ahead, expect decision."
   },
   {
     "id": "sixofbone",
-    "past": "Past meaning of Six Of Bone",
-    "present": "Present meaning of Six Of Bone",
-    "future": "Future meaning of Six Of Bone"
+    "past": "Long ago, Six Of Bone spoke of security.",
+    "present": "At this moment, Six Of Bone reflects stability.",
+    "future": "Soon, Six Of Bone ushers in foundation."
   },
   {
     "id": "sixoffire",
-    "past": "Past meaning of Six Of Fire",
-    "present": "Present meaning of Six Of Fire",
-    "future": "Future meaning of Six Of Fire"
+    "past": "In the past, Six Of Fire highlighted passion.",
+    "present": "At this moment, Six Of Fire reflects passion.",
+    "future": "In time, Six Of Fire will reveal impulse."
   },
   {
     "id": "sixofwater",
-    "past": "Past meaning of Six Of Water",
-    "present": "Present meaning of Six Of Water",
-    "future": "Future meaning of Six Of Water"
+    "past": "In the past, Six Of Water highlighted flow.",
+    "present": "Currently, Six Of Water encourages emotion.",
+    "future": "Looking ahead, expect healing."
   },
   {
     "id": "starcaller",
-    "past": "Past meaning of Starcaller",
-    "present": "Present meaning of Starcaller",
-    "future": "Future meaning of Starcaller"
+    "past": "Long ago, Starcaller spoke of change.",
+    "present": "At this moment, Starcaller reflects growth.",
+    "future": "Looking ahead, expect change."
   },
   {
     "id": "stonefall",
-    "past": "Past meaning of Stone Fall",
-    "present": "Present meaning of Stone Fall",
-    "future": "Future meaning of Stone Fall"
+    "past": "In the past, Stone Fall highlighted growth.",
+    "present": "Currently, Stone Fall encourages mystery.",
+    "future": "Soon, Stone Fall ushers in growth."
   },
   {
     "id": "strength",
-    "past": "Past meaning of Strength",
-    "present": "Present meaning of Strength",
-    "future": "Future meaning of Strength"
+    "past": "Long ago, Strength spoke of power.",
+    "present": "Currently, Strength encourages transformation.",
+    "future": "In time, Strength will reveal growth."
   },
   {
     "id": "sunknight",
-    "past": "Past meaning of Sunknight",
-    "present": "Present meaning of Sunknight",
-    "future": "Future meaning of Sunknight"
+    "past": "Long ago, Sunknight spoke of change.",
+    "present": "At this moment, Sunknight reflects transformation.",
+    "future": "Looking ahead, expect mystery."
   },
   {
     "id": "suntribe",
-    "past": "Past meaning of Suntribe",
-    "present": "Present meaning of Suntribe",
-    "future": "Future meaning of Suntribe"
+    "past": "Previously, Suntribe guided you toward change.",
+    "present": "At this moment, Suntribe reflects change.",
+    "future": "Looking ahead, expect change."
   },
   {
     "id": "suspendedpath",
-    "past": "Past meaning of Suspended Path",
-    "present": "Present meaning of Suspended Path",
-    "future": "Future meaning of Suspended Path"
+    "past": "In the past, Suspended Path highlighted insight.",
+    "present": "Right now, it points to mystery.",
+    "future": "In time, Suspended Path will reveal power."
   },
   {
     "id": "temperence",
-    "past": "Past meaning of Temperence",
-    "present": "Present meaning of Temperence",
-    "future": "Future meaning of Temperence"
+    "past": "In the past, Temperence highlighted power.",
+    "present": "At this moment, Temperence reflects change.",
+    "future": "Soon, Temperence ushers in growth."
   },
   {
     "id": "theearthfather",
-    "past": "Past meaning of The Earthfather",
-    "present": "Present meaning of The Earthfather",
-    "future": "Future meaning of The Earthfather"
+    "past": "Previously, The Earthfather guided you toward growth.",
+    "present": "At this moment, The Earthfather reflects change.",
+    "future": "Soon, The Earthfather ushers in power."
   },
   {
     "id": "theskydrum",
-    "past": "Past meaning of The Sky Drum",
-    "present": "Present meaning of The Sky Drum",
-    "future": "Future meaning of The Sky Drum"
+    "past": "Previously, The Sky Drum guided you toward growth.",
+    "present": "At this moment, The Sky Drum reflects insight.",
+    "future": "In time, The Sky Drum will reveal change."
   },
   {
     "id": "theweaver",
-    "past": "Past meaning of The Weaver",
-    "present": "Present meaning of The Weaver",
-    "future": "Future meaning of The Weaver"
+    "past": "In the past, The Weaver highlighted change.",
+    "present": "At this moment, The Weaver reflects insight.",
+    "future": "Looking ahead, expect growth."
   },
   {
     "id": "threeofair",
-    "past": "Past meaning of Three Of Air",
-    "present": "Present meaning of Three Of Air",
-    "future": "Future meaning of Three Of Air"
+    "past": "Long ago, Three Of Air spoke of clarity.",
+    "present": "Currently, Three Of Air encourages intellect.",
+    "future": "Looking ahead, expect clarity."
   },
   {
     "id": "threeofbone",
-    "past": "Past meaning of Three Of Bone",
-    "present": "Present meaning of Three Of Bone",
-    "future": "Future meaning of Three Of Bone"
+    "past": "Long ago, Three Of Bone spoke of security.",
+    "present": "At this moment, Three Of Bone reflects resources.",
+    "future": "Soon, Three Of Bone ushers in foundation."
   },
   {
     "id": "threeoffire",
-    "past": "Past meaning of Three Of Fire",
-    "present": "Present meaning of Three Of Fire",
-    "future": "Future meaning of Three Of Fire"
+    "past": "In the past, Three Of Fire highlighted energy.",
+    "present": "Currently, Three Of Fire encourages passion.",
+    "future": "In time, Three Of Fire will reveal passion."
   },
   {
     "id": "threeofwater",
-    "past": "Past meaning of Three Of Water",
-    "present": "Present meaning of Three Of Water",
-    "future": "Future meaning of Three Of Water"
+    "past": "Long ago, Three Of Water spoke of healing.",
+    "present": "Right now, it points to healing.",
+    "future": "In time, Three Of Water will reveal healing."
   },
   {
     "id": "timecave",
-    "past": "Past meaning of Time Cave",
-    "present": "Present meaning of Time Cave",
-    "future": "Future meaning of Time Cave"
+    "past": "Long ago, Time Cave spoke of growth.",
+    "present": "Right now, it points to insight.",
+    "future": "Looking ahead, expect growth."
   },
   {
     "id": "tracker",
-    "past": "Past meaning of Tracker",
-    "present": "Present meaning of Tracker",
-    "future": "Future meaning of Tracker"
+    "past": "In the past, Tracker highlighted power.",
+    "present": "Right now, it points to power.",
+    "future": "Soon, Tracker ushers in power."
   },
   {
     "id": "twoofair",
-    "past": "Past meaning of Two Of Air",
-    "present": "Present meaning of Two Of Air",
-    "future": "Future meaning of Two Of Air"
+    "past": "Previously, Two Of Air guided you toward clarity.",
+    "present": "Right now, it points to clarity.",
+    "future": "Looking ahead, expect decision."
   },
   {
     "id": "twooffire",
-    "past": "Past meaning of Two Of Fire",
-    "present": "Present meaning of Two Of Fire",
-    "future": "Future meaning of Two Of Fire"
+    "past": "Previously, Two Of Fire guided you toward passion.",
+    "present": "Right now, it points to courage.",
+    "future": "Looking ahead, expect passion."
   },
   {
     "id": "twoofwater",
-    "past": "Past meaning of Two Of Water",
-    "present": "Present meaning of Two Of Water",
-    "future": "Future meaning of Two Of Water"
+    "past": "Previously, Two Of Water guided you toward intuition.",
+    "present": "Currently, Two Of Water encourages intuition.",
+    "future": "Looking ahead, expect healing."
   },
   {
     "id": "extra1",
-    "past": "Past meaning of Extra Card 1",
-    "present": "Present meaning of Extra Card 1",
-    "future": "Future meaning of Extra Card 1"
+    "past": "In the past, Extra Card 1 highlighted power.",
+    "present": "Currently, Extra Card 1 encourages transformation.",
+    "future": "Soon, Extra Card 1 ushers in insight."
   },
   {
     "id": "extra2",
-    "past": "Past meaning of Extra Card 2",
-    "present": "Present meaning of Extra Card 2",
-    "future": "Future meaning of Extra Card 2"
+    "past": "Long ago, Extra Card 2 spoke of change.",
+    "present": "Right now, it points to mystery.",
+    "future": "In time, Extra Card 2 will reveal insight."
   },
   {
     "id": "extra3",
-    "past": "Past meaning of Extra Card 3",
-    "present": "Present meaning of Extra Card 3",
-    "future": "Future meaning of Extra Card 3"
+    "past": "In the past, Extra Card 3 highlighted growth.",
+    "present": "Currently, Extra Card 3 encourages insight.",
+    "future": "Looking ahead, expect insight."
   },
   {
     "id": "extra4",
-    "past": "Past meaning of Extra Card 4",
-    "present": "Present meaning of Extra Card 4",
-    "future": "Future meaning of Extra Card 4"
+    "past": "Long ago, Extra Card 4 spoke of transformation.",
+    "present": "At this moment, Extra Card 4 reflects transformation.",
+    "future": "Soon, Extra Card 4 ushers in change."
   },
   {
     "id": "extra5",
-    "past": "Past meaning of Extra Card 5",
-    "present": "Present meaning of Extra Card 5",
-    "future": "Future meaning of Extra Card 5"
+    "past": "Long ago, Extra Card 5 spoke of transformation.",
+    "present": "Right now, it points to insight.",
+    "future": "Looking ahead, expect growth."
   },
   {
     "id": "extra6",
-    "past": "Past meaning of Extra Card 6",
-    "present": "Present meaning of Extra Card 6",
-    "future": "Future meaning of Extra Card 6"
+    "past": "Previously, Extra Card 6 guided you toward mystery.",
+    "present": "At this moment, Extra Card 6 reflects insight.",
+    "future": "In time, Extra Card 6 will reveal transformation."
   },
   {
     "id": "extra7",
-    "past": "Past meaning of Extra Card 7",
-    "present": "Present meaning of Extra Card 7",
-    "future": "Future meaning of Extra Card 7"
+    "past": "Previously, Extra Card 7 guided you toward growth.",
+    "present": "Right now, it points to insight.",
+    "future": "In time, Extra Card 7 will reveal transformation."
   },
   {
     "id": "extra8",
-    "past": "Past meaning of Extra Card 8",
-    "present": "Present meaning of Extra Card 8",
-    "future": "Future meaning of Extra Card 8"
+    "past": "In the past, Extra Card 8 highlighted change.",
+    "present": "Right now, it points to power.",
+    "future": "Soon, Extra Card 8 ushers in mystery."
   },
   {
     "id": "extra9",
-    "past": "Past meaning of Extra Card 9",
-    "present": "Present meaning of Extra Card 9",
-    "future": "Future meaning of Extra Card 9"
+    "past": "Long ago, Extra Card 9 spoke of insight.",
+    "present": "At this moment, Extra Card 9 reflects mystery.",
+    "future": "Looking ahead, expect power."
   },
   {
     "id": "extra10",
-    "past": "Past meaning of Extra Card 10",
-    "present": "Present meaning of Extra Card 10",
-    "future": "Future meaning of Extra Card 10"
+    "past": "In the past, Extra Card 10 highlighted mystery.",
+    "present": "Currently, Extra Card 10 encourages change.",
+    "future": "In time, Extra Card 10 will reveal power."
   },
   {
     "id": "extra11",
-    "past": "Past meaning of Extra Card 11",
-    "present": "Present meaning of Extra Card 11",
-    "future": "Future meaning of Extra Card 11"
-  }
-]
+    "past": "Previously, Extra Card 11 guided you toward growth.",
+    "present": "At this moment, Extra Card 11 reflects insight.",
+    "future": "Soon, Extra Card 11 ushers in growth."
+  }]
