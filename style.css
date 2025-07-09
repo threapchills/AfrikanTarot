@@ -168,6 +168,18 @@ button:hover {
     border-radius: 10px;
 }
 
+#overallInterpretation {
+    margin-top: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    padding: 10px;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+#overallInterpretation.hidden {
+    display: none;
+}
+
 #modalClose {
     position: absolute;
     top: 20px;

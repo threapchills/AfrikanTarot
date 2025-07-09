@@ -1,4 +1,4 @@
-import { getInterpretation } from './openai.js';
+import { getInterpretation, getReadingInterpretation } from './openai.js';
 
 async function loadCards() {
     const res = await fetch('assets/cards.json');
@@ -40,6 +40,11 @@ function resetSlots() {
         const interp = document.getElementById(`${slot}Interpretation`);
         if (interp) interp.textContent = '';
     });
+    const overall = document.getElementById('overallInterpretation');
+    if (overall) {
+        overall.textContent = '';
+        overall.classList.add('hidden');
+    }
 }
 
 async function displaySlot(slot, card) {
@@ -82,6 +87,13 @@ async function drawCards(cards) {
         displaySlot('present', drawn[1]),
         displaySlot('future', drawn[2])
     ]);
+
+    const overall = document.getElementById('overallInterpretation');
+    if (overall) {
+        const reading = await getReadingInterpretation(drawn[0], drawn[1], drawn[2]);
+        overall.textContent = reading;
+        overall.classList.remove('hidden');
+    }
 }
 
 window.addEventListener('DOMContentLoaded', async () => {
