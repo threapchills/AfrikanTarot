@@ -1,35 +1,45 @@
+/* --- Base and General Styles --- */
 body {
     font-family: 'Cinzel', serif;
-    background-color: #7b3f00; /* rich dark orange brown */
+    background-color: #7b3f00; /* Fallback color */
     background-image: url('assets/images/tarotbg.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     color: #fff;
-    text-align: center;
     margin: 0;
-    padding: 0;
+    padding: 2em; /* Add some padding to the body */
 }
 
+/* --- App Container and Header Styles --- */
 #app {
-    padding-top: 50px;
-    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 1200px; /* Increased max-width for better desktop view */
     margin: 0 auto;
 }
 
-
-h1,
-#intro {
+h1 {
     border: 2px solid rgba(255, 255, 255, 0.7);
-    padding: 10px;
+    padding: 10px 20px;
     border-radius: 8px;
     background-color: rgba(0, 0, 0, 0.4);
     display: inline-block;
+    font-size: 2.5em; /* Adjusted for impact */
+}
+
+#intro {
+    margin: 10px 0 20px;
+    font-style: italic;
+    font-size: 1.1em;
+    text-transform: none; /* Sentence case */
 }
 
 button {
-    padding: 10px 20px;
+    padding: 12px 25px;
     font-size: 1.2em;
     font-family: 'Cinzel', serif;
     cursor: pointer;
@@ -38,229 +48,106 @@ button {
     color: #fff;
     border-radius: 5px;
     transition: transform 0.2s;
+    text-transform: uppercase; /* Button text in caps */
 }
 
 button:hover {
     transform: scale(1.05);
 }
 
+/* --- Main Card Container (#threeCardContainer) --- */
 #threeCardContainer {
-    margin-top: 20px;
-    animation: fadeIn 1s forwards;
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    justify-content: space-around;  /* Distributes space between cards */
+    align-items: flex-start;        /* Aligns cards to the top */
+    flex-wrap: nowrap;              /* **Forces cards into a single row on desktop** */
+    gap: 25px;                      /* Space between the cards */
+    width: 100%;
+    margin-top: 2em;
+    padding: 2em;
+    
+    /* Background Image Styling */
+    background-image: url('assets/images/mat.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 #threeCardContainer.hidden {
     display: none;
 }
 
-#threeCardContainer.with-background {
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding: 20px;
-    border-radius: 10px;
-    min-height: 80vh;
-}
-
+/* --- Individual Card Slot Styles --- */
 .slot {
-    background-color: rgba(0, 0, 0, 0.3);
-    padding: 10px;
-    border-radius: 8px;
-}
-
-.slot h3,
-.slot p,
-.interpretation {
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    padding: 4px;
-    border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0.4);
-}
-
-.slot img {
-    width: 200px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-    border-radius: 10px;
-    object-fit: cover;
-}
-
-.slot img.center {
-    width: 250px;
-}
-
-.slot h3 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-}
-
-.slot h3 .icon {
-    font-size: 1.3em;
-}
-
-.slotLabel {
-    margin-top: 5px;
-    font-weight: bold;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes kenBurns {
-    from {
-        transform: scale(1.3) translateY(-20px);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1) translateY(0);
-        opacity: 1;
-    }
-}
-
-.drawn {
-    animation: kenBurns 3s ease forwards;
-}
-
-#intro {
-    margin: 10px 0 20px;
-    font-style: italic;
-}
-
-#imageModal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-#imageModal.hidden {
-    display: none;
-}
-
-#imageModal img {
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: 10px;
-}
-
-#overallInterpretation {
-    margin-top: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    padding: 10px;
-    border-radius: 8px;
-    background-color: rgba(0, 0, 0, 0.4);
-}
-
-#overallInterpretation.hidden {
-    display: none;
-}
-
-#modalClose {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    font-size: 2em;
-    color: #fff;
-    cursor: pointer;
-}
-/* --- Add this code for mobile responsiveness --- */
-
-/* 1. Make the main container flexible */
-#threeCardContainer {
-    display: flex;
-    justify-content: space-around; /* Spreads cards out on wide screens */
-    align-items: flex-start;      /* Aligns them at the top */
-    flex-wrap: wrap;              /* Allows cards to wrap if needed */
-    gap: 20px;                    /* Adds space between cards */
-}
-
-/* 2. Ensure the card slots and images scale properly */
-.slot {
-    flex: 1;                      /* Allows slots to grow and shrink */
-    min-width: 250px;             /* Prevents cards from getting too squished */
+    flex: 1;                        /* Allows slots to share space equally */
+    min-width: 250px;               /* Prevents cards from getting too narrow */
+    max-width: 350px;               /* Prevents cards from getting too wide */
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: rgba(0, 0, 0, 0.3); /* Soft background for each slot */
+    padding: 1.5em;
+    border-radius: 10px;
+}
+
+.slot h3 { /* For "Past", "Present", "Future" */
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+    margin-bottom: 0.5em;
+    text-transform: uppercase; /* Keep these titles in caps */
+    font-size: 1.3em;
+}
+
+.card-name {
+    font-family: 'Cinzel', serif;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #f0e6d2;
+    margin: 0.5em 0 1em 0;
+    min-height: 2.2em;
+    text-transform: none; /* Sentence case for card name */
 }
 
 .slot img {
-    max-width: 100%;              /* Ensures images scale down with the slot */
+    max-width: 100%;
     height: auto;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
-/* 3. Use a Media Query for mobile devices */
-/* When the screen is 768px wide or less, these rules will apply */
-@media (max-width: 768px) {
+.interpretation {
+    text-transform: none; /* Sentence case for interpretation text */
+    margin-top: 1em;
+    text-align: left; /* Easier to read */
+    font-family: sans-serif; /* A more readable font for body text */
+    font-size: 0.95em;
+    line-height: 1.6;
+}
+
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 900px) { /* A wider breakpoint for tablets */
     #threeCardContainer {
         flex-direction: column;   /* Stack the cards vertically */
         align-items: center;      /* Center the stack */
     }
 
     .slot {
-        width: 90%;               /* Make each card take up most of the screen width */
-        max-width: 400px;
-    }
-
-    h1 {
-        font-size: 2em;
+        width: 90%;
+        max-width: 450px; /* Allow cards to be a bit larger on tablets */
     }
 }
-/* --- Add this to center the top content --- */
 
-#app {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center; 
-}
-/* --- UI Enhancement Styles --- */
-
-/* 1. Style the main card container */
-#threeCardContainer {
-    /* Assuming mat.png is in your assets/images/ folder */
-    background-image: url('assets/images/mat.png');
-    background-size: cover;
-    background-position: center;
-    border-radius: 15px; /* Rounded corners */
-    padding: 2em;
-    margin-top: 2em;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Subtle drop shadow */
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* 2. Style the new card name element */
-.card-name {
-    font-family: 'Cinzel', serif; /* Use the same font as the title */
-    font-size: 1.1em;
-    font-weight: bold;
-    color: #f0e6d2;
-    margin: 1em 0; /* Add space above and below the name */
-    min-height: 2.2em; /* Ensures layout is stable before names load */
-    text-transform: none; /* Explicitly set to regular case */
-}
-
-
-/* 3. Change existing text to regular sentence case */
-.slot h3, .interpretation {
-    text-transform: none; /* Removes the all-caps styling */
-}
-
-/* Ensure the Past/Present/Future titles are clear against the new background */
-.slot h3 {
-    color: #fff;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+@media (max-width: 480px) { /* Specific adjustments for small phones */
+     body {
+        padding: 1em;
+     }
+     h1 {
+        font-size: 1.8em;
+     }
+     #threeCardContainer {
+        padding: 1em;
+     }
 }
