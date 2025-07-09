@@ -4,14 +4,10 @@ A simple web application for performing ancient Afrikan tarot readings. Card dat
 
 ## Running
 
-This project is designed for GitHub Pages. Push the contents of this repository to a GitHub repo and enable Pages in the repository settings.
-
-Install dependencies and start the server:
+Clone the repository onto any host that supports Node.js and install the dependencies:
 
 ```bash
 npm install
-npm start
-
 ```
 
 Create a `.env` file with your OpenAI API key so the server can read it:
@@ -23,7 +19,17 @@ OPENAI_API_KEY=your-openai-key-here
 The `.env` file is listed in `.gitignore` so your API key stays private and is
 not committed to version control.
 
+Start the server:
+
+```bash
+node server.js
+```
+
 The server hosts the static files and proxies requests to the OpenAI API. Visit `http://localhost:3000` in your browser to use the app.
+
+You can deploy to any service that runs Node (for example Render or Vercel). Set the environment variable `OPENAI_API_KEY` and use `node server.js` as the start command.
+
+The front end expects the API routes to be served from the same origin. If the API is hosted separately you must adjust the URLs in `openai.js` and enable CORS.
 
 Card images should be saved in `assets/images/` and sound effects in `assets/sounds/` using the filenames referenced in `assets/cards.json`.
 If a card does not specify a sound, a short Uhadi percussion track plays when the card is drawn.
