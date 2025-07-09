@@ -1,6 +1,6 @@
 # Afrikan Tarot
 
-A simple static web application for performing ancient Afrikan tarot readings. Card data and images live in the `assets/` folder so they can easily be replaced. The app uses the OpenAI API to fetch card interpretations via the GPT-4 Turbo model if an API key is provided.
+A simple static web application for performing ancient Afrikan tarot readings. Card data and images live in the `assets/` folder so they can easily be replaced. The app uses the OpenAI API to fetch card interpretations via the GPT-4o model if an API key is provided.
 
 ## Running
 
