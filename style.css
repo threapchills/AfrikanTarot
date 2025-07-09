@@ -175,3 +175,47 @@ button:hover {
     color: #fff;
     cursor: pointer;
 }
+/* --- Add this code for mobile responsiveness --- */
+
+/* 1. Make the main container flexible */
+#threeCardContainer {
+    display: flex;
+    justify-content: space-around; /* Spreads cards out on wide screens */
+    align-items: flex-start;      /* Aligns them at the top */
+    flex-wrap: wrap;              /* Allows cards to wrap if needed */
+    gap: 20px;                    /* Adds space between cards */
+}
+
+/* 2. Ensure the card slots and images scale properly */
+.slot {
+    flex: 1;                      /* Allows slots to grow and shrink */
+    min-width: 250px;             /* Prevents cards from getting too squished */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.slot img {
+    max-width: 100%;              /* Ensures images scale down with the slot */
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* 3. Use a Media Query for mobile devices */
+/* When the screen is 768px wide or less, these rules will apply */
+@media (max-width: 768px) {
+    #threeCardContainer {
+        flex-direction: column;   /* Stack the cards vertically */
+        align-items: center;      /* Center the stack */
+    }
+
+    .slot {
+        width: 90%;               /* Make each card take up most of the screen width */
+        max-width: 400px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+}
