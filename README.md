@@ -13,6 +13,7 @@ localStorage.setItem('OPENAI_API_KEY', 'sk-...');
 ```
 
 Card images should be saved in `assets/images/` and sound effects in `assets/sounds/` using the filenames referenced in `assets/cards.json`.
+If a card does not specify a sound, a short Uhadi percussion track plays when the card is drawn.
 
 ## Modifying Cards
 
