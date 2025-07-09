@@ -227,3 +227,40 @@ button:hover {
   align-items: center;
   text-align: center; 
 }
+/* --- UI Enhancement Styles --- */
+
+/* 1. Style the main card container */
+#threeCardContainer {
+    /* Assuming mat.png is in your assets/images/ folder */
+    background-image: url('assets/images/mat.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px; /* Rounded corners */
+    padding: 2em;
+    margin-top: 2em;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Subtle drop shadow */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 2. Style the new card name element */
+.card-name {
+    font-family: 'Cinzel', serif; /* Use the same font as the title */
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #f0e6d2;
+    margin: 1em 0; /* Add space above and below the name */
+    min-height: 2.2em; /* Ensures layout is stable before names load */
+    text-transform: none; /* Explicitly set to regular case */
+}
+
+
+/* 3. Change existing text to regular sentence case */
+.slot h3, .interpretation {
+    text-transform: none; /* Removes the all-caps styling */
+}
+
+/* Ensure the Past/Present/Future titles are clear against the new background */
+.slot h3 {
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
