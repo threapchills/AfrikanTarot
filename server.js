@@ -3,6 +3,7 @@ import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
+import { seedDatabase, getInterpretation as getDbInterpretation } from './db.js';
 
 dotenv.config();
 
@@ -18,6 +19,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 const ALLOWED_ORIGINS = process.env.ALLOWED_ORIGINS?.split(',').map(o => o.trim()).filter(Boolean);
+
+seedDatabase();
 
 app.use(express.json());
 if (ALLOWED_ORIGINS && ALLOWED_ORIGINS.length > 0) {
@@ -44,19 +47,16 @@ async function callOpenAI(prompt, max_tokens) {
     return data.choices?.[0]?.message?.content?.trim() || 'No interpretation.';
 }
 
-app.post('/api/interpretation', async (req, res) => {
-    if (!OPENAI_API_KEY) {
-        return res.status(500).json({ error: 'API key not configured.' });
+app.post('/api/interpretation', (req, res) => {
+    const { cardId, tense } = req.body;
+    if (!cardId || !tense) {
+        return res.status(400).json({ error: 'cardId and tense required' });
     }
-    const { card } = req.body;
-    const prompt = `Provide a short tarot interpretation for the card ${card.name} (traditional: ${card.traditional}).`;
-    try {
-        const text = await callOpenAI(prompt, 60);
-        res.json({ interpretation: text });
-    } catch (e) {
-        console.error(e);
-        res.status(500).json({ error: 'Failed to fetch interpretation.' });
+    const text = getDbInterpretation(cardId, tense);
+    if (!text) {
+        return res.status(404).json({ error: 'Interpretation not found' });
     }
+    res.json({ interpretation: text });
 });
 
 app.post('/api/reading', async (req, res) => {

@@ -17,14 +17,14 @@ function buildUrl(path) {
     return base + path;
 }
 
-export async function getInterpretation(card) {
+export async function getInterpretation(cardId, tense) {
     try {
         const res = await fetch(buildUrl('/api/interpretation'), {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ card })
+            body: JSON.stringify({ cardId, tense })
         });
         if (!res.ok) throw new Error('Request failed');
         const data = await res.json();
