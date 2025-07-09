@@ -30,7 +30,15 @@ This project requires **Node.js 18 or later** because it relies on the built-in 
 
 You can deploy to any service that runs Node (for example Render or Vercel). Set the environment variable `OPENAI_API_KEY` and use `node server.js` as the start command.
 
-The front end expects the API routes to be served from the same origin. If the API is hosted separately you must adjust the URLs in `openai.js` and enable CORS.
+If the API lives on a different host, set `ALLOWED_ORIGINS` in the environment to a comma–separated list of origins and provide the base URL in the HTML:
+
+```html
+<script type="module" src="main.js" data-api-base="https://example.com"></script>
+```
+
+`openai.js` reads the `data-api-base` attribute (or `window.API_BASE_URL` if defined) to build the API URLs.
+
+The server enables CORS using the `ALLOWED_ORIGINS` variable, which should contain the same origins that load the front end.
 
 Card images should be saved in `assets/images/` and sound effects in `assets/sounds/` using the filenames referenced in `assets/cards.json`.
 If a card does not specify a sound, a short Uhadi percussion track plays when the card is drawn.

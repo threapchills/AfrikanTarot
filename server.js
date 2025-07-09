@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
@@ -16,8 +17,14 @@ if (majorVersion < 18) {
 const app = express();
 const PORT = process.env.PORT || 3000;
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
+const ALLOWED_ORIGINS = process.env.ALLOWED_ORIGINS?.split(',').map(o => o.trim()).filter(Boolean);
 
 app.use(express.json());
+if (ALLOWED_ORIGINS && ALLOWED_ORIGINS.length > 0) {
+    app.use(cors({ origin: ALLOWED_ORIGINS }));
+} else {
+    app.use(cors());
+}
 app.use(express.static(__dirname));
 
 async function callOpenAI(prompt, max_tokens) {
