@@ -11,6 +11,7 @@ Install dependencies and start the server:
 ```bash
 npm install
 npm start
+
 ```
 
 Create a `.env` file with your OpenAI API key so the server can read it:
