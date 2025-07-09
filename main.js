@@ -15,13 +15,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Fetch card names and interpretations from your assets folder
     async function loadData() {
         try {
-            // Fetch the list of cards
             const cardsResponse = await fetch('assets/cards.json');
             if (!cardsResponse.ok) throw new Error(`Failed to fetch cards.json: ${cardsResponse.status}`);
             const cardsData = await cardsResponse.json();
-            cards = cardsData.cards.map(card => card.name);
+            // Store the full card objects
+            cards = cardsData.cards;
 
-            // Fetch the interpretations
             const interpretationsResponse = await fetch('assets/interpretations.json');
             if (!interpretationsResponse.ok) throw new Error(`Failed to fetch interpretations.json: ${interpretationsResponse.status}`);
             interpretations = await interpretationsResponse.json();
@@ -41,29 +40,30 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
         
-        // Make the card container visible
         threeCardContainer.classList.remove('hidden');
 
         // Shuffle and pick 3 unique cards
         const shuffledCards = [...cards].sort(() => 0.5 - Math.random());
-        const pastCardName = shuffledCards[0];
-        const presentCardName = shuffledCards[1];
-        const futureCardName = shuffledCards[2];
+        const pastCard = shuffledCards[0];
+        const presentCard = shuffledCards[1];
+        const futureCard = shuffledCards[2];
 
         // Display each card and its interpretation
-        displayCard('Past', pastCardName, pastCardImg, pastInterpretationEl);
-        displayCard('Present', presentCardName, presentCardImg, presentInterpretationEl);
-        displayCard('Future', futureCardName, futureCardImg, futureInterpretationEl);
+        displayCard('Past', pastCard, pastCardImg, pastInterpretationEl);
+        displayCard('Present', presentCard, presentCardImg, presentInterpretationEl);
+        displayCard('Future', futureCard, futureCardImg, futureInterpretationEl);
     }
 
-    function displayCard(position, cardName, imgElement, interpretationElement) {
-        // Set the card image source
-        const imageName = cardName.replace(/\s+/g, '-'); // "6 of Water" -> "6-of-Water"
+    function displayCard(position, card, imgElement, interpretationElement) {
+        // *** THIS IS THE CORRECTED PART ***
+        // Create the image name from the card name property, in lowercase.
+        // e.g., "ACE OF AIR" -> "ace of air"
+        const imageName = card.name.toLowerCase();
         imgElement.src = `assets/images/cards/${imageName}.png`;
-        imgElement.alt = cardName;
+        imgElement.alt = card.name;
 
-        // Find and display the correct interpretation
-        const interpretationKey = `${cardName} - ${position}`;
+        // Find and display the correct interpretation (using the original uppercase name)
+        const interpretationKey = `${card.name} - ${position}`;
         const foundInterpretation = interpretations.find(item => item.key === interpretationKey);
 
         if (foundInterpretation) {
