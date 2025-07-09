@@ -1,16 +1,19 @@
 # Afrikan Tarot
 
-A simple static web application for performing ancient Afrikan tarot readings. Card data and images live in the `assets/` folder so they can easily be replaced. The app uses the OpenAI API to fetch card interpretations via the GPT-4o model if an API key is provided. When all three cards are drawn, their traditional names are sent to the API to obtain a fortune teller–style interpretation of the overall reading.
+A simple web application for performing ancient Afrikan tarot readings. Card data and images live in the `assets/` folder so they can easily be replaced. The app uses the OpenAI API on the backend to fetch card interpretations via the GPT-4o model. When all three cards are drawn, their traditional names are sent to the API to obtain a fortune teller–style interpretation of the overall reading.
 
 ## Running
 
 This project is designed for GitHub Pages. Push the contents of this repository to a GitHub repo and enable Pages in the repository settings.
 
-Open `index.html` in a browser or visit the GitHub Pages site after deployment. Before drawing cards, store your OpenAI key in the browser console:
+Install dependencies and start the server:
 
-```javascript
-localStorage.setItem('OPENAI_API_KEY', 'sk-...');
+```bash
+npm install
+OPENAI_API_KEY=sk-... npm start
 ```
+
+The server hosts the static files and proxies requests to the OpenAI API. Visit `http://localhost:3000` in your browser to use the app.
 
 Card images should be saved in `assets/images/` and sound effects in `assets/sounds/` using the filenames referenced in `assets/cards.json`.
 If a card does not specify a sound, a short Uhadi percussion track plays when the card is drawn.

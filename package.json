@@ -1,0 +1,13 @@
+{
+  "name": "afrikantarot",
+  "version": "1.0.0",
+  "description": "Afrikan Tarot web application with backend API for OpenAI.",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
