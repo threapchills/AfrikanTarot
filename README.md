@@ -4,7 +4,7 @@ A simple web application for performing ancient Afrikan tarot readings. Card dat
 
 ## Running
 
-Clone the repository onto any host that supports Node.js and install the dependencies:
+Clone the repository onto any host that supports **Node.js 18 or later** and install the dependencies:
 
 ```bash
 npm install
@@ -26,6 +26,7 @@ node server.js
 ```
 
 The server hosts the static files and proxies requests to the OpenAI API. Visit `http://localhost:3000` in your browser to use the app.
+This project requires **Node.js 18 or later** because it relies on the built-in `fetch` API.
 
 You can deploy to any service that runs Node (for example Render or Vercel). Set the environment variable `OPENAI_API_KEY` and use `node server.js` as the start command.
 
