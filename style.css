@@ -241,3 +241,21 @@ button:hover {
 #intro strong {
     font-weight: bold; /* Ensures the last sentence is bold */
 }
+/* --- Footer Logo Styles --- */
+
+#footer-logo-container {
+    padding: 40px 0 20px 0; /* Adds space above and below the logo */
+    text-align: center;
+    width: 100%;
+}
+
+#footer-logo-container img {
+    width: 100px; /* You can adjust this size as needed */
+    height: auto;
+    opacity: 0.8; /* Slightly transparent by default */
+    transition: opacity 0.3s ease; /* Smooth transition for the hover effect */
+}
+
+#footer-logo-container img:hover {
+    opacity: 1; /* Becomes fully opaque on hover */
+}
