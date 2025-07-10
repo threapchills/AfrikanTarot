@@ -28,11 +28,21 @@ h1 {
 }
 
 #intro {
-    margin: 10px 0 20px;
-    font-style: italic;
-    font-size: 1.1em;
-    text-align: center;
-    text-transform: none; /* Ensures sentence case */
+    /* Container Styling */
+    background-color: rgba(60, 35, 10, 0.7); /* Very dark brown, slightly transparent */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 1.5em;
+    max-width: 600px;
+    margin: 0 auto 2em auto; /* Centers the box and adds space below */
+
+    /* Text Styling */
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 1em;
+    line-height: 1.6;
+    font-style: normal;
+    text-align: center; /* This centers the text */
+    text-transform: none; /* Ensures regular sentence case */
 }
 
 button {
