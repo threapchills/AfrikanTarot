@@ -31,6 +31,7 @@ h1 {
     margin: 10px 0 20px;
     font-style: italic;
     font-size: 1.1em;
+    text-align: center;
     text-transform: none; /* Ensures sentence case */
 }
 
@@ -115,7 +116,7 @@ button:hover {
     text-transform: none;
     margin-top: 1em;
     padding: 1em; /* Added padding */
-    text-align: left;
+    text-align: center;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 0.95em;
     line-height: 1.6;
