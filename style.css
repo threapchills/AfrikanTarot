@@ -259,3 +259,12 @@ button:hover {
 #footer-logo-container img:hover {
     opacity: 1; /* Becomes fully opaque on hover */
 }
+/* --- Footer Ad Styles --- */
+#footer-ad-container {
+    text-align: center;
+    padding: 20px 0;
+}
+#footer-ad-container img {
+    max-width: 100%;
+    height: auto;
+}
