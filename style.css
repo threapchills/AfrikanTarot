@@ -97,6 +97,10 @@ button:hover {
     border-radius: 10px;
 }
 
+.slot > button {
+    margin-top: 1em;
+}
+
 .slot h3 { /* For "Past", "Present", "Future" */
     color: #fff;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
