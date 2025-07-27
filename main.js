@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     // --- Get references to all HTML elements ---
-    const drawButton = document.getElementById('drawCards');
+    const drawButtons = document.querySelectorAll('.drawCards');
     const threeCardContainer = document.getElementById('threeCardContainer');
     const imageModal = document.getElementById('imageModal');
     const modalImage = document.getElementById('modalImage');
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
             interpretations = await interpretationsResponse.json();
 
             if (cards.length > 0 && interpretations.length > 0) {
-                drawButton.disabled = false;
+                drawButtons.forEach(btn => btn.disabled = false);
             } else {
                 throw new Error("Data files are empty.");
             }
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
             drawCount++;
         } else if (drawCount === 2) { // Third draw
             displayCard('Future', shuffledDeck[2], slots.future);
-            drawButton.textContent = "Shuffle Deck";
+            drawButtons.forEach(btn => btn.textContent = "Shuffle Deck");
             drawCount++;
         } else { // Reset
             resetReading();
@@ -107,8 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
             slots[position].interp.textContent = "";
         }
 
-        threeCardContainer.classList.add('hidden');
-        drawButton.textContent = "Draw Card";
+        drawButtons.forEach(btn => btn.textContent = "Draw Card");
         drawCount = 0;
         shuffledDeck = [];
     }
@@ -124,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Initialize App and Event Listeners ---
-    drawButton.addEventListener('click', handleDrawClick);
+    drawButtons.forEach(btn => btn.addEventListener('click', handleDrawClick));
     modalClose.addEventListener('click', closeModal);
     imageModal.addEventListener('click', (e) => {
         if (e.target === imageModal) {
@@ -132,6 +131,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     
-    drawButton.disabled = true;
+    drawButtons.forEach(btn => btn.disabled = true);
     loadData();
 });
