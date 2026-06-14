@@ -1,0 +1,42 @@
+/* Ko-fi support button — shared, reusable component.
+   Page: ko-fi.com/threapchills  |  Plain anchor, no script, no backend, no tracking.
+
+   To adopt in a new app:
+     1. Drop this file into the repo and link it: <link rel="stylesheet" href="kofi.css">
+     2. Paste one .kofi-slot block and set --kofi-accent on the anchor to match the app.
+   Per app, only --kofi-accent changes. Use --quiet for calm/dark contexts.
+
+   Everything is namespaced under .kofi-*; no element selectors, no global resets,
+   so it can't bleed into a host app's styles. */
+
+.kofi-slot {
+  display: flex; flex-direction: column; align-items: center; gap: .55em;
+  text-align: center; padding: 18px 16px;
+}
+
+.kofi-leadin {
+  margin: 0; font: 500 .82rem/1.35 inherit; letter-spacing: .02em; opacity: .72;
+}
+
+.kofi-support {
+  --kofi-accent: #9a6cb5;
+  --kofi-fg: #ffffff;
+  display: inline-flex; align-items: center; gap: .55em;
+  padding: .62em 1.05em; border-radius: 999px;
+  font: 600 .92rem/1 inherit; text-decoration: none;
+  color: var(--kofi-fg); background: var(--kofi-accent);
+  border: 1px solid color-mix(in srgb, var(--kofi-accent) 70%, #000 30%);
+  transition: transform .14s ease, filter .14s ease, box-shadow .14s ease;
+}
+.kofi-support:hover { filter: brightness(1.07); transform: translateY(-1px); box-shadow: 0 6px 18px rgba(0,0,0,.25); }
+.kofi-support:focus-visible { outline: 2px solid var(--kofi-fg); outline-offset: 2px; }
+
+/* quiet variant — for calm contexts like SLUMBR */
+.kofi-support--quiet {
+  background: transparent; font-weight: 500;
+  color: color-mix(in srgb, var(--kofi-accent) 78%, #fff 22%);
+  border: 1px solid color-mix(in srgb, var(--kofi-accent) 42%, transparent);
+}
+.kofi-support--quiet:hover { background: color-mix(in srgb, var(--kofi-accent) 13%, transparent); filter: none; box-shadow: none; }
+
+@media (prefers-reduced-motion: reduce) { .kofi-support { transition: none; } }
