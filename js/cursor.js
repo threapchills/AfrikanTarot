@@ -2,11 +2,12 @@
 // labels, an instant dot, and a trail of ember sparks whose colour
 // follows the current elemental zone. Fine pointers only.
 
-// spark tints per zone: pale star-glow, copper ember, moss-gold
+// spark pigments per zone (the canvas multiplies over parchment,
+// so these read as tinted darkening): teal, burnt sienna, olive
 const TINTS = {
-    sky: [150, 210, 225],
-    fire: [255, 150, 62],
-    earth: [186, 205, 96]
+    sky: [82, 138, 142],
+    fire: [176, 106, 58],
+    earth: [128, 138, 78]
 };
 
 export function createCursor() {
@@ -89,7 +90,7 @@ export function createCursor() {
                 s.y += s.vy * dt;
                 s.vy -= 14 * dt; // embers drift upward
                 s.vx *= 1 - dt * 1.6;
-                const a = s.life * s.life * 0.9;
+                const a = s.life * s.life * 0.7;
                 c2d.beginPath();
                 c2d.arc(s.x, s.y, s.r * s.life, 0, 6.2832);
                 c2d.fillStyle = `rgba(${r},${g},${b},${a})`;

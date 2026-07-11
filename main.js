@@ -119,9 +119,9 @@ document.getElementById('beginBtn').addEventListener('click', () => {
 if (gl) {
     document.querySelectorAll('.fan-card').forEach(img => gl.addPlane(img, img.src, { flex: 1.1 }));
     const mat = document.getElementById('matImg');
-    gl.addPlane(mat, mat.src, { flex: 0.35, opacity: 0.34 });
+    gl.addPlane(mat, mat.src, { flex: 0.35, opacity: 0.3, shadow: false });
     const plaque = document.getElementById('plaque');
-    gl.addPlane(plaque, plaque.src, { flex: 0.8 });
+    gl.addPlane(plaque, plaque.src, { flex: 0.8, shadow: false });
 }
 
 /* ============================================================

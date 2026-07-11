@@ -148,6 +148,10 @@ export function createExperience() {
 
     const magnets = [...document.querySelectorAll('[data-magnet]')].map(el => ({ el, tx: 0, ty: 0 }));
 
+    /* ---------- headings shear with scroll velocity ---------- */
+
+    const giants = [...document.querySelectorAll('.giant')];
+
     /* ---------- hero fan drift ---------- */
 
     const fanCards = [...document.querySelectorAll('.fan-card')];
@@ -201,14 +205,21 @@ export function createExperience() {
             p.el.style.transform = `translate3d(0, ${off.toFixed(1)}px, 0)`;
         }
 
-        // marquee drift, boosted by scroll velocity
+        // marquee drift, boosted and sheared by scroll velocity
         const boost = Math.min(340, Math.abs(state.vel) * 26);
+        const shear = Math.max(-5, Math.min(5, -state.vel * 0.14));
         for (const row of rows) {
             if (!row.half) row.half = row.track.scrollWidth / 2;
             if (!row.half) continue;
             row.offset += row.dir * (30 + boost) * dt;
             row.offset = ((row.offset % row.half) + row.half) % row.half;
-            row.track.style.transform = `translate3d(${(-row.offset).toFixed(1)}px, 0, 0)`;
+            row.track.style.transform = `translate3d(${(-row.offset).toFixed(1)}px, 0, 0) skewX(${shear.toFixed(2)}deg)`;
+        }
+
+        // the big type leans into the scroll, settling as it slows
+        const lean = Math.max(-3.2, Math.min(3.2, state.vel * 0.075));
+        for (const g of giants) {
+            g.style.transform = lean !== 0 ? `skewY(${lean.toFixed(2)}deg)` : '';
         }
 
         // magnetic buttons

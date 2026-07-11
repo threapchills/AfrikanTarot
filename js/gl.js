@@ -39,27 +39,27 @@ void main() {
     p.x *= uRes.x / uRes.y;
     float t = uTime;
 
-    // zone palettes: base, glow, ember
-    vec3 skyA  = vec3(0.014, 0.028, 0.050), skyB  = vec3(0.040, 0.105, 0.125);
-    vec3 fireA = vec3(0.040, 0.018, 0.009), fireB = vec3(0.120, 0.052, 0.020);
-    vec3 erthA = vec3(0.018, 0.022, 0.011), erthB = vec3(0.052, 0.062, 0.034);
-    vec3 colA = skyA * uZone.x + fireA * uZone.y + erthA * uZone.z;
-    vec3 colB = skyB * uZone.x + fireB * uZone.y + erthB * uZone.z;
-    vec3 ember = vec3(0.55, 0.78, 0.88) * uZone.x
-               + vec3(1.00, 0.55, 0.20) * uZone.y
-               + vec3(0.72, 0.82, 0.38) * uZone.z;
+    // parchment ground with a tinted wash per zone, and dark
+    // pigment flecks like inclusions in handmade paper
+    vec3 paper = vec3(0.925, 0.885, 0.790);
+    vec3 wash = vec3(0.760, 0.815, 0.805) * uZone.x
+              + vec3(0.885, 0.790, 0.645) * uZone.y
+              + vec3(0.805, 0.815, 0.680) * uZone.z;
+    vec3 pigment = vec3(0.13, 0.32, 0.34) * uZone.x
+                 + vec3(0.46, 0.23, 0.10) * uZone.y
+                 + vec3(0.28, 0.30, 0.12) * uZone.z;
 
-    // domain-warped smoke, drifting with time and a touch of scroll parallax
+    // domain-warped wash, drifting with time and a touch of scroll parallax
     vec2 sp = p * 2.1 + vec2(0.0, uScroll * 0.00018);
     float sm = fbm(sp + vec2(t * 0.028, -t * 0.041));
     sm = fbm(sp + sm * 1.7 + vec2(t * 0.017, t * 0.008));
-    vec3 col = mix(colA, colB, uv.y * 0.65 + sm * 0.6);
+    vec3 col = mix(paper, wash, smoothstep(0.3, 0.9, sm) * 0.55);
 
-    // labradorite sheen: a shimmering band that flashes iridescent
+    // labradorite sheen: a faint iridescent band gliding over the paper
     float flash = fbm(p * 3.1 - vec2(t * 0.05, t * 0.021));
-    col += ember * 0.055 * smoothstep(0.6, 0.92, flash);
+    col += vec3(0.030, 0.055, 0.050) * smoothstep(0.6, 0.92, flash);
 
-    // rising embers, three depth layers
+    // drifting pigment flecks, three depth layers
     for (int i = 0; i < 3; i++) {
         float fi = float(i);
         float scale = 13.0 + fi * 11.0;
@@ -71,19 +71,19 @@ void main() {
         vec2 pt = vec2(0.2 + 0.6 * fract(h * 7.13), 0.2 + 0.6 * fract(h * 3.71));
         float d = length(fpos - pt);
         float tw = 0.5 + 0.5 * sin(t * (1.0 + h * 3.0) + h * 40.0);
-        float s = smoothstep(0.055 + h * 0.04, 0.0, d) * tw * step(0.35, h);
-        col += ember * s * (0.11 - fi * 0.028);
+        float s = smoothstep(0.045 + h * 0.03, 0.0, d) * tw * step(0.35, h);
+        col = mix(col, pigment, s * (0.38 - fi * 0.09));
     }
 
-    // warm glow following the cursor (uMouse arrives top-left origin, px)
+    // soft brightening under the cursor, like light through paper
     vec2 mp = vec2(uMouse.x / uRes.x * (uRes.x / uRes.y), 1.0 - uMouse.y / uRes.y);
     float md = distance(p, mp);
-    col += ember * 0.05 * exp(-md * 3.4);
+    col += vec3(0.055, 0.048, 0.030) * exp(-md * 3.4);
 
-    // vignette + film grain
+    // aged page edges + paper grain
     float vig = smoothstep(1.3, 0.32, distance(uv, vec2(0.5, 0.45)));
-    col *= mix(0.5, 1.0, vig);
-    col += (hash(uv * uRes + fract(t) * 61.7) - 0.5) * 0.032;
+    col = mix(col * vec3(0.84, 0.76, 0.62), col, vig);
+    col += (hash(uv * uRes + fract(t) * 61.7) - 0.5) * 0.02;
 
     gl_FragColor = vec4(col, 1.0);
 }
@@ -127,12 +127,22 @@ uniform float uBurst;
 uniform float uVel;
 uniform float uOpacity;
 uniform float uFlex;
+uniform float uShadow;
 uniform vec2 uMouse;
 
 float hash(float n) { return fract(sin(n) * 43758.5453123); }
 
 void main() {
     vec2 uv = vUv;
+
+    // shadow pass: a soft umber pool under the card, bending with it
+    if (uShadow > 0.5) {
+        vec2 es = smoothstep(vec2(0.0), vec2(0.3), uv) * smoothstep(vec2(0.0), vec2(0.3), vec2(1.0) - uv);
+        float sa = es.x * es.y;
+        sa = sa * sa * 0.34 * uOpacity;
+        gl_FragColor = vec4(vec3(0.15, 0.10, 0.05) * sa, sa);
+        return;
+    }
 
     // ripple radiating from the cursor
     vec2 dir = uv - uMouse;
@@ -240,7 +250,7 @@ export function createGL() {
         uScroll: gl.getUniformLocation(bgProg, 'uScroll')
     };
     const plU = {};
-    for (const n of ['uRes', 'uCenter', 'uSize', 'uAngle', 'uVel', 'uTime', 'uFlex', 'uHover', 'uBurst', 'uOpacity', 'uMouse', 'uTex'])
+    for (const n of ['uRes', 'uCenter', 'uSize', 'uAngle', 'uVel', 'uTime', 'uFlex', 'uHover', 'uBurst', 'uOpacity', 'uMouse', 'uTex', 'uShadow'])
         plU[n] = gl.getUniformLocation(plProg, n);
     plU.aPos = gl.getAttribLocation(plProg, 'aPos');
 
@@ -295,7 +305,8 @@ export function createGL() {
             hover: 0,
             mouseUV: [0.5, 0.5],
             burst: 0,
-            opacity: opts.opacity != null ? opts.opacity : 1
+            opacity: opts.opacity != null ? opts.opacity : 1,
+            shadow: opts.shadow !== false
         };
         plane.entry = getTexture(src, () => {
             el.classList.add('gl-live');
@@ -386,14 +397,22 @@ export function createGL() {
             }
 
             gl.bindTexture(gl.TEXTURE_2D, p.entry.tex);
-            gl.uniform2f(plU.uCenter, cx, cy);
-            gl.uniform2f(plU.uSize, w, h);
             gl.uniform1f(plU.uAngle, p.angle);
             gl.uniform1f(plU.uFlex, p.flex);
             gl.uniform1f(plU.uHover, p.hover);
             gl.uniform1f(plU.uBurst, p.burst);
             gl.uniform1f(plU.uOpacity, p.opacity);
             gl.uniform2f(plU.uMouse, p.mouseUV[0], p.mouseUV[1]);
+
+            if (p.shadow) {
+                gl.uniform1f(plU.uShadow, 1);
+                gl.uniform2f(plU.uCenter, cx, cy + 16 * dpr);
+                gl.uniform2f(plU.uSize, w * 1.06, h * 1.06);
+                gl.drawElements(gl.TRIANGLES, gridCount, gl.UNSIGNED_SHORT, 0);
+            }
+            gl.uniform1f(plU.uShadow, 0);
+            gl.uniform2f(plU.uCenter, cx, cy);
+            gl.uniform2f(plU.uSize, w, h);
             gl.drawElements(gl.TRIANGLES, gridCount, gl.UNSIGNED_SHORT, 0);
         }
     }
