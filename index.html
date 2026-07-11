@@ -22,19 +22,6 @@
     <!-- WebGL layer: elemental background + liquid warp planes for every card -->
     <canvas id="gl" aria-hidden="true"></canvas>
 
-    <!-- Entry veil: preloader and sound gate -->
-    <div id="veil" role="dialog" aria-label="Enter Tarot of Ancient Afrika">
-        <img class="veil-seal" src="assets/images/fav-256.png" alt="" draggable="false">
-        <p class="veil-eyebrow">The veil is thin</p>
-        <div class="veil-title" data-split>Tarot of Ancient Afrika</div>
-        <div class="veil-progress" aria-hidden="true"><span id="veilBar"></span></div>
-        <p id="veilPct" aria-live="polite">0</p>
-        <div class="veil-actions" id="veilActions" hidden>
-            <button id="enterSound" class="btn btn-solid" data-cursor="listen">Enter with sound</button>
-            <button id="enterSilent" class="btn btn-ghost" data-cursor="hush">Enter in silence</button>
-        </div>
-    </div>
-
     <header id="topbar">
         <a class="brand" href="#top" id="brandLink" data-cursor="rise">
             <img src="assets/images/fav-256.png" alt="" class="brand-seal" draggable="false">
@@ -47,6 +34,16 @@
     <div id="progress" aria-hidden="true"></div>
 
     <main id="top">
+
+        <!-- The threshold: load screen and landing in one -->
+        <section id="veil" aria-label="Tarot of Ancient Afrika">
+            <img class="veil-seal" src="assets/images/fav-256.png" alt="" draggable="false">
+            <p class="veil-eyebrow">The veil is thin</p>
+            <div class="veil-title" data-split>Tarot of Ancient Afrika</div>
+            <div class="veil-progress" aria-hidden="true"><span id="veilBar"></span></div>
+            <p id="veilPct" aria-live="polite">0</p>
+            <div class="scroll-cue" id="scrollCue"><span>Scroll to descend</span><i></i></div>
+        </section>
 
         <!-- Sky -->
         <section id="hero" class="zone" data-zone="sky">
@@ -69,11 +66,15 @@
                     <button class="btn btn-solid" id="beginBtn" data-magnet data-cursor="begin">Begin the reading</button>
                 </div>
             </div>
-            <div class="scroll-cue" id="scrollCue"><span>Scroll to descend</span><i></i></div>
         </section>
 
         <section id="veiltext" class="zone" data-zone="sky">
             <span class="ghost-num" data-para="0.18" aria-hidden="true">01</span>
+            <div class="vt-cards" aria-hidden="true">
+                <img class="vt-card warp" data-rot="-9" data-para="0.12" src="assets/images/cards/thumbs/time cave.jpg" alt="" draggable="false">
+                <img class="vt-card warp" data-rot="5"  data-para="0.22" src="assets/images/cards/thumbs/suntribe.jpg" alt="" draggable="false">
+                <img class="vt-card warp" data-rot="-4" data-para="0.32" src="assets/images/cards/thumbs/starcaller.jpg" alt="" draggable="false">
+            </div>
             <p class="sec-label reveal" data-split>01 &middot; The veil</p>
             <h2 class="giant reveal" data-split>What was.</h2>
             <h2 class="giant reveal" data-split>What is.</h2>
@@ -164,7 +165,7 @@
                 <a href="http://mikewhyle.com/" target="_blank" rel="noopener noreferrer" data-cursor="visit">
                     <img src="assets/images/logo.png" alt="Mike Whyle" class="footer-logo" draggable="false">
                 </a>
-                <p class="credits">Conjured by Mike Whyle &middot; Cape Town</p>
+                <p class="credits">Mike Whyle &middot; Cape Town</p>
                 <p class="fine">For reflection, storytelling and entertainment.</p>
             </footer>
         </section>

@@ -160,16 +160,18 @@ export function createExperience() {
             }
         });
 
-        // drag to scrub through the deck; wheel sideways works too
+        // drag to scrub through the deck; wheel sideways works too.
+        // capture is deferred until real movement, because capturing on
+        // pointerdown would retarget the click and steal plain taps
         const marquee = document.getElementById('marquee');
-        let lastX = 0, lastDx = 0;
+        let lastX = 0, lastDx = 0, captured = false;
         marquee.addEventListener('pointerdown', (e) => {
             marqueeDragging = true;
             marqueeMoved = 0;
             lastX = e.clientX;
             lastDx = 0;
+            captured = false;
             scrubMomentum = 0;
-            if (marquee.setPointerCapture) marquee.setPointerCapture(e.pointerId);
         });
         marquee.addEventListener('pointermove', (e) => {
             if (!marqueeDragging) return;
@@ -177,6 +179,9 @@ export function createExperience() {
             lastX = e.clientX;
             lastDx = dx;
             marqueeMoved += Math.abs(dx);
+            if (!captured && marqueeMoved > 8 && marquee.setPointerCapture) {
+                try { marquee.setPointerCapture(e.pointerId); captured = true; } catch (err) { /* stale pointer */ }
+            }
             for (const row of rows) row.offset -= dx;
         });
         const endDrag = () => {

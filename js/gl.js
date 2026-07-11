@@ -308,7 +308,10 @@ export function createGL() {
             burst: 0,
             opacity: opts.opacity != null ? opts.opacity : 1,
             shadow: opts.shadow !== false,
-            chroma: opts.chroma != null ? opts.chroma : 1
+            chroma: opts.chroma != null ? opts.chroma : 1,
+            // an element whose CSS opacity the plane inherits, so planes
+            // respect DOM fade-ins instead of painting at full strength
+            fadeEl: opts.fadeEl || null
         };
         plane.entry = getTexture(src, () => {
             el.classList.add('gl-live');
@@ -390,6 +393,12 @@ export function createGL() {
             p.hover += (target - p.hover) * lerpK;
             if (p.burst > 0) p.burst = Math.max(0, p.burst - dt * 1.35);
 
+            let opacity = p.opacity;
+            if (p.fadeEl) {
+                opacity *= parseFloat(getComputedStyle(p.fadeEl).opacity) || 0;
+                if (opacity < 0.01) continue;
+            }
+
             const cx = (r.left + r.width / 2) * dpr;
             const cy = (r.top + r.height / 2) * dpr;
             let w, h;
@@ -406,7 +415,7 @@ export function createGL() {
             gl.uniform1f(plU.uFlex, p.flex);
             gl.uniform1f(plU.uHover, p.hover);
             gl.uniform1f(plU.uBurst, p.burst);
-            gl.uniform1f(plU.uOpacity, p.opacity);
+            gl.uniform1f(plU.uOpacity, opacity);
             gl.uniform1f(plU.uChroma, p.chroma);
             gl.uniform2f(plU.uMouse, p.mouseUV[0], p.mouseUV[1]);
 

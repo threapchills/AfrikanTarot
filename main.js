@@ -18,10 +18,8 @@ const full = (file) => 'assets/images/cards/' + file;
    Preloader / entry veil
    ============================================================ */
 
-const veil = document.getElementById('veil');
 const veilBar = document.getElementById('veilBar');
 const veilPct = document.getElementById('veilPct');
-const veilActions = document.getElementById('veilActions');
 
 const FAN_THUMBS = [
     'starcaller.jpg', 'moonwake.jpg', 'the sky drum.jpg', 'suspended path.jpg', 'the weaver.jpg'
@@ -37,15 +35,18 @@ function itemLoaded() {
     const p = loadedItems / TOTAL_ITEMS;
     veilBar.style.transform = `scaleX(${p})`;
     veilPct.textContent = Math.round(p * 100);
-    if (loadedItems >= TOTAL_ITEMS) showActions();
+    if (loadedItems >= TOTAL_ITEMS) markReady();
 }
 
-function showActions() {
+// loading complete: the threshold opens and the page scrolls freely
+function markReady() {
     if (veilReady) return;
     veilReady = true;
     veilPct.textContent = '100';
     veilBar.style.transform = 'scaleX(1)';
-    veilActions.hidden = false;
+    document.body.classList.add('entered');
+    document.body.dataset.entered = 'true';
+    exp.measureParallax();
 }
 
 for (const src of PRELOAD_IMAGES) {
@@ -62,21 +63,22 @@ Promise.race([
 
 sound.preload(itemLoaded);
 
-// failsafe: never trap anyone behind the veil
-setTimeout(showActions, 9000);
+// failsafe: never trap anyone behind the threshold
+setTimeout(markReady, 9000);
 
-function enter(withSound) {
-    sound.start(!withSound);
-    setToggleUI(withSound);
-    document.body.classList.add('entered');
-    document.body.dataset.entered = 'true';
-    veil.classList.add('gone');
-    setTimeout(() => veil.remove(), 1100);
-    exp.measureParallax();
+// the hero plays its entrance when the visitor scrolls down to it
+const hero = document.getElementById('hero');
+if (state.reduced) {
+    hero.classList.add('seen');
+} else {
+    const heroIO = new IntersectionObserver((entries) => {
+        if (entries.some(en => en.isIntersecting)) {
+            hero.classList.add('seen');
+            heroIO.disconnect();
+        }
+    }, { threshold: 0.25 });
+    heroIO.observe(hero);
 }
-
-document.getElementById('enterSound').addEventListener('click', () => enter(true));
-document.getElementById('enterSilent').addEventListener('click', () => enter(false));
 
 /* ============================================================
    Sound toggle
@@ -117,7 +119,8 @@ document.getElementById('beginBtn').addEventListener('click', () => {
    ============================================================ */
 
 if (gl) {
-    document.querySelectorAll('.fan-card').forEach(img => gl.addPlane(img, img.src, { flex: 1.1 }));
+    document.querySelectorAll('.fan-card').forEach(img => gl.addPlane(img, img.src, { flex: 1.1, fadeEl: img.closest('.fan-slot') }));
+    document.querySelectorAll('.vt-card').forEach(img => gl.addPlane(img, img.src, { flex: 1.15 }));
     const mat = document.getElementById('matImg');
     gl.addPlane(mat, mat.src, { flex: 0.35, opacity: 0.3, shadow: false, chroma: 0.1 });
     const plaque = document.getElementById('plaque');
