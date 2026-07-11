@@ -3,73 +3,194 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Afrikan Tarot</title>
-    <link rel="icon" type="image/png" href="assets/images/fav.png"> <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
+    <title>Tarot of Ancient Afrika</title>
+    <meta name="description" content="A three-card reading from the Tarot of Ancient Afrika. Past, present and future, drawn from a deck of bone, fire, water and air.">
+    <meta name="theme-color" content="#0b0806">
+    <meta property="og:title" content="Tarot of Ancient Afrika">
+    <meta property="og:description" content="Three cards. Past, present, future. Step through the veil.">
+    <meta property="og:image" content="https://tarot.mikewhyle.com/assets/images/tarotbg-md.jpg">
+    <link rel="icon" type="image/png" href="assets/images/fav-256.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Cinzel+Decorative:wght@700;900&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="kofi.css">
 </head>
-<body>
-    <div id="app">
-    <img src="assets/images/title.png" alt="Afrikan Tarot Reading" id="title-banner">
-    
-    <p id="intro">
-        The ancient symbolic language of Tarot is a metaphysical bridge between past and future; a profound, timeless source of meaning-making, storytelling and narrative therapy.
-        <br><br>
-        <strong>Let's see what the cards have in store for you...</strong>
-    </p>
+<body data-entered="false">
 
-    
-    <button id="drawCards" class="drawCards">Reveal Card</button>
-        <div id="threeCardContainer">
-            <div class="slot">
-                <h3>Past</h3>
-                <p id="pastName" class="card-name"></p>
-                <img id="pastImage" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Past Card" />
-                <div id="pastInterpretation" class="interpretation"></div>
-                <button class="drawCards">Reveal Card</button>
-            </div>
-            <div class="slot">
-                <h3>Present</h3>
-                <p id="presentName" class="card-name"></p>
-                <img id="presentImage" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Present Card" />
-                <div id="presentInterpretation" class="interpretation"></div>
-                <button class="drawCards">Reveal Card</button>
-            </div>
-            <div class="slot">
-                <h3>Future</h3>
-                <p id="futureName" class="card-name"></p>
-                <img id="futureImage" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Future Card" />
-                <div id="futureInterpretation" class="interpretation"></div>
-                <button class="drawCards">Reveal Card</button>
-            </div>
+    <!-- WebGL layer: elemental background + liquid warp planes for every card -->
+    <canvas id="gl" aria-hidden="true"></canvas>
+
+    <!-- Entry veil: preloader and sound gate -->
+    <div id="veil" role="dialog" aria-label="Enter Tarot of Ancient Afrika">
+        <img class="veil-seal" src="assets/images/fav-256.png" alt="" draggable="false">
+        <p class="veil-eyebrow">The veil is thin</p>
+        <div class="veil-title" data-split>Tarot of Ancient Afrika</div>
+        <div class="veil-progress" aria-hidden="true"><span id="veilBar"></span></div>
+        <p id="veilPct" aria-live="polite">0</p>
+        <div class="veil-actions" id="veilActions" hidden>
+            <button id="enterSound" class="btn btn-solid" data-cursor="listen">Enter with sound</button>
+            <button id="enterSilent" class="btn btn-ghost" data-cursor="hush">Enter in silence</button>
         </div>
     </div>
 
-    <div id="imageModal">
-        <span id="modalClose">&times;</span>
-        <img id="modalImage" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Full Size Card" />
+    <header id="topbar">
+        <a class="brand" href="#top" id="brandLink" data-cursor="rise">
+            <img src="assets/images/fav-256.png" alt="" class="brand-seal" draggable="false">
+            <span>Afrikan Tarot</span>
+        </a>
+        <button id="soundToggle" class="sound-toggle" aria-pressed="false" aria-label="Toggle ambient sound" data-cursor="sound">
+            <span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+    </header>
+    <div id="progress" aria-hidden="true"></div>
+
+    <main id="top">
+
+        <!-- Sky -->
+        <section id="hero" class="zone" data-zone="sky">
+            <div class="hero-fan" id="heroFan" aria-hidden="true">
+                <div class="fan-slot"><img class="fan-card warp" data-rot="-16" data-depth="1"    src="assets/images/cards/thumbs/starcaller.jpg" alt="" draggable="false"></div>
+                <div class="fan-slot"><img class="fan-card warp" data-rot="-8"  data-depth="0.65" src="assets/images/cards/thumbs/moonwake.jpg" alt="" draggable="false"></div>
+                <div class="fan-slot"><img class="fan-card warp" data-rot="0"   data-depth="0.4"  src="assets/images/cards/thumbs/the sky drum.jpg" alt="" draggable="false"></div>
+                <div class="fan-slot"><img class="fan-card warp" data-rot="8"   data-depth="0.65" src="assets/images/cards/thumbs/suspended path.jpg" alt="" draggable="false"></div>
+                <div class="fan-slot"><img class="fan-card warp" data-rot="16"  data-depth="1"    src="assets/images/cards/thumbs/the weaver.jpg" alt="" draggable="false"></div>
+            </div>
+            <div class="hero-inner">
+                <p class="eyebrow intro-item" style="--d:.9s">Fifty-six cards &middot; three turnings &middot; one reading</p>
+                <h1 class="hero-title" id="heroTitle">
+                    <span class="line" data-split>Tarot</span>
+                    <span class="line" data-split>of ancient</span>
+                    <span class="line" data-split>Afrika</span>
+                </h1>
+                <p class="hero-sub intro-item" style="--d:1.5s">The ancient symbolic language of tarot is a metaphysical bridge between past and future; a timeless source of meaning-making, storytelling and narrative therapy.</p>
+                <div class="hero-cta intro-item" style="--d:1.7s">
+                    <button class="btn btn-solid" id="beginBtn" data-magnet data-cursor="begin">Begin the reading</button>
+                </div>
+            </div>
+            <div class="scroll-cue" id="scrollCue"><span>Scroll to descend</span><i></i></div>
+        </section>
+
+        <section id="veiltext" class="zone" data-zone="sky">
+            <span class="ghost-num" data-para="0.18" aria-hidden="true">01</span>
+            <p class="sec-label reveal" data-split>01 &middot; The veil</p>
+            <h2 class="giant reveal" data-split>What was.</h2>
+            <h2 class="giant reveal" data-split>What is.</h2>
+            <h2 class="giant reveal" data-split>What waits.</h2>
+            <p class="body-copy reveal" data-words>Three cards drawn from a deck of bone, fire, water and air. The cards do not decide; they remind.</p>
+        </section>
+
+        <!-- Fire -->
+        <section id="deck" class="zone" data-zone="fire">
+            <span class="ghost-num" data-para="0.15" aria-hidden="true">02</span>
+            <div class="sec-head">
+                <p class="sec-label reveal" data-split>02 &middot; The deck</p>
+                <h2 class="giant reveal" data-split>Every card an ancestor.</h2>
+                <p class="body-copy reveal" data-words>Fifty-six gates, cut in bone and kindled in fire. Run your hand along the river and feel them watching back.</p>
+            </div>
+            <div class="marquee" id="marquee">
+                <div class="marquee-row" data-dir="-1"><div class="marquee-track"></div></div>
+                <div class="marquee-row" data-dir="1"><div class="marquee-track"></div></div>
+            </div>
+        </section>
+
+        <section id="reading" class="zone" data-zone="fire">
+            <span class="ghost-num" data-para="0.15" aria-hidden="true">03</span>
+            <div class="mat-backdrop" aria-hidden="true"><img id="matImg" class="warp" src="assets/images/mat-md.jpg" alt="" draggable="false"></div>
+            <div class="sec-head">
+                <p class="sec-label reveal" data-split>03 &middot; The reading</p>
+                <h2 class="giant reveal" data-split>Three turnings.</h2>
+                <p class="body-copy reveal" data-words>Take a breath. Hold the question beneath your question. Then turn the cards, one by one.</p>
+            </div>
+
+            <div id="threeCardContainer">
+                <div class="slot" data-pos="Past">
+                    <h3 class="slot-label">Past</h3>
+                    <div class="card-box">
+                        <button class="card-back" aria-label="Turn the past card" data-cursor="turn">
+                            <img src="assets/images/fav-256.png" alt="" class="back-seal" draggable="false">
+                        </button>
+                        <img class="card-img warp" id="pastImage" alt="" draggable="false">
+                    </div>
+                    <p class="card-name" id="pastName"></p>
+                    <div class="interpretation" id="pastInterpretation"></div>
+                </div>
+                <div class="slot" data-pos="Present">
+                    <h3 class="slot-label">Present</h3>
+                    <div class="card-box">
+                        <button class="card-back" aria-label="Turn the present card" data-cursor="turn">
+                            <img src="assets/images/fav-256.png" alt="" class="back-seal" draggable="false">
+                        </button>
+                        <img class="card-img warp" id="presentImage" alt="" draggable="false">
+                    </div>
+                    <p class="card-name" id="presentName"></p>
+                    <div class="interpretation" id="presentInterpretation"></div>
+                </div>
+                <div class="slot" data-pos="Future">
+                    <h3 class="slot-label">Future</h3>
+                    <div class="card-box">
+                        <button class="card-back" aria-label="Turn the future card" data-cursor="turn">
+                            <img src="assets/images/fav-256.png" alt="" class="back-seal" draggable="false">
+                        </button>
+                        <img class="card-img warp" id="futureImage" alt="" draggable="false">
+                    </div>
+                    <p class="card-name" id="futureName"></p>
+                    <div class="interpretation" id="futureInterpretation"></div>
+                </div>
+            </div>
+
+            <div class="reading-controls">
+                <p class="status" id="readingStatus">The deck is shuffled and waiting.</p>
+                <button class="btn btn-solid" id="drawBtn" data-magnet data-cursor="turn">Turn the first card</button>
+            </div>
+        </section>
+
+        <!-- Earth -->
+        <section id="outro" class="zone" data-zone="earth">
+            <span class="ghost-num" data-para="0.15" aria-hidden="true">04</span>
+            <p class="sec-label reveal" data-split>04 &middot; The offering</p>
+            <img id="plaque" class="warp" data-para="0.08" src="assets/images/title-md.png" alt="Tarot of Ancient Afrika" draggable="false">
+            <h2 class="giant reveal" data-split>May the road remember your name.</h2>
+            <div class="kofi-slot reveal">
+                <p class="kofi-leadin">If the reading struck true</p>
+                <a class="kofi-support" style="--kofi-accent:#c96f34"
+                   href="https://ko-fi.com/threapchills" target="_blank" rel="noopener"
+                   aria-label="Support this app on Ko-fi" data-cursor="give">
+                    <span aria-hidden="true">&#9749;</span> Buy me a coffee
+                </a>
+            </div>
+            <footer>
+                <a href="http://mikewhyle.com/" target="_blank" rel="noopener noreferrer" data-cursor="visit">
+                    <img src="assets/images/logo.png" alt="Mike Whyle" class="footer-logo" draggable="false">
+                </a>
+                <p class="credits">Conjured by Mike Whyle &middot; Cape Town</p>
+                <p class="fine">For reflection, storytelling and entertainment.</p>
+            </footer>
+        </section>
+    </main>
+
+    <div id="imageModal" role="dialog" aria-modal="true" aria-label="Card detail">
+        <button id="modalClose" aria-label="Close" data-cursor="close">&times;</button>
+        <figure>
+            <img id="modalImage" alt="" draggable="false">
+            <figcaption id="modalCaption"></figcaption>
+        </figure>
     </div>
 
-    <audio id="cardSound" src="assets/sounds/card.mp3" preload="auto"></audio>
+    <!-- Displacement filter for the hero typography: liquid warp on scroll velocity -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <defs>
+            <filter id="warpFilter" x="-25%" y="-25%" width="150%" height="150%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.012 0.05" numOctaves="2" seed="7" result="n"/>
+                <feDisplacementMap id="warpDisp" in="SourceGraphic" in2="n" scale="0" xChannelSelector="R" yChannelSelector="G"/>
+            </filter>
+        </defs>
+    </svg>
+
+    <div id="cursor" aria-hidden="true"><span id="cursorLabel"></span></div>
+    <div id="cursorDot" aria-hidden="true"></div>
+    <canvas id="sparks" aria-hidden="true"></canvas>
 
     <script type="module" src="main.js"></script>
-    <div id="footer-ad-container">
-        <div class="kofi-slot">
-            <p class="kofi-leadin">If the reading struck true</p>
-            <a class="kofi-support" style="--kofi-accent:#d35400"
-               href="https://ko-fi.com/threapchills" target="_blank" rel="noopener"
-               aria-label="Support this app on Ko-fi">
-                <span aria-hidden="true">&#9749;</span> Buy me a coffee
-            </a>
-        </div>
-    </div>
-    <div id="footer-logo-container">
-        <a href="http://mikewhyle.com/" target="_blank" rel="noopener noreferrer">
-            <img src="assets/images/logo.png" alt="Mike Whyle Logo">
-        </a>
-    </div>
-
-</body>
-</html>
 </body>
 </html>
