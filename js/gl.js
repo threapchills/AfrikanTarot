@@ -128,6 +128,7 @@ uniform float uVel;
 uniform float uOpacity;
 uniform float uFlex;
 uniform float uShadow;
+uniform float uChroma;
 uniform vec2 uMouse;
 
 float hash(float n) { return fract(sin(n) * 43758.5453123); }
@@ -162,8 +163,8 @@ void main() {
         uv.y += (hash(row * 3.7 + 1.0) - 0.5) * 0.05 * uBurst;
     }
 
-    // chromatic split scales with energy
-    float split = 0.005 * uHover + 0.014 * uBurst + abs(lv) * 0.05;
+    // chromatic split scales with energy; some planes barely split
+    float split = (0.005 * uHover + 0.014 * uBurst + abs(lv) * 0.05) * uChroma;
     vec2 so = vec2(split, 0.0);
     vec4 cc = texture2D(uTex, uv);
     float r = texture2D(uTex, uv + so).r;
@@ -250,7 +251,7 @@ export function createGL() {
         uScroll: gl.getUniformLocation(bgProg, 'uScroll')
     };
     const plU = {};
-    for (const n of ['uRes', 'uCenter', 'uSize', 'uAngle', 'uVel', 'uTime', 'uFlex', 'uHover', 'uBurst', 'uOpacity', 'uMouse', 'uTex', 'uShadow'])
+    for (const n of ['uRes', 'uCenter', 'uSize', 'uAngle', 'uVel', 'uTime', 'uFlex', 'uHover', 'uBurst', 'uOpacity', 'uMouse', 'uTex', 'uShadow', 'uChroma'])
         plU[n] = gl.getUniformLocation(plProg, n);
     plU.aPos = gl.getAttribLocation(plProg, 'aPos');
 
@@ -306,7 +307,8 @@ export function createGL() {
             mouseUV: [0.5, 0.5],
             burst: 0,
             opacity: opts.opacity != null ? opts.opacity : 1,
-            shadow: opts.shadow !== false
+            shadow: opts.shadow !== false,
+            chroma: opts.chroma != null ? opts.chroma : 1
         };
         plane.entry = getTexture(src, () => {
             el.classList.add('gl-live');
@@ -339,6 +341,9 @@ export function createGL() {
 
     function render(state, t, dt) {
         if (dead) return;
+        // catch missed resize events (rotation, late layout) cheaply
+        if (vw !== window.innerWidth || vh !== window.innerHeight || canvas.width === 0) resize();
+        if (canvas.width === 0) return;
         gl.viewport(0, 0, canvas.width, canvas.height);
 
         // background
@@ -402,6 +407,7 @@ export function createGL() {
             gl.uniform1f(plU.uHover, p.hover);
             gl.uniform1f(plU.uBurst, p.burst);
             gl.uniform1f(plU.uOpacity, p.opacity);
+            gl.uniform1f(plU.uChroma, p.chroma);
             gl.uniform2f(plU.uMouse, p.mouseUV[0], p.mouseUV[1]);
 
             if (p.shadow) {

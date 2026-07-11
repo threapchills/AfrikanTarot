@@ -20,21 +20,25 @@ export function createExperience() {
 
     /* ---------- split text into chars / words ---------- */
 
+    // chars are wrapped per word so lines can only break between
+    // words, never inside them
     function splitChars(el) {
-        const text = el.textContent;
+        const words = el.textContent.split(/\s+/).filter(Boolean);
         el.textContent = '';
         let i = 0;
-        for (const ch of text) {
-            if (ch === ' ') {
-                el.appendChild(document.createTextNode(' '));
-                continue;
+        words.forEach((w, wi) => {
+            const wrap = document.createElement('span');
+            wrap.className = 'cw';
+            for (const ch of w) {
+                const s = document.createElement('span');
+                s.className = 'char';
+                s.textContent = ch;
+                s.style.setProperty('--i', i++);
+                wrap.appendChild(s);
             }
-            const s = document.createElement('span');
-            s.className = 'char';
-            s.textContent = ch;
-            s.style.setProperty('--i', i++);
-            el.appendChild(s);
-        }
+            el.appendChild(wrap);
+            if (wi < words.length - 1) el.appendChild(document.createTextNode(' '));
+        });
     }
 
     function splitWords(el) {
@@ -111,27 +115,34 @@ export function createExperience() {
         return t;
     }
 
-    /* ---------- marquee ---------- */
+    /* ---------- marquee: the whole deck, driftable and draggable ---------- */
 
     const rows = [];
-    function buildMarquee(cardsByFile, gl, deckNames) {
-        const rowFiles = [
-            ['magician.png', 'ace of fire.png', 'queen of water.png', 'tracker.png', 'the earthfather.png', 'five of air.png', 'king of bone.png', 'suntribe.png'],
-            ['matriarch.png', 'two of water.png', 'FIRE EATER.png', 'seven of bone.png', 'strength.png', 'three of air.png', 'fire pit.png', 'temperence.png']
-        ];
+    let marqueeDragging = false;
+    let marqueeMoved = 0;
+    let scrubMomentum = 0;
+
+    function buildMarquee(cards, gl) {
+        // interleave the deck across the two rows so suits mix
+        const rowFiles = [[], []];
+        cards.forEach((c, i) => rowFiles[i % 2].push(c.image));
+
         const rowEls = document.querySelectorAll('.marquee-row');
         rowEls.forEach((rowEl, ri) => {
             const track = rowEl.querySelector('.marquee-track');
             const files = rowFiles[ri];
             const imgs = [];
+            const names = Object.fromEntries(cards.map(c => [c.image, c.name]));
             for (let rep = 0; rep < 2; rep++) {
                 for (const f of files) {
                     const img = document.createElement('img');
                     img.src = 'assets/images/cards/thumbs/' + f.replace(/\.png$/i, '.jpg');
-                    img.alt = cardsByFile[f] || '';
+                    img.alt = names[f] || '';
                     img.dataset.file = f;
                     img.className = 'warp';
                     img.draggable = false;
+                    img.loading = 'lazy';
+                    img.decoding = 'async';
                     img.setAttribute('data-cursor', 'view');
                     track.appendChild(img);
                     imgs.push(img);
@@ -139,9 +150,53 @@ export function createExperience() {
             }
             rows.push({ track, dir: parseFloat(rowEl.dataset.dir), offset: ri * -140, half: 0, imgs });
 
-            // the DOM imgs fetch these thumbs anyway, so the GL textures are free
-            if (gl && !state.reduced) imgs.forEach(img => gl.addPlane(img, img.src, { flex: 1.25 }));
+            // register each plane only once its DOM img has fetched, so
+            // lazy loading stays in charge of the network
+            if (gl && !state.reduced) {
+                for (const img of imgs) {
+                    if (img.complete && img.naturalWidth) gl.addPlane(img, img.src, { flex: 1.25 });
+                    else img.addEventListener('load', () => gl.addPlane(img, img.src, { flex: 1.25 }), { once: true });
+                }
+            }
         });
+
+        // drag to scrub through the deck; wheel sideways works too
+        const marquee = document.getElementById('marquee');
+        let lastX = 0, lastDx = 0;
+        marquee.addEventListener('pointerdown', (e) => {
+            marqueeDragging = true;
+            marqueeMoved = 0;
+            lastX = e.clientX;
+            lastDx = 0;
+            scrubMomentum = 0;
+            if (marquee.setPointerCapture) marquee.setPointerCapture(e.pointerId);
+        });
+        marquee.addEventListener('pointermove', (e) => {
+            if (!marqueeDragging) return;
+            const dx = e.clientX - lastX;
+            lastX = e.clientX;
+            lastDx = dx;
+            marqueeMoved += Math.abs(dx);
+            for (const row of rows) row.offset -= dx;
+        });
+        const endDrag = () => {
+            if (!marqueeDragging) return;
+            marqueeDragging = false;
+            scrubMomentum = -lastDx * 30;
+        };
+        marquee.addEventListener('pointerup', endDrag);
+        marquee.addEventListener('pointercancel', endDrag);
+        marquee.addEventListener('wheel', (e) => {
+            if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+                e.preventDefault();
+                for (const row of rows) row.offset += e.deltaX;
+            }
+        }, { passive: false });
+    }
+
+    // lets click handlers tell a drag from a tap
+    function marqueeWasDragged() {
+        return marqueeMoved > 8;
     }
 
     /* ---------- magnetic buttons ---------- */
@@ -205,13 +260,15 @@ export function createExperience() {
             p.el.style.transform = `translate3d(0, ${off.toFixed(1)}px, 0)`;
         }
 
-        // marquee drift, boosted and sheared by scroll velocity
+        // marquee drift, boosted and sheared by scroll velocity;
+        // paused while the visitor is dragging through the deck
         const boost = Math.min(340, Math.abs(state.vel) * 26);
         const shear = Math.max(-5, Math.min(5, -state.vel * 0.14));
+        if (!marqueeDragging) scrubMomentum *= Math.exp(-dt * 2.6);
         for (const row of rows) {
             if (!row.half) row.half = row.track.scrollWidth / 2;
             if (!row.half) continue;
-            row.offset += row.dir * (30 + boost) * dt;
+            if (!marqueeDragging) row.offset += (row.dir * (30 + boost) + scrubMomentum) * dt;
             row.offset = ((row.offset % row.half) + row.half) % row.half;
             row.track.style.transform = `translate3d(${(-row.offset).toFixed(1)}px, 0, 0) skewX(${shear.toFixed(2)}deg)`;
         }
@@ -261,5 +318,5 @@ export function createExperience() {
 
     }
 
-    return { state, update, buildMarquee, splitChars, splitWords, measureParallax };
+    return { state, update, buildMarquee, marqueeWasDragged, splitChars, splitWords, measureParallax };
 }

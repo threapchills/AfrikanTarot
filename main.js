@@ -119,9 +119,9 @@ document.getElementById('beginBtn').addEventListener('click', () => {
 if (gl) {
     document.querySelectorAll('.fan-card').forEach(img => gl.addPlane(img, img.src, { flex: 1.1 }));
     const mat = document.getElementById('matImg');
-    gl.addPlane(mat, mat.src, { flex: 0.35, opacity: 0.3, shadow: false });
+    gl.addPlane(mat, mat.src, { flex: 0.35, opacity: 0.3, shadow: false, chroma: 0.1 });
     const plaque = document.getElementById('plaque');
-    gl.addPlane(plaque, plaque.src, { flex: 0.8, shadow: false });
+    gl.addPlane(plaque, plaque.src, { flex: 0.8, shadow: false, chroma: 0.4 });
 }
 
 /* ============================================================
@@ -143,8 +143,8 @@ const statusEl = document.getElementById('readingStatus');
 
 const STATUS_LINES = [
     'The deck is shuffled and waiting.',
-    'The past is on the table. Two remain.',
-    'The present stands beside it. One remains.',
+    'One card is on the table. Two remain.',
+    'Two cards are turned. One remains.',
     'The spread is complete. Sit with it a while.'
 ];
 
@@ -159,7 +159,7 @@ async function loadData() {
         interpretations = await interpRes.json();
         if (!cards.length || !interpretations.length) throw new Error('Card data is empty');
         for (const c of cards) cardsByFile[c.image] = c.name;
-        exp.buildMarquee(cardsByFile, gl);
+        exp.buildMarquee(cards, gl);
         wireMarqueeClicks();
         beginNewSpread();
     } catch (err) {
@@ -175,8 +175,13 @@ function beginNewSpread() {
     refreshControls();
 }
 
+function firstUnrevealed() {
+    return slots.findIndex(slot => !slot.classList.contains('revealed'));
+}
+
 function refreshControls() {
-    slots.forEach((slot, i) => slot.classList.toggle('armed', i === drawCount));
+    const next = firstUnrevealed();
+    slots.forEach((slot, i) => slot.classList.toggle('armed', i === next && drawCount < 3));
     statusEl.textContent = STATUS_LINES[drawCount];
     drawBtn.textContent = drawCount < 3 ? `Turn the ${ORDINALS[drawCount]} card` : 'Shuffle the deck';
     drawBtn.dataset.cursor = drawCount < 3 ? 'turn' : 'shuffle';
@@ -188,12 +193,18 @@ function findInterpretation(cardName, position) {
     return found ? found.value : 'The ancestors are quiet on this one. Trust what the image stirs in you.';
 }
 
+// the next card off the top of the deck goes to whichever slot the
+// visitor turns, so future may be revealed before past
 function revealNext() {
     if (drawCount >= 3) { resetReading(); return; }
+    revealSlot(firstUnrevealed());
+}
 
-    const i = drawCount;
+function revealSlot(i) {
+    if (i < 0 || drawCount >= 3) return;
     const slot = slots[i];
-    const card = shuffledDeck[i];
+    if (slot.classList.contains('revealed')) return;
+    const card = shuffledDeck[drawCount];
     const position = POSITIONS[i];
     const img = slot.querySelector('.card-img');
     const nameEl = slot.querySelector('.card-name');
@@ -235,12 +246,15 @@ function resetReading() {
         const img = slot.querySelector('.card-img');
         const nameEl = slot.querySelector('.card-name');
         const interpEl = slot.querySelector('.interpretation');
-        slot.classList.remove('revealed', 'pulse');
+        slot.classList.remove('revealed');
         if (gl) gl.removePlane(img);
         img.classList.remove('shown', 'burst-css');
         img.onload = null;
         img.removeAttribute('src');
         img.removeAttribute('data-cursor');
+        delete img.dataset.full;
+        delete img.dataset.name;
+        delete img.dataset.position;
         nameEl.classList.remove('in');
         nameEl.textContent = '';
         interpEl.classList.remove('in');
@@ -252,18 +266,7 @@ function resetReading() {
 drawBtn.addEventListener('click', revealNext);
 
 slots.forEach((slot, i) => {
-    slot.querySelector('.card-back').addEventListener('click', () => {
-        if (i === drawCount) {
-            revealNext();
-        } else if (!slot.classList.contains('revealed')) {
-            const armed = slots[drawCount];
-            if (armed) {
-                armed.classList.remove('pulse');
-                void armed.offsetWidth;
-                armed.classList.add('pulse');
-            }
-        }
-    });
+    slot.querySelector('.card-back').addEventListener('click', () => revealSlot(i));
     slot.querySelector('.card-img').addEventListener('click', (e) => {
         const img = e.currentTarget;
         if (img.dataset.full) openModal(img.dataset.full, img.src, `${img.dataset.name} · ${img.dataset.position}`);
@@ -276,6 +279,7 @@ slots.forEach((slot, i) => {
 
 function wireMarqueeClicks() {
     document.getElementById('marquee').addEventListener('click', (e) => {
+        if (exp.marqueeWasDragged()) return; // a scrub through the deck is not a tap
         const img = e.target.closest('img[data-file]');
         if (!img) return;
         if (gl) gl.burst(img);

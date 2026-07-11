@@ -53,7 +53,12 @@ export function createCursor() {
     }, { passive: true });
 
     document.addEventListener('mouseover', (e) => {
-        const t = e.target.closest && e.target.closest('[data-cursor]');
+        if (!e.target.closest) return;
+        // buttons carry their own words; the ring shrinks aside instead
+        // of stamping a label over them
+        const selfLabelled = e.target.closest('.btn, .kofi-support, .sound-toggle, .brand, #modalClose');
+        ring.classList.toggle('quiet', !!selfLabelled);
+        const t = !selfLabelled && e.target.closest('[data-cursor]');
         if (t) {
             label.textContent = t.dataset.cursor;
             ring.classList.add('grow');
